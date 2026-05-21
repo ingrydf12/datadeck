@@ -1,0 +1,64 @@
+[gd_scene load_steps=6 format=3 uid="uid://ctpi2odakf7jn"]
+
+[ext_resource type="Script" uid="uid://e8nebwmen0vc" path="res://carta.gd" id="1_4gtqo"]
+[ext_resource type="Script" uid="uid://1hd4e2j6uxmt" path="res://Operacao.gd" id="2_77s45"]
+[ext_resource type="Texture2D" uid="uid://dakeyqlnlf5ls" path="res://assets/cartas maior1.png" id="3_77s45"]
+
+[sub_resource type="Resource" id="Resource_xu3ok"]
+script = ExtResource("2_77s45")
+metadata/_custom_type_script = "uid://1hd4e2j6uxmt"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4gtqo"]
+size = Vector2(148, 208)
+
+[node name="Carta" type="Node2D"]
+script = ExtResource("1_4gtqo")
+dados = SubResource("Resource_xu3ok")
+descricao = "teste para cartinha loucaaa"
+
+[node name="Button" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = -74.0
+offset_top = -104.0
+offset_right = 74.0
+offset_bottom = 104.0
+mouse_filter = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 3
+scale = Vector2(4, 4)
+texture = ExtResource("3_77s45")
+
+[node name="Sombra" type="Sprite2D" parent="Sprite2D"]
+self_modulate = Color(0, 0, 0, 0.5294118)
+z_index = -1
+texture_filter = 3
+texture = ExtResource("3_77s45")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_4gtqo")
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = -1
+offset_left = -58.0
+offset_top = 41.0
+offset_right = 58.0
+offset_bottom = 88.66667
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(58, 23)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 5
+text = "porra porra cu porra cu porr"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 1
+
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
+[connection signal="button_up" from="Button" to="." method="_on_button_button_up"]
+[connection signal="mouse_entered" from="Button" to="." method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="Button" to="." method="_on_button_mouse_exited"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

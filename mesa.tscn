@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://4vrucb1yp7y0"]
+
+[ext_resource type="Script" uid="uid://b821im6xwhjvn" path="res://mesa.gd" id="1_0f5q7"]
+[ext_resource type="Texture2D" uid="uid://dbxlbshogiqn4" path="res://mesa.png" id="2_0f5q7"]
+[ext_resource type="Texture2D" uid="uid://c07lhenti08ty" path="res://carta.png" id="3_60ub5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0f5q7"]
+size = Vector2(768, 252)
+
+[node name="Mesa" type="Node2D"]
+script = ExtResource("1_0f5q7")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_0f5q7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 3
+scale = Vector2(4, 4)
+texture = ExtResource("2_0f5q7")
+
+[node name="Container" type="HBoxContainer" parent="."]
+texture_filter = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_top = 73.0
+offset_bottom = 73.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Container"]
+visible = false
+custom_minimum_size = Vector2(96, 128)
+layout_mode = 2
+texture = ExtResource("3_60ub5")
+stretch_mode = 4
