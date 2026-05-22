@@ -34,7 +34,6 @@ func _on_button_button_up() -> void:
 	
 	#vai detectar se foi soltada em cima da "mesa"
 	var areas = $Area2D.get_overlapping_areas()
-	print(areas)
 	if areas and areas[0].get_node('../').has_method('add_carta'):
 		areas[0].get_node('../').add_carta(self)
 	
@@ -94,5 +93,4 @@ func _rotacionar_gostoso():
 	tween.set_trans(Tween.TRANS_ELASTIC)
 	tween.set_ease(Tween.EASE_OUT)
 	tween.tween_property(self, 'rotation', 0, 0.5)
-	print('oi')
 	z_index = 8
