@@ -11,6 +11,8 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if Engine.is_editor_hint():
 		line.points = curve.get_baked_points()
+		_organizar_filhos()
+		
 
 func get_filler_points(n_elements: int) -> Array[Transform2D]:
 	var tam = curve.get_baked_length()
@@ -21,3 +23,15 @@ func get_filler_points(n_elements: int) -> Array[Transform2D]:
 		lista.append(curve.sample_baked_with_rotation((i+1)*espaco))
 		
 	return lista
+
+
+func _organizar_filhos():
+	var filhos : Array[Node] = get_children().slice(1)
+	if not filhos:
+		return
+
+	var transforms : Array[Transform2D] = get_filler_points(filhos.size())
+
+	for i in range(len(filhos)):
+		filhos[i].position = transforms[i].get_origin()
+		filhos[i].rotation = transforms[i].get_rotation()

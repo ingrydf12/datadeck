@@ -1,0 +1,63 @@
+[gd_scene load_steps=6 format=3 uid="uid://dxv03q0eb5ekg"]
+
+[ext_resource type="PackedScene" uid="uid://ctpi2odakf7jn" path="res://carta.tscn" id="1_6kkv1"]
+[ext_resource type="PackedScene" uid="uid://c7mk3oyur7wxi" path="res://curva_mao.tscn" id="1_k1smi"]
+[ext_resource type="Texture2D" uid="uid://dou0qyhqk7xy2" path="res://assets/image.png" id="1_p34la"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m6kfh"]
+texture = ExtResource("1_p34la")
+texture_margin_left = 11.0
+texture_margin_top = 11.0
+texture_margin_right = 11.0
+texture_margin_bottom = 11.0
+
+[sub_resource type="Curve2D" id="Curve2D_p34la"]
+resource_local_to_scene = true
+bake_interval = 10.0
+_data = {
+"points": PackedVector2Array(-213.37071, 74.240364, 213.37071, -74.240364, -344, 7, -232.34811, -83.92025, 232.34811, 83.92025, 340, 7)
+}
+point_count = 2
+
+[node name="AreaTestes" type="Node"]
+
+[node name="ContainerFake" type="Panel" parent="."]
+offset_left = 213.0
+offset_top = 418.0
+offset_right = 389.0
+offset_bottom = 482.75
+scale = Vector2(4, 4)
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_m6kfh")
+
+[node name="CurvaMao" parent="." instance=ExtResource("1_k1smi")]
+position = Vector2(567, 583)
+curve = SubResource("Curve2D_p34la")
+
+[node name="Carta" parent="CurvaMao" instance=ExtResource("1_6kkv1")]
+offset_left = -209.66074
+offset_top = -30.315922
+offset_right = -209.66074
+offset_bottom = -30.315922
+rotation = -0.20619845
+
+[node name="Carta2" parent="CurvaMao" instance=ExtResource("1_6kkv1")]
+offset_left = -71.600235
+offset_top = -49.7182
+offset_right = -71.600235
+offset_bottom = -49.7182
+rotation = -0.07217129
+
+[node name="Carta3" parent="CurvaMao" instance=ExtResource("1_6kkv1")]
+offset_left = 67.80898
+offset_top = -50.16198
+offset_right = 67.80898
+offset_bottom = -50.16198
+rotation = 0.06643529
+
+[node name="Carta4" parent="CurvaMao" instance=ExtResource("1_6kkv1")]
+offset_left = 205.91277
+offset_top = -31.14969
+offset_right = 205.91277
+offset_bottom = -31.14969
+rotation = 0.20724529
