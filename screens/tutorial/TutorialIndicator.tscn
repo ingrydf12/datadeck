@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://btxpqa6qkegvm"]
+
+[ext_resource type="Script" uid="uid://w7q7evpsk7xt" path="res://screens/tutorial/TutorialIndicator.gd" id="1_j2dpj"]
+[ext_resource type="Texture2D" uid="uid://cwwhtpg553mq7" path="res://screens/tutorial/assets/filled-indicator.png" id="2_26bi1"]
+[ext_resource type="Texture2D" uid="uid://c1ckm0ovkgeap" path="res://screens/tutorial/assets/outline-indicator.png" id="3_860vo"]
+
+[node name="TutorialIndicator" type="Control" unique_id=211089149]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 14.0
+offset_bottom = 14.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_j2dpj")
+filled_icon = ExtResource("2_26bi1")
+outline_icon = ExtResource("3_860vo")
+
+[node name="Icon" type="TextureRect" parent="." unique_id=1357704126]
+custom_minimum_size = Vector2(14, 14)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
