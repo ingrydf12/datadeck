@@ -1,12 +1,22 @@
-[gd_scene load_steps=6 format=3 uid="uid://ctpi2odakf7jn"]
+[gd_scene load_steps=10 format=3 uid="uid://ctpi2odakf7jn"]
 
 [ext_resource type="Script" uid="uid://e8nebwmen0vc" path="res://carta.gd" id="1_4gtqo"]
 [ext_resource type="Script" uid="uid://1hd4e2j6uxmt" path="res://Operacao.gd" id="2_77s45"]
 [ext_resource type="Texture2D" uid="uid://dakeyqlnlf5ls" path="res://assets/cartas maior1.png" id="3_77s45"]
+[ext_resource type="Shader" uid="uid://b3haynmqxkal4" path="res://carta.tres" id="4_xu3ok"]
 
 [sub_resource type="Resource" id="Resource_xu3ok"]
 script = ExtResource("2_77s45")
 metadata/_custom_type_script = "uid://1hd4e2j6uxmt"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xu3ok"]
+shader = ExtResource("4_xu3ok")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vdnt1"]
+shader = ExtResource("4_xu3ok")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ce55x"]
+shader = ExtResource("4_xu3ok")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4gtqo"]
 size = Vector2(148, 208)
@@ -39,7 +49,14 @@ mouse_behavior_recursive = 1
 texture = ExtResource("3_77s45")
 stretch_mode = 3
 
-[node name="Textura" type="TextureRect" parent="."]
+[node name="Grupo" type="Control" parent="."]
+material = SubResource("ShaderMaterial_xu3ok")
+anchors_preset = 0
+
+[node name="Textura" type="TextureRect" parent="Grupo"]
+material = SubResource("ShaderMaterial_vdnt1")
+instance_shader_parameters/escala = Vector2(4, 4)
+instance_shader_parameters/tamanho = 0.0
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -59,20 +76,21 @@ mouse_behavior_recursive = 1
 texture = ExtResource("3_77s45")
 stretch_mode = 3
 
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("RectangleShape2D_4gtqo")
-
-[node name="Label" type="Label" parent="."]
-layout_mode = 0
+[node name="Label" type="Label" parent="Grupo"]
+material = SubResource("ShaderMaterial_ce55x")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 offset_left = -58.0
-offset_top = 41.0
+offset_top = 40.0
 offset_right = 58.0
-offset_bottom = 88.66667
+offset_bottom = 87.66667
 grow_horizontal = 2
 grow_vertical = 2
-pivot_offset = Vector2(58, -41)
+pivot_offset = Vector2(58, -40)
 mouse_behavior_recursive = 1
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
@@ -81,6 +99,11 @@ text = "teste bla bla bla blab ab alkj "
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 1
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_4gtqo")
 
 [node name="Button" type="Button" parent="."]
 modulate = Color(1, 1, 1, 0)

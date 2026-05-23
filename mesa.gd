@@ -8,7 +8,7 @@ func _ready() -> void:
 
 func add_carta(node : Control):
 	var t = TextureRect.new()
-	t.texture = node.get_node('./Textura').texture
+	t.texture = node.textura.texture
 	t.custom_minimum_size = Vector2(4, 10)
 	t.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	t.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT

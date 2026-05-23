@@ -7,13 +7,12 @@ extends Control
 var controlled : bool = false
 var origem : Vector2
 var rotacao_original : float
-var offset_original : Vector2
 var tween : Tween
 
+@onready var textura = $Grupo/Textura
 func _ready() -> void:
 	origem = global_position
 	rotacao_original = rotation
-	offset_original = $Textura.pivot_offset
 
 
 func _process(_delta: float) -> void:
@@ -58,17 +57,13 @@ func ativar_irmas():
 		b.mouse_behavior_recursive = Control.MOUSE_BEHAVIOR_INHERITED
 
 func _crescer():
-	create_tween().tween_property($Textura, 'scale',Vector2(4.8,4.8), 0.15)
-	create_tween().tween_property($Label, 'scale',Vector2(1.2,1.2), 0.15)
-	#TODO: SOMBRAS
-	#create_tween().tween_property($Textura, 'pivot_offset', offset_original + Vector2(2,2), 0.15)
+	create_tween().tween_method(mudaroffset, textura.get_instance_shader_parameter('tamanho'), 22, 0.15)
+	create_tween().tween_property($Grupo, 'scale',Vector2(1.2, 1.2), 0.15)
 	z_index = 5
 
 func _diminuir():
-	create_tween().tween_property($Textura, 'scale',Vector2(4, 4), 0.15)
-	create_tween().tween_property($Label, 'scale',Vector2(1, 1), 0.15)
-	#TODO: SOMBRAS
-	#create_tween().tween_property($Textura, 'pivot_offset', offset_original, 0.15)
+	create_tween().tween_method(mudaroffset, textura.get_instance_shader_parameter('tamanho'), 0, 0.15)
+	create_tween().tween_property($Grupo, 'scale',Vector2(1, 1), 0.15)
 	z_index = 0
 
 func _voltar_original():
@@ -94,3 +89,8 @@ func _rotacionar_gostoso():
 	tween.set_ease(Tween.EASE_OUT)
 	tween.tween_property(self, 'rotation', 0, 0.5)
 	z_index = 8
+
+func mudaroffset(off : float):
+	for filho in $Grupo.get_children():
+		filho.set_instance_shader_parameter('escala', filho.scale)
+		filho.set_instance_shader_parameter('tamanho', off)
