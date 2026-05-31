@@ -1,0 +1,89 @@
+[gd_scene load_steps=7 format=3 uid="uid://cb7sd7o7537x6"]
+
+[ext_resource type="PackedScene" uid="uid://4vrucb1yp7y0" path="res://mesa.tscn" id="1_5rqyl"]
+[ext_resource type="Texture2D" uid="uid://dou0qyhqk7xy2" path="res://assets/image.png" id="2_cklxt"]
+[ext_resource type="PackedScene" uid="uid://ctpi2odakf7jn" path="res://carta.tscn" id="3_sqq4g"]
+[ext_resource type="PackedScene" uid="uid://c7mk3oyur7wxi" path="res://curva_mao.tscn" id="4_nkr5l"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_82fsy"]
+texture = ExtResource("2_cklxt")
+texture_margin_left = 11.0
+texture_margin_top = 11.0
+texture_margin_right = 11.0
+texture_margin_bottom = 11.0
+
+[sub_resource type="Curve2D" id="Curve2D_oge7e"]
+resource_local_to_scene = true
+bake_interval = 10.0
+_data = {
+"points": PackedVector2Array(-185.97778, 147.76402, 185.97778, -147.76402, -317, -1, -188.18582, -156.57239, 188.18582, 156.57239, 316, 1)
+}
+point_count = 2
+
+[node name="HUD" type="CanvasLayer"]
+layer = 6
+
+[node name="Mesa" parent="." instance=ExtResource("1_5rqyl")]
+position = Vector2(586, 197)
+scale = Vector2(1.0000001, 1.0000001)
+
+[node name="ContainerFake" type="Panel" parent="."]
+offset_left = 232.0
+offset_top = 342.0
+offset_right = 408.0
+offset_bottom = 406.75
+scale = Vector2(4, 4)
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_82fsy")
+
+[node name="Cartas" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 622.0
+offset_top = 266.0
+offset_right = 622.0
+offset_bottom = 266.0
+
+[node name="Carta" parent="Cartas" instance=ExtResource("3_sqq4g")]
+layout_mode = 0
+offset_left = -261.55844
+offset_top = 244.9242
+offset_right = -261.55844
+offset_bottom = 244.9242
+rotation = -0.4561905
+
+[node name="Carta2" parent="Cartas" instance=ExtResource("3_sqq4g")]
+layout_mode = 0
+offset_left = -154.14948
+offset_top = 206.31781
+offset_right = -154.14948
+offset_bottom = 206.31781
+rotation = -0.23275006
+
+[node name="Carta3" parent="Cartas" instance=ExtResource("3_sqq4g")]
+layout_mode = 0
+offset_left = -40.823303
+offset_top = 192.87378
+offset_right = -40.823303
+offset_bottom = 192.87378
+rotation = -0.0023192088
+
+[node name="Carta4" parent="Cartas" instance=ExtResource("3_sqq4g")]
+layout_mode = 0
+offset_left = 72.53143
+offset_top = 205.98102
+offset_right = 72.53143
+offset_bottom = 205.98102
+rotation = 0.23314375
+
+[node name="Carta5" parent="Cartas" instance=ExtResource("3_sqq4g")]
+layout_mode = 0
+offset_left = 179.67871
+offset_top = 245.23157
+offset_right = 179.67871
+offset_bottom = 245.23157
+rotation = 0.46832854
+
+[node name="CurvaMao" parent="." instance=ExtResource("4_nkr5l")]
+position = Vector2(581, 567)
+curve = SubResource("Curve2D_oge7e")
