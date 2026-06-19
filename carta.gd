@@ -5,14 +5,15 @@ extends Control
 
 @export_category("Dados")
 @export var dados : Operacao
-@export var descricao : String = 'aasdads'
+@export var descricao : String = 'teste'
 
 var controlled : bool = false
 var origem : Vector2
 var rotacao_original : float
 var tween : Tween
 
-@onready var textura = $Grupo/Textura
+@onready var textura = $Texture
+
 func _ready() -> void:
 	origem = global_position
 	rotacao_original = rotation
@@ -20,23 +21,48 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	if Engine.is_editor_hint():
-		#TODO: MUDAR PRA UM NÓ SEPARADO
-		$JanelaDetalhes/VBoxContainer/ScrollContainer/Descricao.text = descricao
+		$PopupDetalhes.title = Operacao.Tipo.keys()[dados.tipo] #.to_pascal_case() caso queira Capitalizar A Palavra
+		$PopupDetalhes.desc = descricao
+		mudar_textura_carta(Operacao.Tipo.keys()[dados.tipo].to_lower())
 		return
 	
 	if controlled:
 		global_position = get_global_mouse_position().clamp(Vector2(10,10), Vector2(1100,600))
-	
+
+
+
+# - - - - - - - - - - - FUNCIONALIDADES E EVENTOS
 
 func _on_button_mouse_entered() -> void:
 	_crescer()
 
 func _on_button_button_down() -> void:
+	#caso ele queira ver os detalhes
+	if Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
+		var tam = get_viewport_rect().size
+		var meio : Vector2 = get_viewport_transform().affine_inverse() * tam/2
+		print(meio-tam/4)
+		if global_position.x <= meio.x:
+			$PopupDetalhes.global_position = meio - tam/4 - $PopupDetalhes.size/2
+			$PopupDetalhes.global_position.y += tam.y/4
+		else:
+			$PopupDetalhes.global_position = meio + tam/4 - $PopupDetalhes.size/2
+			$PopupDetalhes.global_position.y -= tam.y/4
+		$PopupDetalhes.show()
+		$Line2D.points[0] = Vector2(0,0)
+		$Line2D.points[1] = $PopupDetalhes.global_position - global_position + $PopupDetalhes.size/2
+		$Line2D.show()
+		return
+	
+	#caso normal de clicar e arrastar
+	$Line2D.hide()
+	$PopupDetalhes.hide()
 	controlled = true
 	_rotacionar_gostoso()
 	desativar_irmas()
-
+	
 func _on_button_button_up() -> void:
+	
 	controlled = false
 	
 	#vai detectar se foi soltada em cima da "mesa"
@@ -48,7 +74,6 @@ func _on_button_button_up() -> void:
 	_diminuir()
 	ativar_irmas()
 	
-
 func _on_button_mouse_exited() -> void:
 	_diminuir()
 	
@@ -64,14 +89,22 @@ func ativar_irmas():
 		var b : Button = c.get_child(-1)
 		b.mouse_behavior_recursive = Control.MOUSE_BEHAVIOR_INHERITED
 
+func mudar_textura_carta(tipo : String):
+	var ordem = ['reverse', 'sort', 'slice','pop','filter','map','update', 'push', 'remove']
+	var indx = ordem.find(tipo)
+	$Texture.region_rect = Rect2(37*indx, 0, 37, 52)
+	$Sombra.region_rect = Rect2(37*indx, 0, 37, 52)
+
+# - - - - - - - - - - - - - ANIMAÇÕES
+
 func _crescer():
 	create_tween().tween_method(mudaroffset, textura.get_instance_shader_parameter('tamanho'), 22, 0.15)
-	create_tween().tween_property($Grupo, 'scale',Vector2(1.2, 1.2), 0.15)
+	create_tween().tween_property($Texture, 'scale',Vector2(4.8, 4.8), 0.15)
 	z_index = 5
 
 func _diminuir():
 	create_tween().tween_method(mudaroffset, textura.get_instance_shader_parameter('tamanho'), 0, 0.15)
-	create_tween().tween_property($Grupo, 'scale',Vector2(1, 1), 0.15)
+	create_tween().tween_property($Texture, 'scale',Vector2(4, 4), 0.15)
 	z_index = 0
 
 func _voltar_original():
@@ -99,6 +132,6 @@ func _rotacionar_gostoso():
 	z_index = 8
 
 func mudaroffset(off : float):
-	for filho in $Grupo.get_children():
-		filho.set_instance_shader_parameter('escala', filho.scale)
-		filho.set_instance_shader_parameter('tamanho', off)
+	
+	$Texture.set_instance_shader_parameter('escala', $Texture.scale)
+	$Texture.set_instance_shader_parameter('tamanho', off)

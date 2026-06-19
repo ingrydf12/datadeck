@@ -40,3 +40,6 @@ func get_callback():
 		Funcoes.MAP_DOUBLE: return func(v): return v*2
 		Funcoes.MAP_HALF: return func(v): return int(v/2)
 		_: return func(v): return v
+
+func get_tipo_name():
+	return Tipo.keys()[tipo]

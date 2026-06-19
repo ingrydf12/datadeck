@@ -3,21 +3,20 @@
 [ext_resource type="Script" uid="uid://e8nebwmen0vc" path="res://carta.gd" id="1_4gtqo"]
 [ext_resource type="Script" uid="uid://1hd4e2j6uxmt" path="res://Operacao.gd" id="2_77s45"]
 [ext_resource type="Texture2D" uid="uid://dakeyqlnlf5ls" path="res://assets/cartas maior1.png" id="3_77s45"]
-[ext_resource type="PackedScene" uid="uid://crjlv3kqdg4n2" path="res://popup_detalhes.tscn" id="3_vdnt1"]
-[ext_resource type="Shader" uid="uid://b3haynmqxkal4" path="res://carta.tres" id="4_xu3ok"]
+[ext_resource type="Script" uid="uid://b84o3y3mkwlgh" path="res://popup_detalhes.gd" id="3_ce55x"]
+[ext_resource type="Texture2D" uid="uid://bf8gm2rve7moc" path="res://assets/gameplay/gameplay_componentes/cartas.png" id="4_xu3ok"]
+[ext_resource type="Shader" uid="uid://b3haynmqxkal4" path="res://efeitos/carta.tres" id="5_vdnt1"]
 
 [sub_resource type="Resource" id="Resource_xu3ok"]
 script = ExtResource("2_77s45")
+tipo = 7
 metadata/_custom_type_script = "uid://1hd4e2j6uxmt"
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_xu3ok"]
-shader = ExtResource("4_xu3ok")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_vdnt1"]
-shader = ExtResource("4_xu3ok")
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xu3ok"]
+bg_color = Color(0.18, 0.18, 0.18, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ce55x"]
-shader = ExtResource("4_xu3ok")
+shader = ExtResource("5_vdnt1")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4gtqo"]
 size = Vector2(148, 208)
@@ -27,86 +26,83 @@ layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_4gtqo")
 dados = SubResource("Resource_xu3ok")
-descricao = "ieie, passudia passanoi"
+descricao = "olá professores, estes é um teste da capacidade de expansão textual do contêiner e se tuddo der certo o negocio vai começar a abaixar aaaaaaaaaaaaaaaaaaaaaaaaaaaaa a a a a a  a a"
 
 [node name="Line2D" type="Line2D" parent="." unique_id=49205797]
 visible = false
 points = PackedVector2Array(-337, -31, 1, 0)
 
-[node name="PopupDetalhes" parent="." unique_id=1504594219 instance=ExtResource("3_vdnt1")]
+[node name="PopupDetalhes" type="PanelContainer" parent="." unique_id=1504594219]
+visible = false
+top_level = true
 layout_mode = 0
+offset_left = -507.0
+offset_top = -155.0
+offset_right = -242.0
+offset_bottom = 49.0
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_xu3ok")
+script = ExtResource("3_ce55x")
 
-[node name="Sombra" type="TextureRect" parent="." unique_id=1633500233]
-self_modulate = Color(0, 0, 0, 0.58431375)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -18.500023
-offset_top = -26.0
-offset_right = 18.500023
-offset_bottom = 26.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(4, 4)
-pivot_offset = Vector2(18.5, 26)
-mouse_filter = 2
-mouse_behavior_recursive = 1
+[node name="MarginContainer" type="MarginContainer" parent="PopupDetalhes" unique_id=537500978]
+layout_mode = 2
+theme_override_constants/margin_left = -13
+theme_override_constants/margin_top = -2
+
+[node name="TextureRect" type="TextureRect" parent="PopupDetalhes/MarginContainer" unique_id=338177390]
+custom_minimum_size = Vector2(100, 73.69)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
 texture = ExtResource("3_77s45")
+expand_mode = 1
 stretch_mode = 3
 
-[node name="Grupo" type="Control" parent="." unique_id=270950783]
-material = SubResource("ShaderMaterial_xu3ok")
-anchors_preset = 0
+[node name="VBoxContainer" type="VBoxContainer" parent="PopupDetalhes" unique_id=2109529142]
+layout_mode = 2
+theme_override_constants/separation = 25
 
-[node name="Textura" type="TextureRect" parent="Grupo" unique_id=732921245]
-material = SubResource("ShaderMaterial_vdnt1")
-instance_shader_parameters/escala = Vector2(4, 4)
-instance_shader_parameters/tamanho = 0.0
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -18.5
-offset_top = -26.0
-offset_right = 18.5
-offset_bottom = 26.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(4, 4)
-pivot_offset = Vector2(18.5, 26)
-mouse_filter = 2
-mouse_behavior_recursive = 1
-texture = ExtResource("3_77s45")
-stretch_mode = 3
+[node name="MarginContainer" type="MarginContainer" parent="PopupDetalhes/VBoxContainer" unique_id=1126101489]
+layout_mode = 2
+theme_override_constants/margin_top = 22
 
-[node name="Label" type="Label" parent="Grupo" unique_id=1050539056]
-material = SubResource("ShaderMaterial_ce55x")
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -58.0
-offset_top = 40.0
-offset_right = 58.0
-offset_bottom = 87.66667
-grow_horizontal = 2
-grow_vertical = 2
-pivot_offset = Vector2(58, -40)
-mouse_behavior_recursive = 1
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
-theme_override_constants/outline_size = 5
-text = "teste bla bla bla blab ab alkj "
+[node name="Titulo" type="Label" parent="PopupDetalhes/VBoxContainer/MarginContainer" unique_id=1451583156]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "SLICE"
 horizontal_alignment = 1
 vertical_alignment = 1
-autowrap_mode = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PopupDetalhes/VBoxContainer" unique_id=468057812]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="PopupDetalhes/VBoxContainer/ScrollContainer" unique_id=1585487369]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 10
+
+[node name="Descricao" type="Label" parent="PopupDetalhes/VBoxContainer/ScrollContainer/MarginContainer" unique_id=1075529910]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "olá professores, estes é um teste da capacidade de expansão textual do contêiner e se tuddo der certo o negocio vai começar a abaixar aaaaaaaaaaaaaaaaaaaaaaaaaaaaa a a a a a  a a"
+autowrap_mode = 3
+
+[node name="Sombra" type="Sprite2D" parent="." unique_id=1340384892]
+self_modulate = Color(0, 0, 0, 0.58431375)
+scale = Vector2(4, 4)
+texture = ExtResource("4_xu3ok")
+region_enabled = true
+region_rect = Rect2(74, 0, 37, 52)
+
+[node name="Texture" type="Sprite2D" parent="." unique_id=1863234624]
+material = SubResource("ShaderMaterial_ce55x")
+scale = Vector2(4, 4)
+texture = ExtResource("4_xu3ok")
+region_enabled = true
+region_rect = Rect2(74, 0, 37, 52)
 
 [node name="Area2D" type="Area2D" parent="." unique_id=477981428]
 
@@ -121,6 +117,7 @@ offset_top = -104.0
 offset_right = 74.0
 offset_bottom = 104.0
 mouse_filter = 1
+button_mask = 3
 
 [connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
 [connection signal="button_up" from="Button" to="." method="_on_button_button_up"]
