@@ -1,8 +1,11 @@
+@tool
+
+class_name Carta
 extends Control
 
 @export_category("Dados")
 @export var dados : Operacao
-@export var descricao : String = ''
+@export var descricao : String = 'aasdads'
 
 var controlled : bool = false
 var origem : Vector2
@@ -16,6 +19,11 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
+	if Engine.is_editor_hint():
+		#TODO: MUDAR PRA UM NÓ SEPARADO
+		$JanelaDetalhes/VBoxContainer/ScrollContainer/Descricao.text = descricao
+		return
+	
 	if controlled:
 		global_position = get_global_mouse_position().clamp(Vector2(10,10), Vector2(1100,600))
 	

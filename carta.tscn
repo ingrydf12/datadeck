@@ -1,16 +1,14 @@
-[gd_scene load_steps=11 format=3 uid="uid://ctpi2odakf7jn"]
+[gd_scene format=3 uid="uid://ctpi2odakf7jn"]
 
 [ext_resource type="Script" uid="uid://e8nebwmen0vc" path="res://carta.gd" id="1_4gtqo"]
 [ext_resource type="Script" uid="uid://1hd4e2j6uxmt" path="res://Operacao.gd" id="2_77s45"]
 [ext_resource type="Texture2D" uid="uid://dakeyqlnlf5ls" path="res://assets/cartas maior1.png" id="3_77s45"]
+[ext_resource type="PackedScene" uid="uid://crjlv3kqdg4n2" path="res://popup_detalhes.tscn" id="3_vdnt1"]
 [ext_resource type="Shader" uid="uid://b3haynmqxkal4" path="res://carta.tres" id="4_xu3ok"]
 
 [sub_resource type="Resource" id="Resource_xu3ok"]
 script = ExtResource("2_77s45")
 metadata/_custom_type_script = "uid://1hd4e2j6uxmt"
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xu3ok"]
-bg_color = Color(0.18, 0.18, 0.18, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xu3ok"]
 shader = ExtResource("4_xu3ok")
@@ -24,61 +22,21 @@ shader = ExtResource("4_xu3ok")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4gtqo"]
 size = Vector2(148, 208)
 
-[node name="Carta" type="Control"]
+[node name="Carta" type="Control" unique_id=1784490872]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_4gtqo")
 dados = SubResource("Resource_xu3ok")
-descricao = "teste para cartinha loucaaa"
+descricao = "ieie, passudia passanoi"
 
-[node name="Line2D" type="Line2D" parent="."]
+[node name="Line2D" type="Line2D" parent="." unique_id=49205797]
 visible = false
 points = PackedVector2Array(-337, -31, 1, 0)
 
-[node name="JanelaDetalhes" type="PanelContainer" parent="."]
-visible = false
+[node name="PopupDetalhes" parent="." unique_id=1504594219 instance=ExtResource("3_vdnt1")]
 layout_mode = 0
-offset_left = -458.0
-offset_top = -133.0
-offset_right = -193.0
-offset_bottom = 71.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_xu3ok")
 
-[node name="TextureRect" type="TextureRect" parent="JanelaDetalhes"]
-custom_minimum_size = Vector2(100, 73.69)
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-texture = ExtResource("3_77s45")
-expand_mode = 1
-stretch_mode = 3
-
-[node name="VBoxContainer" type="VBoxContainer" parent="JanelaDetalhes"]
-layout_mode = 2
-theme_override_constants/separation = 25
-
-[node name="Control" type="Control" parent="JanelaDetalhes/VBoxContainer"]
-layout_mode = 2
-
-[node name="Titulo" type="Label" parent="JanelaDetalhes/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-text = "Comando"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="ScrollContainer" type="ScrollContainer" parent="JanelaDetalhes/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="Descricao" type="Label" parent="JanelaDetalhes/VBoxContainer/ScrollContainer"]
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-size_flags_horizontal = 3
-text = "bagui ai que nao sei o que bla bla bla bjajs da sjhd ajhs djha skddjh ajsddh akjshd ajkshd ajshd akhsdd kajsdd kajshdk aksjhd akj sahdjahs ddha sjddh akshd kahsd has jkdhaj sdhhas djhaksdha jsd ahs dahskdjhakhsdjahsjd akjshddka sjddhakjsshddkajshd ajsdh asjkdh ajkshdka jhas dahs dkkjajhsdkjah "
-autowrap_mode = 3
-
-[node name="Sombra" type="TextureRect" parent="."]
+[node name="Sombra" type="TextureRect" parent="." unique_id=1633500233]
 self_modulate = Color(0, 0, 0, 0.58431375)
 layout_mode = 1
 anchors_preset = 8
@@ -99,11 +57,11 @@ mouse_behavior_recursive = 1
 texture = ExtResource("3_77s45")
 stretch_mode = 3
 
-[node name="Grupo" type="Control" parent="."]
+[node name="Grupo" type="Control" parent="." unique_id=270950783]
 material = SubResource("ShaderMaterial_xu3ok")
 anchors_preset = 0
 
-[node name="Textura" type="TextureRect" parent="Grupo"]
+[node name="Textura" type="TextureRect" parent="Grupo" unique_id=732921245]
 material = SubResource("ShaderMaterial_vdnt1")
 instance_shader_parameters/escala = Vector2(4, 4)
 instance_shader_parameters/tamanho = 0.0
@@ -126,7 +84,7 @@ mouse_behavior_recursive = 1
 texture = ExtResource("3_77s45")
 stretch_mode = 3
 
-[node name="Label" type="Label" parent="Grupo"]
+[node name="Label" type="Label" parent="Grupo" unique_id=1050539056]
 material = SubResource("ShaderMaterial_ce55x")
 layout_mode = 1
 anchors_preset = 8
@@ -150,12 +108,12 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 1
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." unique_id=477981428]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=692846492]
 shape = SubResource("RectangleShape2D_4gtqo")
 
-[node name="Button" type="Button" parent="."]
+[node name="Button" type="Button" parent="." unique_id=1704378800]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 0
 offset_left = -74.0

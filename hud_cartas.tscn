@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://cb7sd7o7537x6"]
+[gd_scene format=3 uid="uid://cb7sd7o7537x6"]
 
 [ext_resource type="PackedScene" uid="uid://4vrucb1yp7y0" path="res://mesa.tscn" id="1_5rqyl"]
+[ext_resource type="Script" uid="uid://2nvnxqbdlo5u" path="res://hud.gd" id="1_cklxt"]
 [ext_resource type="Texture2D" uid="uid://dou0qyhqk7xy2" path="res://assets/image.png" id="2_cklxt"]
 [ext_resource type="PackedScene" uid="uid://ctpi2odakf7jn" path="res://carta.tscn" id="3_sqq4g"]
 [ext_resource type="PackedScene" uid="uid://c7mk3oyur7wxi" path="res://curva_mao.tscn" id="4_nkr5l"]
@@ -12,7 +13,7 @@ texture_margin_top = 11.0
 texture_margin_right = 11.0
 texture_margin_bottom = 11.0
 
-[sub_resource type="Curve2D" id="Curve2D_oge7e"]
+[sub_resource type="Curve2D" id="Curve2D_sqq4g"]
 resource_local_to_scene = true
 bake_interval = 10.0
 _data = {
@@ -20,14 +21,15 @@ _data = {
 }
 point_count = 2
 
-[node name="HUD" type="CanvasLayer"]
+[node name="HUD" type="CanvasLayer" unique_id=1854730849]
 layer = 6
+script = ExtResource("1_cklxt")
 
-[node name="Mesa" parent="." instance=ExtResource("1_5rqyl")]
+[node name="Mesa" parent="." unique_id=2025899350 instance=ExtResource("1_5rqyl")]
 position = Vector2(586, 197)
 scale = Vector2(1.0000001, 1.0000001)
 
-[node name="ContainerFake" type="Panel" parent="."]
+[node name="ContainerFake" type="Panel" parent="." unique_id=1280168472]
 offset_left = 232.0
 offset_top = 342.0
 offset_right = 408.0
@@ -36,7 +38,7 @@ scale = Vector2(4, 4)
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_82fsy")
 
-[node name="Cartas" type="Control" parent="."]
+[node name="Cartas" type="Control" parent="." unique_id=1856107978]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 622.0
@@ -44,7 +46,7 @@ offset_top = 266.0
 offset_right = 622.0
 offset_bottom = 266.0
 
-[node name="Carta" parent="Cartas" instance=ExtResource("3_sqq4g")]
+[node name="Carta" parent="Cartas" unique_id=23156103 instance=ExtResource("3_sqq4g")]
 layout_mode = 0
 offset_left = -261.55844
 offset_top = 244.9242
@@ -52,7 +54,7 @@ offset_right = -261.55844
 offset_bottom = 244.9242
 rotation = -0.4561905
 
-[node name="Carta2" parent="Cartas" instance=ExtResource("3_sqq4g")]
+[node name="Carta2" parent="Cartas" unique_id=1190145109 instance=ExtResource("3_sqq4g")]
 layout_mode = 0
 offset_left = -154.14948
 offset_top = 206.31781
@@ -60,7 +62,7 @@ offset_right = -154.14948
 offset_bottom = 206.31781
 rotation = -0.23275006
 
-[node name="Carta3" parent="Cartas" instance=ExtResource("3_sqq4g")]
+[node name="Carta3" parent="Cartas" unique_id=599219074 instance=ExtResource("3_sqq4g")]
 layout_mode = 0
 offset_left = -40.823303
 offset_top = 192.87378
@@ -68,7 +70,7 @@ offset_right = -40.823303
 offset_bottom = 192.87378
 rotation = -0.0023192088
 
-[node name="Carta4" parent="Cartas" instance=ExtResource("3_sqq4g")]
+[node name="Carta4" parent="Cartas" unique_id=1024651537 instance=ExtResource("3_sqq4g")]
 layout_mode = 0
 offset_left = 72.53143
 offset_top = 205.98102
@@ -76,7 +78,7 @@ offset_right = 72.53143
 offset_bottom = 205.98102
 rotation = 0.23314375
 
-[node name="Carta5" parent="Cartas" instance=ExtResource("3_sqq4g")]
+[node name="Carta5" parent="Cartas" unique_id=511011301 instance=ExtResource("3_sqq4g")]
 layout_mode = 0
 offset_left = 179.67871
 offset_top = 245.23157
@@ -84,6 +86,6 @@ offset_right = 179.67871
 offset_bottom = 245.23157
 rotation = 0.46832854
 
-[node name="CurvaMao" parent="." instance=ExtResource("4_nkr5l")]
+[node name="CurvaMao" parent="." unique_id=486530762 instance=ExtResource("4_nkr5l")]
 position = Vector2(581, 567)
-curve = SubResource("Curve2D_oge7e")
+curve = SubResource("Curve2D_sqq4g")

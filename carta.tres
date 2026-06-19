@@ -1,4 +1,4 @@
-[gd_resource type="VisualShader" load_steps=9 format=3 uid="uid://b3haynmqxkal4"]
+[gd_resource type="VisualShader" format=3 uid="uid://b3haynmqxkal4"]
 
 [sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_tgxlg"]
 operator = 3
@@ -37,55 +37,6 @@ qualifier = 2
 default_value_enabled = true
 
 [resource]
-code = "shader_type canvas_item;
-render_mode blend_mix;
-
-instance uniform float tamanho = 0.0;
-instance uniform vec2 escala = vec2(1.000000, 1.000000);
-
-
-
-void vertex() {
-// Input:2
-	vec2 n_out2p0 = VERTEX;
-
-
-// FloatParameter:9
-	float n_out9p0 = tamanho;
-
-
-// Input:6
-	vec2 n_out6p0 = TEXTURE_PIXEL_SIZE;
-	float n_out6p1 = n_out6p0.r;
-
-
-// FloatOp:10
-	float n_out10p0 = n_out9p0 / n_out6p1;
-
-
-// Vector2Parameter:12
-	vec2 n_out12p0 = escala;
-
-
-// VectorOp:13
-	vec2 n_out13p0 = n_out6p0 / n_out12p0;
-	float n_out13p1 = n_out13p0.r;
-
-
-// FloatOp:11
-	float n_out11p0 = n_out10p0 * n_out13p1;
-
-
-// VectorOp:3
-	vec2 n_out3p0 = n_out2p0 - vec2(n_out11p0);
-
-
-// Output:0
-	VERTEX = n_out3p0;
-
-
-}
-"
 mode = 1
 flags/light_only = false
 nodes/vertex/2/node = SubResource("VisualShaderNodeInput_tgxlg")

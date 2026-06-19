@@ -7,6 +7,7 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	
-	if follow_mouse:
-		$Camera2D.global_position = get_global_mouse_position()
+	#
+	#if follow_mouse:
+		#$Camera2D.global_position = get_global_mouse_position()
+	pass

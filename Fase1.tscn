@@ -1,45 +1,35 @@
-[gd_scene load_steps=7 format=3 uid="uid://nwembvc3ticr"]
+[gd_scene load_steps=5 format=3 uid="uid://nwembvc3ticr"]
 
 [ext_resource type="Script" uid="uid://cymc6rw6aa6i8" path="res://fase_1.gd" id="1_oge7e"]
 [ext_resource type="Texture2D" uid="uid://duck8qeqg00mv" path="res://assets/camadafundo1.png" id="2_5jc3a"]
-[ext_resource type="Shader" uid="uid://182vba8belk" path="res://blur.gdshader" id="2_ud5y3"]
 [ext_resource type="Texture2D" uid="uid://bmyul4xxdkj38" path="res://assets/prateleira_frente1.png" id="3_1wj8m"]
 [ext_resource type="PackedScene" uid="uid://cb7sd7o7537x6" path="res://hud_cartas.tscn" id="4_oge7e"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_5jc3a"]
-shader = ExtResource("2_ud5y3")
-shader_parameter/blur_radius = 8
 
 [node name="Fase1" type="Node2D"]
 script = ExtResource("1_oge7e")
 metadata/_edit_vertical_guides_ = [745.0]
 metadata/_edit_horizontal_guides_ = [493.0]
 
-[node name="Fundo" type="Parallax2D" parent="."]
-scroll_scale = Vector2(0.8, 0.8)
-
-[node name="Sprite2D" type="Sprite2D" parent="Fundo"]
-material = SubResource("ShaderMaterial_5jc3a")
+[node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(717, 479.99994)
 scale = Vector2(4.5, 4.5)
 texture = ExtResource("2_5jc3a")
 
-[node name="Prateleira" type="Parallax2D" parent="."]
-
-[node name="Sprite2D" type="Sprite2D" parent="Prateleira"]
+[node name="Sprite2D2" type="Sprite2D" parent="."]
 position = Vector2(717, 479.99994)
 scale = Vector2(4.5, 4.5000005)
 texture = ExtResource("3_1wj8m")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(717, 479.99994)
-limit_left = -92
+zoom = Vector2(0.835, 0.835)
+limit_left = -89
 limit_top = -93
 limit_right = 1520
 limit_bottom = 1053
 limit_smoothed = true
 position_smoothing_enabled = true
-position_smoothing_speed = 2.0
+position_smoothing_speed = 0.5
 editor_draw_limits = true
 
 [node name="HUD" parent="." instance=ExtResource("4_oge7e")]

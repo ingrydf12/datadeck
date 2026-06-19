@@ -27,6 +27,12 @@ enum Funcoes {
 @export var elemento : int = 0
 @export var funcao : Funcoes = Funcoes.NONE
 
+func is_callback() -> bool:
+	var normais : Array = [Tipo.PUSH, Tipo.POP, Tipo.INSERT, Tipo.REMOVE, Tipo.REVERSE, Tipo.UPDATE, Tipo.SLICE]
+	if tipo in normais:
+		return false
+	return true
+
 func get_callback():
 	match funcao:
 		Funcoes.FILTRO_PARES: return func(v): return v%2 != 0
