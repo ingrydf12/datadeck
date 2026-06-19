@@ -1,0 +1,214 @@
+[gd_scene format=3 uid="uid://d2o038gyl5ki"]
+
+[ext_resource type="Script" uid="uid://ce02ldwc0o3ss" path="res://screens/tutorial/TutorialManager.gd" id="1_jm8cr"]
+[ext_resource type="Script" uid="uid://buxybmdyhnpq" path="res://screens/tutorial/TutorialStepResource.gd" id="2_dm4x3"]
+[ext_resource type="Texture2D" uid="uid://bhgyoyhgbyhe" path="res://screens/tutorial/assets/image-0.png" id="3_dqekb"]
+[ext_resource type="Texture2D" uid="uid://dqwl8mfkuxlo0" path="res://screens/tutorial/assets/X.png" id="3_rhxyq"]
+[ext_resource type="Texture2D" uid="uid://ce0tm44h45ydl" path="res://screens/tutorial/assets/image-1.png" id="4_d3t24"]
+[ext_resource type="FontFile" uid="uid://dsdm1dih5di33" path="res://styles/fonts/superstar_memesbruh03.ttf" id="4_pk0pr"]
+[ext_resource type="Texture2D" uid="uid://crmtj2fhvo0pv" path="res://screens/tutorial/assets/seta2.png" id="5_dm4x3"]
+[ext_resource type="PackedScene" uid="uid://btxpqa6qkegvm" path="res://screens/tutorial/TutorialIndicator.tscn" id="5_dqekb"]
+[ext_resource type="Texture2D" uid="uid://c2377vbfe1f0i" path="res://screens/tutorial/assets/resultado_img.png" id="5_dw2uv"]
+[ext_resource type="Texture2D" uid="uid://cnp3phpyfd3qi" path="res://screens/tutorial/assets/seta.png" id="6_dqekb"]
+[ext_resource type="Texture2D" uid="uid://dc4qvq1lcwk65" path="res://screens/tutorial/assets/historico_img.png" id="6_h3dof"]
+[ext_resource type="Texture2D" uid="uid://dawa2jw2ppatf" path="res://screens/tutorial/assets/container_tutorial.PNG" id="8_dw2uv"]
+[ext_resource type="Texture2D" uid="uid://ctwqda0l7ydmq" path="res://assets/botao_ctn_h_UI.png" id="8_epva1"]
+[ext_resource type="Texture2D" uid="uid://d2rdbdlxgb507" path="res://assets/botao_ctn_UI.png" id="9_d3t24"]
+
+[sub_resource type="Resource" id="Resource_epva1"]
+script = ExtResource("2_dm4x3")
+title = "OBJETIVO"
+description = "Organize os itens centrais até que fiquem na disposição apresentada na aba de objetivos"
+image = ExtResource("3_dqekb")
+metadata/_custom_type_script = "uid://buxybmdyhnpq"
+
+[sub_resource type="Resource" id="Resource_mpqly"]
+script = ExtResource("2_dm4x3")
+title = "CARTAS"
+description = "Elas representam as operações possíveis com o conteúdo estudado. Para utilizar, você clique e arraste a carta para o grupo na mesa;"
+image = ExtResource("4_d3t24")
+metadata/_custom_type_script = "uid://buxybmdyhnpq"
+
+[sub_resource type="Resource" id="Resource_dw2uv"]
+script = ExtResource("2_dm4x3")
+title = "RESULTADO"
+description = "Ao final do exercício, você receberá o feedback do seu desempenho, levando em consideração a quantidade de ações realizadas em comparação à solução ideal. O tempo gasto não tem influência sobre o resultado."
+image = ExtResource("5_dw2uv")
+metadata/_custom_type_script = "uid://buxybmdyhnpq"
+
+[sub_resource type="Resource" id="Resource_dqekb"]
+script = ExtResource("2_dm4x3")
+title = "HISTÓRICO"
+description = "ao escolher uma operação, o ícone da carta escolhida será exibido em ordem na seção de histórico na direita. Você também pode desfazer ações, voltando a carta a sua mesa para utilizar novamente."
+image = ExtResource("6_h3dof")
+metadata/_custom_type_script = "uid://buxybmdyhnpq"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d3t24"]
+texture = ExtResource("8_dw2uv")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dw2uv"]
+content_margin_left = 8.0
+content_margin_top = 4.0
+content_margin_right = 8.0
+content_margin_bottom = 4.0
+texture = ExtResource("9_d3t24")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h3dof"]
+texture = ExtResource("8_epva1")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_466xk"]
+texture = ExtResource("8_epva1")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_epva1"]
+content_margin_left = 5.0
+content_margin_top = 8.0
+content_margin_right = 5.0
+content_margin_bottom = 8.0
+texture = ExtResource("9_d3t24")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d7xdn"]
+texture = ExtResource("8_epva1")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yxn88"]
+texture = ExtResource("8_epva1")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0ug28"]
+texture = ExtResource("8_epva1")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mpqly"]
+content_margin_left = 5.0
+content_margin_top = 8.0
+content_margin_right = 5.0
+content_margin_bottom = 8.0
+texture = ExtResource("9_d3t24")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0hjcw"]
+texture = ExtResource("8_epva1")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_y2mk4"]
+texture = ExtResource("8_epva1")
+
+[node name="TutorialCarrossel" type="CanvasLayer" unique_id=1278216754]
+script = ExtResource("1_jm8cr")
+steps = Array[ExtResource("2_dm4x3")]([SubResource("Resource_epva1"), SubResource("Resource_mpqly"), SubResource("Resource_dw2uv"), SubResource("Resource_dqekb")])
+indicator_scene = ExtResource("5_dqekb")
+
+[node name="OverlayBg" type="ColorRect" parent="." unique_id=241462625]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+color = Color(0.039215688, 0.039215688, 0.039215688, 0.25490198)
+
+[node name="TutorialControl" type="Control" parent="." unique_id=1378298564]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TutorialContent" type="PanelContainer" parent="TutorialControl" unique_id=1990468577]
+custom_minimum_size = Vector2(860, 470)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -430.0
+offset_top = -235.0
+offset_right = 430.0
+offset_bottom = 235.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_d3t24")
+
+[node name="MarginCtn" type="MarginContainer" parent="TutorialControl/TutorialContent" unique_id=594506259]
+custom_minimum_size = Vector2(860, 470)
+layout_mode = 2
+size_flags_horizontal = 13
+size_flags_vertical = 13
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 25
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TutorialControl/TutorialContent/MarginCtn" unique_id=539073524]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Topbar" type="HBoxContainer" parent="TutorialControl/TutorialContent/MarginCtn/VBoxContainer" unique_id=1067702078]
+layout_mode = 2
+
+[node name="Padding" type="Control" parent="TutorialControl/TutorialContent/MarginCtn/VBoxContainer/Topbar" unique_id=888397468]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="CloseTutorial" type="Button" parent="TutorialControl/TutorialContent/MarginCtn/VBoxContainer/Topbar" unique_id=1988240903]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_dw2uv")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_h3dof")
+theme_override_styles/hover = SubResource("StyleBoxTexture_466xk")
+icon = ExtResource("3_rhxyq")
+icon_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="TutorialControl/TutorialContent/MarginCtn/VBoxContainer" unique_id=1539847484]
+layout_mode = 2
+theme_override_constants/separation = -5
+
+[node name="Title" type="Label" parent="TutorialControl/TutorialContent/MarginCtn/VBoxContainer/VBoxContainer2" unique_id=1987916819]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.34117648, 0.0627451, 0.06666667, 1)
+theme_override_fonts/font = ExtResource("4_pk0pr")
+theme_override_font_sizes/font_size = 64
+text = "OBJETIVO"
+horizontal_alignment = 1
+
+[node name="Description" type="RichTextLabel" parent="TutorialControl/TutorialContent/MarginCtn/VBoxContainer/VBoxContainer2" unique_id=621620503]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.34117648, 0.0627451, 0.06666667, 1)
+theme_override_fonts/normal_font = ExtResource("4_pk0pr")
+theme_override_font_sizes/normal_font_size = 20
+text = "Organize os itens centrais até que fiquem na disposição apresentada na aba de objetivos"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ImageRelated" type="TextureRect" parent="TutorialControl/TutorialContent/MarginCtn/VBoxContainer" unique_id=1884819138]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+stretch_mode = 5
+
+[node name="Navigation" type="HBoxContainer" parent="TutorialControl/TutorialContent/MarginCtn/VBoxContainer" unique_id=1901799147]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="BackBtn" type="Button" parent="TutorialControl/TutorialContent/MarginCtn/VBoxContainer/Navigation" unique_id=1460326717]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_epva1")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_d7xdn")
+theme_override_styles/hover = SubResource("StyleBoxTexture_yxn88")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_0ug28")
+icon = ExtResource("5_dm4x3")
+icon_alignment = 1
+
+[node name="IndicadoresCtn" type="HBoxContainer" parent="TutorialControl/TutorialContent/MarginCtn/VBoxContainer/Navigation" unique_id=1277631954]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="NextBtn" type="Button" parent="TutorialControl/TutorialContent/MarginCtn/VBoxContainer/Navigation" unique_id=295090298]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_mpqly")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_0hjcw")
+theme_override_styles/hover = SubResource("StyleBoxTexture_y2mk4")
+icon = ExtResource("6_dqekb")
+icon_alignment = 1
