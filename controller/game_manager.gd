@@ -1,16 +1,18 @@
 class_name GameManager
 extends Node
 
-var stages: Array[Stage] = []
+var stages: Array[Phase] = []
 
 var current_stage_index: int = 0
-var current_stage: Stage
+var current_stage: Phase
 
 # Estado atual do jogador
 var current_state: Array = []
 
+var operation_history:Array[Operacao] = []
+
 func _ready():
-	stages = Stage.build_all_stages()
+	stages = Phase.build_all_stages()
 
 	if stages.size() > 0:
 		load_stage(0)
@@ -25,12 +27,8 @@ func load_stage(index: int):
 
 	current_state = current_stage.initial_state.duplicate()
 
-	print("==========")
-	print("Fase:", current_stage.stage_id)
 	print(current_stage.concept)
 	print(current_stage.description)
-	print("Estado inicial:", current_state)
-	print("Objetivo:", current_stage.target_state)
 
 
 func apply_operation(operation: Operacao):
@@ -47,24 +45,32 @@ func apply_operation(operation: Operacao):
 
 	if check_victory():
 		print("Fase concluída!")
-
+	
 func check_victory() -> bool:
-	return current_state == current_stage.target_state
+	return current_stage.validate(current_state)
 
 func next_stage():
 	if current_stage_index + 1 >= stages.size():
-		print("Fim do jogo.")
 		return
 
 	load_stage(current_stage_index + 1)
 
+func get_current_cost() -> int:
+	var total := 0
+
+	for op in operation_history:
+		total += op.cost()
+
+	return total
+
 func restart_stage():
 	if current_stage == null:
 		return
-	current_state = current_stage.initial_state.duplicate()
 
-	print("Fase reiniciada.")
-	print(current_state)
+	current_state = current_stage.initial_state.duplicate()
+	operation_history.clear()
+
+	emit_signal("state_changed", current_state)
 
 func get_available_cards() -> Array[Operacao.Tipo]:
 	if current_stage == null:

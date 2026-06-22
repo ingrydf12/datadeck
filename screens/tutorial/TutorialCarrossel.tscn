@@ -101,7 +101,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
-color = Color(0.039215688, 0.039215688, 0.039215688, 0.25490198)
+color = Color(0.2784314, 0.1254902, 0.30588236, 0.3137255)
 
 [node name="TutorialControl" type="Control" parent="." unique_id=1378298564]
 layout_mode = 3

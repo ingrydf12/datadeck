@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=3 uid="uid://cw2lkivdmu6n2"]
+
+[ext_resource type="Script" uid="uid://b3rqc5w1xhxg8" path="res://bobagens teste/teste_camera.gd" id="1_rmbth"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_3knxu"]
+
+[sub_resource type="Gradient" id="Gradient_rmbth"]
+colors = PackedColorArray(0.44705883, 0, 0, 1, 0.32999998, 0.37466663, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_3knxu"]
+gradient = SubResource("Gradient_rmbth")
+fill_from = Vector2(0.13551402, 0.20560747)
+fill_to = Vector2(1, 1)
+
+[node name="TesteCamera" type="Node2D"]
+script = ExtResource("1_rmbth")
+
+[node name="Parallax2D2" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.8, 0.8)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D2"]
+scale = Vector2(1152.0001, 648)
+texture = SubResource("PlaceholderTexture2D_3knxu")
+centered = false
+
+[node name="Parallax2D" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.9, 0.9)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D"]
+position = Vector2(574.5, 323)
+scale = Vector2(17.953125, 10.03125)
+texture = SubResource("GradientTexture2D_3knxu")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 297)
+zoom = Vector2(1.42, 1.42)
+limit_left = 0
+limit_top = 0
+limit_right = 1150
+limit_bottom = 645
+limit_smoothed = true
+position_smoothing_enabled = true
+position_smoothing_speed = 2.0

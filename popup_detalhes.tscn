@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://crjlv3kqdg4n2"]
+
+[ext_resource type="Texture2D" uid="uid://dakeyqlnlf5ls" path="res://assets/cartas maior1.png" id="1_8vcb5"]
+[ext_resource type="Script" uid="uid://b84o3y3mkwlgh" path="res://popup_detalhes.gd" id="1_fetl4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xu3ok"]
+bg_color = Color(0.18, 0.18, 0.18, 1)
+
+[node name="PopupDetalhes" type="PanelContainer" unique_id=1504594219]
+offset_left = -132.0
+offset_top = -102.0
+offset_right = 133.0
+offset_bottom = 102.0
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_xu3ok")
+script = ExtResource("1_fetl4")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=537500978]
+layout_mode = 2
+theme_override_constants/margin_left = -13
+theme_override_constants/margin_top = -2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer" unique_id=338177390]
+custom_minimum_size = Vector2(100, 73.69)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource("1_8vcb5")
+expand_mode = 1
+stretch_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=2109529142]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer" unique_id=1126101489]
+layout_mode = 2
+theme_override_constants/margin_top = 22
+
+[node name="Titulo" type="Label" parent="VBoxContainer/MarginContainer" unique_id=1451583156]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "None"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer" unique_id=468057812]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/ScrollContainer" unique_id=1585487369]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 10
+
+[node name="Descricao" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer" unique_id=1075529910]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "None"
+autowrap_mode = 3

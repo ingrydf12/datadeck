@@ -1,49 +1,40 @@
 extends Node2D
+@onready var cartas_container = $HUD/Cartas
+@onready var curva_mao = $HUD/CurvaMao
+const CARTA_SCENE = preload("res://screens/gameplay/Interactions/carta.tscn")
+var fase: Phase
+var _loading := false
 
+# Fase 1: Listas (Bloco de conteúdo)
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass
-	#distribuir_cartas()
-	
-	#for carta in $Cartas.get_children():
-		#var texto : Label = Label.new()
-		#texto.text = carta.descricao
-		#
-		#var cb = func (): 
-			#texto.position = carta.position
-			#texto.rotation = carta.rotation
-			#texto.scale = carta.scale
-			#print("oi")
-		#
-		#carta.connect('draw', cb)
-		#
-		#$Textos.add_child(texto)
-		
+func setup(phase: Phase):
+	fase = phase
+	_load_cards()
 
+func _ready():
+	if fase != null:
+		_load_cards()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	#var lower_lim = Vector2($Camera2D.limit_left,$Camera2D.limit_top)
-	#var upper_lim = Vector2($Camera2D.limit_right,$Camera2D.limit_bottom)
-	var meio = Vector2(740, 500)
-	var lower_lim = meio - Vector2(70,180)
-	var upper_lim = meio + Vector2(50,100)
-	$Camera2D.global_position = get_global_mouse_position().clamp(lower_lim, upper_lim)
-	pass
-	
-	
+func _load_cards():
+	if fase == null or _loading:
+		return
+	_loading = true
 
+	for child in cartas_container.get_children():
+		child.queue_free()
+	await get_tree().process_frame
 
-#NAO PRECISA MAIS, É AUTOMATICO NO EDITOR
+	for tipo in fase.available_cards:
+		var carta: Carta = CARTA_SCENE.instantiate()
+		var op := Operacao.new()
+		op.tipo = tipo
+		carta.setup(op)
+		cartas_container.add_child(carta)
+	await get_tree().process_frame
 
-#func distribuir_cartas():
-	#var filhos : Array[Node] = $Cartas.get_children()
-	#var pontos : Array[Transform2D] = $CurvaMao.get_filler_points(filhos.size())
-	#for i in range(filhos.size()):
-		#filhos[i].transform = pontos[i]
-		#filhos[i].position += $CurvaMao.global_position
-		#filhos[i].origem = filhos[i].global_position
-		#filhos[i].rotacao_original = filhos[i].rotation
-		
-		#filhos[i].rotation -= PI/2
+	if curva_mao:
+		curva_mao.organizar_cartas(
+			cartas_container.get_children()
+		)
+
+	_loading = false
