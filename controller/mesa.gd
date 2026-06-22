@@ -2,6 +2,7 @@ extends Node2D
 var cartas : Array = []
 var elementos : Array = []
 
+# Mesa -> Interação com os objetos da fase e adição do verso da carta no histórico
 func _ready() -> void:
 	pass # Replace with function body.
 
@@ -14,6 +15,7 @@ func add_carta(node : Carta):
 	t.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	$PanelContainer/VBoxContainer.add_child(t)
 
+# desfazer por enquanto ta só visual
 func desfazer():
 	if $PanelContainer/VBoxContainer.get_children().size() > 0:
 		$PanelContainer/VBoxContainer.remove_child($PanelContainer/VBoxContainer.get_children()[-1])

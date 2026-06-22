@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://duck8qeqg00mv"
-path="res://.godot/imported/camadafundo1.png-edbd90dc02d176d4b6f3c5d85c38c9e6.ctex"
+uid="uid://daq2xgv120rro"
+path="res://.godot/imported/capas_obj.png-5a4d74686c0e659e0196f0106c79bc79.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/camadafundo1.png"
-dest_files=["res://.godot/imported/camadafundo1.png-edbd90dc02d176d4b6f3c5d85c38c9e6.ctex"]
+source_file="res://assets/capas_obj.png"
+dest_files=["res://.godot/imported/capas_obj.png-5a4d74686c0e659e0196f0106c79bc79.ctex"]
 
 [params]
 

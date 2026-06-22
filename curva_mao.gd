@@ -43,7 +43,6 @@ func organizar_cartas(cartas: Array) -> void:
 	var transforms = get_filler_points(cartas.size())
 
 	for i in range(min(cartas.size(), transforms.size())):
-
 		var carta = cartas[i]
 
 		if carta == null:

@@ -1,6 +1,7 @@
 class_name CardFactory
 extends Node
 
+# Factory pra linkar os sprites de cartas + versos
 const CARD_TEXTURES = {
 	Operacao.Tipo.PUSH: preload("res://assets/cards/push.png"),
 	Operacao.Tipo.POP: preload("res://assets/cards/pop.png"),
