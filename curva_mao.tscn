@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://c7mk3oyur7wxi"]
+[gd_scene format=3 uid="uid://c7mk3oyur7wxi"]
 
 [ext_resource type="Script" uid="uid://c4l3m8h7gmoco" path="res://curva_mao.gd" id="1_aks3h"]
 

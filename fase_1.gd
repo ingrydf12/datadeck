@@ -1,9 +1,11 @@
 extends Node2D
 @onready var cartas_container = $HUD/Cartas
 @onready var curva_mao = $HUD/CurvaMao
-const CARTA_SCENE = preload("res://Carta.tscn")
+const CARTA_SCENE = preload("res://screens/gameplay/Interactions/carta.tscn")
 var fase: Phase
 var _loading := false
+
+# Fase 1: Listas (Bloco de conteúdo)
 
 func setup(phase: Phase):
 	fase = phase

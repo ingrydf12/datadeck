@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dyqglnpvk3cyi"
-path="res://.godot/imported/prateleira_frente2.png-ace2dc2a8f3695f0114bd14f58f0ebee.ctex"
+uid="uid://3sfba6rjeqhp"
+path="res://.godot/imported/capas.png-455a830526cd8db6f0a0325dacec6f35.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/prateleira_frente2.png"
-dest_files=["res://.godot/imported/prateleira_frente2.png-ace2dc2a8f3695f0114bd14f58f0ebee.ctex"]
+source_file="res://assets/capas.png"
+dest_files=["res://.godot/imported/capas.png-455a830526cd8db6f0a0325dacec6f35.ctex"]
 
 [params]
 

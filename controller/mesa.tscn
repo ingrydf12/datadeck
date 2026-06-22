@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://4vrucb1yp7y0"]
 
-[ext_resource type="Script" uid="uid://b821im6xwhjvn" path="res://mesa.gd" id="1_0f5q7"]
+[ext_resource type="Script" uid="uid://b821im6xwhjvn" path="res://controller/mesa.gd" id="1_0f5q7"]
 [ext_resource type="Texture2D" uid="uid://dbxlbshogiqn4" path="res://mesa.png" id="2_0f5q7"]
-[ext_resource type="Texture2D" uid="uid://c07lhenti08ty" path="res://carta.png" id="3_60ub5"]
+[ext_resource type="Texture2D" uid="uid://6622uobm4cbc" path="res://assets/cards/back/sort.png" id="4_4qvs1"]
 [ext_resource type="Texture2D" uid="uid://dou0qyhqk7xy2" path="res://assets/image.png" id="4_ym3nw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0f5q7"]
@@ -24,7 +24,7 @@ script = ExtResource("1_0f5q7")
 position = Vector2(0, -23)
 shape = SubResource("RectangleShape2D_0f5q7")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1136492964]
+[node name="Prateleira" type="Sprite2D" parent="." unique_id=1136492964]
 visible = false
 texture_filter = 3
 scale = Vector2(4, 4)
@@ -45,10 +45,10 @@ mouse_filter = 2
 alignment = 1
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=1141980351]
-offset_left = 464.0
-offset_top = -214.0
-offset_right = 493.25
-offset_bottom = -121.25
+offset_left = 542.0
+offset_top = -143.0
+offset_right = 571.25
+offset_bottom = -50.25
 scale = Vector2(4, 4)
 theme_override_styles/panel = SubResource("StyleBoxTexture_0twqh")
 
@@ -60,6 +60,6 @@ layout_mode = 2
 visible = false
 custom_minimum_size = Vector2(4, 10)
 layout_mode = 2
-texture = ExtResource("3_60ub5")
+texture = ExtResource("4_4qvs1")
 expand_mode = 1
 stretch_mode = 4

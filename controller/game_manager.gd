@@ -45,7 +45,7 @@ func apply_operation(operation: Operacao):
 
 	if check_victory():
 		print("Fase concluída!")
-
+	
 func check_victory() -> bool:
 	return current_stage.validate(current_state)
 
