@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dou0qyhqk7xy2" path="res://assets/image.png" id="4_ym3nw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0f5q7"]
-size = Vector2(768, 298)
+size = Vector2(768, 252)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0twqh"]
 texture = ExtResource("4_ym3nw")
@@ -21,7 +21,6 @@ script = ExtResource("1_0f5q7")
 [node name="Area2D" type="Area2D" parent="." unique_id=1783250341]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=317349622]
-position = Vector2(0, -23)
 shape = SubResource("RectangleShape2D_0f5q7")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1136492964]

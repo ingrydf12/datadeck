@@ -1,4 +1,4 @@
-class_name Stage
+class_name Phase
 extends Resource
 
 var stage_id: int
@@ -6,13 +6,13 @@ var stage_id: int
 var concept: String
 var description: String
 
-var array_usuario: Array
-var array_objetivo: Array
+var initial_state: Array # array usuario
+var target_state: Array # array objetivo
 
 var available_cards: Array[Operacao.Tipo]
 
 func validate(state: Array) -> bool:
-	return state == array_objetivo
+	return state == target_state
 
 static func create(
 	id:int,
@@ -20,22 +20,19 @@ static func create(
 	description:String,
 	initial_state:Array,
 	target_state:Array,
-	cards:Array
-) -> Stage:
-
-	var s := Stage.new()
-
+	cards:Array[Operacao.Tipo]
+) -> Phase:
+	var s := Phase.new()
 	s.stage_id = id
 	s.concept = stage_concept
 	s.description = description
 	s.initial_state = initial_state
 	s.target_state = target_state
 	s.available_cards = cards
-
 	return s
 
 # fases disponíveis (MVP)
-static func build_all_stages() -> Array[Stage]:
+static func build_all_stages() -> Array[Phase]:
 	return [
 		create(
 			1,

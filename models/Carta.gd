@@ -14,10 +14,18 @@ var tween : Tween
 
 @onready var textura = $Texture
 
-func _ready() -> void:
+func definir_origem():
 	origem = global_position
 	rotacao_original = rotation
+	
+func setup(operation: Operacao):
+	dados = operation
 
+	$PopupDetalhes.title = Operacao.Tipo.keys()[dados.tipo]
+
+	mudar_textura_carta(
+		Operacao.Tipo.keys()[dados.tipo].to_lower()
+	)
 
 func _process(_delta: float) -> void:
 	if Engine.is_editor_hint():
@@ -28,8 +36,6 @@ func _process(_delta: float) -> void:
 	
 	if controlled:
 		global_position = get_global_mouse_position().clamp(Vector2(10,10), Vector2(1100,600))
-
-
 
 # - - - - - - - - - - - FUNCIONALIDADES E EVENTOS
 
@@ -62,18 +68,14 @@ func _on_button_button_down() -> void:
 	desativar_irmas()
 	
 func _on_button_button_up() -> void:
-	
 	controlled = false
-	
-	#vai detectar se foi soltada em cima da "mesa"
 	var areas = $Area2D.get_overlapping_areas()
 	if areas and areas[0].get_node('../').has_method('add_carta'):
 		areas[0].get_node('../').add_carta(self)
-	
 	_voltar_original()
 	_diminuir()
 	ativar_irmas()
-	
+
 func _on_button_mouse_exited() -> void:
 	_diminuir()
 	

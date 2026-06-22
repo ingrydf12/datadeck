@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cymc6rw6aa6i8" path="res://fase_1.gd" id="1_oge7e"]
 [ext_resource type="Texture2D" uid="uid://duck8qeqg00mv" path="res://assets/camadafundo1.png" id="2_5jc3a"]
 [ext_resource type="Texture2D" uid="uid://bmyul4xxdkj38" path="res://assets/prateleira_frente1.png" id="3_1wj8m"]
-[ext_resource type="PackedScene" uid="uid://cb7sd7o7537x6" path="res://screens/gameplay/hud_cartas.tscn" id="4_oge7e"]
+[ext_resource type="PackedScene" uid="uid://cb7sd7o7537x6" path="res://hud_cartas.tscn" id="4_oge7e"]
 
 [node name="Fase1" type="Node2D" unique_id=969317568]
 script = ExtResource("1_oge7e")
