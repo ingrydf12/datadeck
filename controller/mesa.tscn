@@ -45,10 +45,10 @@ mouse_filter = 2
 alignment = 1
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=1141980351]
-offset_left = 542.0
-offset_top = -143.0
-offset_right = 571.25
-offset_bottom = -50.25
+offset_left = 543.0
+offset_top = -160.0
+offset_right = 572.25
+offset_bottom = -67.25
 scale = Vector2(4, 4)
 theme_override_styles/panel = SubResource("StyleBoxTexture_0twqh")
 

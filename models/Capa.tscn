@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cbypt34o38mg3" path="res://models/Capa.gd" id="1_284sv"]
 [ext_resource type="Shader" uid="uid://b3haynmqxkal4" path="res://efeitos/carta.tres" id="2_v52jt"]
-[ext_resource type="Texture2D" uid="uid://3sfba6rjeqhp" path="res://assets/capas.png" id="3_ufc1w"]
+[ext_resource type="Texture2D" uid="uid://rbwmnwhfgx5g" path="res://assets/gameplay/gameplay_componentes/capas.png" id="3_284sv"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6nr1f"]
 shader = ExtResource("2_v52jt")
@@ -18,7 +18,7 @@ script = ExtResource("1_284sv")
 [node name="Texture" type="Sprite2D" parent="." unique_id=827461738]
 material = SubResource("ShaderMaterial_6nr1f")
 scale = Vector2(4, 4)
-texture = ExtResource("3_ufc1w")
+texture = ExtResource("3_284sv")
 region_enabled = true
 region_rect = Rect2(170, 0, 33, 52)
 
