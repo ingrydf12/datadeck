@@ -18,13 +18,11 @@ bg_color = Color(0.18, 0.18, 0.18, 1)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ce55x"]
 shader = ExtResource("6_8lkxl")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4gtqo"]
-size = Vector2(148, 208)
-
 [node name="Carta" type="Control" unique_id=1784490872]
 layout_mode = 3
 anchors_preset = 0
-script = ExtResource("1_5j5l1")
+mouse_filter = 1
+script = ExtResource("1_4gtqo")
 dados = SubResource("Resource_xu3ok")
 descricao = "olá professores, estes é um teste da capacidade de expansão textual do contêiner e se tuddo der certo o negocio vai começar a abaixar aaaaaaaaaaaaaaaaaaaaaaaaaaaaa a a a a a  a a"
 
@@ -35,6 +33,7 @@ points = PackedVector2Array(-337, -31, 1, 0)
 [node name="PopupDetalhes" type="PanelContainer" parent="." unique_id=1504594219]
 visible = false
 top_level = true
+z_index = 5
 layout_mode = 0
 offset_left = -507.0
 offset_top = -155.0
@@ -103,11 +102,6 @@ scale = Vector2(4, 4)
 texture = ExtResource("5_34g3j")
 region_enabled = true
 region_rect = Rect2(74, 0, 37, 52)
-
-[node name="Area2D" type="Area2D" parent="." unique_id=477981428]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=692846492]
-shape = SubResource("RectangleShape2D_4gtqo")
 
 [node name="Button" type="Button" parent="." unique_id=1704378800]
 modulate = Color(1, 1, 1, 0)

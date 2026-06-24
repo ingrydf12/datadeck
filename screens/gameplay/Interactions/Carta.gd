@@ -69,13 +69,19 @@ func _on_button_button_down() -> void:
 	
 func _on_button_button_up() -> void:
 	controlled = false
-	var areas = $Area2D.get_overlapping_areas()
-	if areas and areas[0].get_node('../').has_method('add_carta'):
-		areas[0].get_node('../').add_carta(self)
+	
+	##vai detectar se foi soltada em cima da "mesa"
+	#var areas = $Area2D.get_overlapping_areas()
+	#if areas and areas[0].get_node('../').has_method('add_carta'):
+		#areas[0].get_node('../').add_carta(self)
+	
 	_voltar_original()
 	_diminuir()
 	ativar_irmas()
-
+	
+	HudCartas.propagar_carta(self)
+	
+	
 func _on_button_mouse_exited() -> void:
 	_diminuir()
 	
@@ -134,6 +140,5 @@ func _rotacionar_gostoso():
 	z_index = 8
 
 func mudaroffset(off : float):
-	
 	$Texture.set_instance_shader_parameter('escala', $Texture.scale)
 	$Texture.set_instance_shader_parameter('tamanho', off)
