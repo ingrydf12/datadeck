@@ -3,27 +3,39 @@
 [ext_resource type="Script" uid="uid://cymc6rw6aa6i8" path="res://fase_1.gd" id="1_oge7e"]
 [ext_resource type="Texture2D" uid="uid://dgdbmran5vg5e" path="res://assets/gameplay/cenario/background.png" id="2_oge7e"]
 [ext_resource type="Texture2D" uid="uid://glj21tgopfq2" path="res://assets/gameplay/cenario/foreground.png" id="3_ud5y3"]
-[ext_resource type="PackedScene" uid="uid://cb7sd7o7537x6" path="res://screens/gameplay/hud_cartas.tscn" id="4_oge7e"]
+[ext_resource type="Script" uid="uid://dte2xg1mvle3n" path="res://area_acao.gd" id="4_oge7e"]
 
 [node name="Fase1" type="Node2D" unique_id=969317568]
 script = ExtResource("1_oge7e")
 metadata/_edit_vertical_guides_ = [745.0]
 metadata/_edit_horizontal_guides_ = [493.0]
 
-[node name="Background" type="Sprite2D" parent="." unique_id=977546978]
-position = Vector2(691.1173, 546.75)
-scale = Vector2(4.291015, 4.2910156)
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1990058428]
+position = Vector2(515, 479.99994)
+scale = Vector2(4.5, 4.5)
 texture = ExtResource("2_oge7e")
+
+[node name="Sprite2D4" type="Sprite2D" parent="." unique_id=1280482910]
+position = Vector2(717, 479.99994)
+scale = Vector2(4.5, 4.5)
+texture = ExtResource("2_oge7e")
+
+[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=1548086035]
+position = Vector2(-183, 657.7)
+scale = Vector2(4.5, 4.5000005)
+texture = ExtResource("3_ud5y3")
+region_enabled = true
+region_rect = Rect2(0, 79, 50, 177)
 
 [node name="Foreground" type="Sprite2D" parent="." unique_id=1651968111]
 position = Vector2(699, 471)
 scale = Vector2(4.5, 4.5000005)
 texture = ExtResource("3_ud5y3")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=959053976]
-position = Vector2(717, 479.99994)
-zoom = Vector2(0.81, 0.81)
-limit_left = -89
+[node name="Camera2D" type="Camera2D" parent="." unique_id=796121485]
+position = Vector2(627, 506)
+zoom = Vector2(0.73, 0.73)
+limit_left = -284
 limit_top = -93
 limit_right = 1520
 limit_bottom = 1053
