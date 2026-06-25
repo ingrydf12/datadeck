@@ -15,8 +15,8 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="CardGame1"
-run/main_scene="uid://nwembvc3ticr"
-config/features=PackedStringArray("4.7", "GL Compatibility")
+run/main_scene="uid://gx6qmfpcot02"
+config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
