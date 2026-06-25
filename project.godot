@@ -32,6 +32,7 @@ mouse_cursor/custom_image="uid://ce31bes0vsox"
 
 [gui]
 
+theme/default_font_antialiasing=0
 theme/default_font_multichannel_signed_distance_field=true
 theme/default_font_generate_mipmaps=true
 
