@@ -75,8 +75,26 @@ scale = Vector2(3.205, 3.205)
 pivot_offset_ratio = Vector2(0, 0.5)
 texture = ExtResource("2_24a7j")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1859667313]
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=1281852278]
 layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=1516469194]
+transparent_bg = true
+use_taa = true
+canvas_item_default_texture_filter = 3
+oversampling_override = 4.0
+size = Vector2i(1280, 720)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="SubViewportContainer/SubViewport" unique_id=1942312042]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SubViewportContainer/SubViewport/CanvasLayer" unique_id=1859667313]
 anchors_preset = -1
 anchor_left = 0.5
 anchor_right = 1.0
@@ -92,7 +110,7 @@ pivot_offset_ratio = Vector2(0, 0.5)
 theme_override_constants/separation = 10
 alignment = 1
 
-[node name="BntJogar" type="Button" parent="VBoxContainer" unique_id=1255307222]
+[node name="BntJogar" type="Button" parent="SubViewportContainer/SubViewport/CanvasLayer/VBoxContainer" unique_id=1255307222]
 layout_mode = 2
 size_flags_vertical = 3
 theme = SubResource("Theme_mt1gs")
@@ -102,7 +120,7 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_cudtu")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_41jqo")
 theme_override_styles/hover = SubResource("StyleBoxTexture_ig63j")
 
-[node name="Label" type="Label" parent="VBoxContainer/BntJogar" unique_id=1259252773]
+[node name="Label" type="Label" parent="SubViewportContainer/SubViewport/CanvasLayer/VBoxContainer/BntJogar" unique_id=1259252773]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -114,14 +132,14 @@ label_settings = SubResource("LabelSettings_jgmqt")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="BntCreditos" type="Button" parent="VBoxContainer" unique_id=1183249344]
+[node name="BntCreditos" type="Button" parent="SubViewportContainer/SubViewport/CanvasLayer/VBoxContainer" unique_id=1183249344]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/normal = SubResource("StyleBoxTexture_xlbg4")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_n85x7")
 theme_override_styles/hover = SubResource("StyleBoxTexture_24a7j")
 
-[node name="Label" type="Label" parent="VBoxContainer/BntCreditos" unique_id=1209207784]
+[node name="Label" type="Label" parent="SubViewportContainer/SubViewport/CanvasLayer/VBoxContainer/BntCreditos" unique_id=1209207784]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -133,14 +151,14 @@ label_settings = SubResource("LabelSettings_jgmqt")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="BntSair" type="Button" parent="VBoxContainer" unique_id=1495797383]
+[node name="BntSair" type="Button" parent="SubViewportContainer/SubViewport/CanvasLayer/VBoxContainer" unique_id=1495797383]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/normal = SubResource("StyleBoxTexture_eqfl0")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_x4rsx")
 theme_override_styles/hover = SubResource("StyleBoxTexture_6078c")
 
-[node name="Label" type="Label" parent="VBoxContainer/BntSair" unique_id=1549207953]
+[node name="Label" type="Label" parent="SubViewportContainer/SubViewport/CanvasLayer/VBoxContainer/BntSair" unique_id=1549207953]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -152,6 +170,6 @@ label_settings = SubResource("LabelSettings_jgmqt")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="pressed" from="VBoxContainer/BntJogar" to="." method="_on_bnt_jogar_pressed"]
-[connection signal="pressed" from="VBoxContainer/BntCreditos" to="." method="_on_bnt_creditos_pressed"]
-[connection signal="pressed" from="VBoxContainer/BntSair" to="." method="_on_bnt_sair_pressed"]
+[connection signal="pressed" from="SubViewportContainer/SubViewport/CanvasLayer/VBoxContainer/BntJogar" to="." method="_on_bnt_jogar_pressed"]
+[connection signal="pressed" from="SubViewportContainer/SubViewport/CanvasLayer/VBoxContainer/BntCreditos" to="." method="_on_bnt_creditos_pressed"]
+[connection signal="pressed" from="SubViewportContainer/SubViewport/CanvasLayer/VBoxContainer/BntSair" to="." method="_on_bnt_sair_pressed"]
