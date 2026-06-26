@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://ch5skmyq0nucd" path="res://screens/MenuInicial/assets/botao_largo2.png" id="3_6078c"]
 [ext_resource type="Texture2D" uid="uid://ctwqda0l7ydmq" path="res://assets/botao_ctn_h_UI.png" id="4_wfwuy"]
 [ext_resource type="FontFile" uid="uid://dsdm1dih5di33" path="res://styles/fonts/superstar_memesbruh03.ttf" id="5_mbdlm"]
+[ext_resource type="LabelSettings" uid="uid://cyir5o71uqhao" path="res://screens/MenuInicial/style/label_menu.tres" id="7_6078c"]
 
 [sub_resource type="Theme" id="Theme_mt1gs"]
 
@@ -14,35 +15,33 @@ texture = ExtResource("3_6078c")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_41jqo"]
 texture = ExtResource("4_wfwuy")
+modulate_color = Color(0.5449743, 0.54497427, 0.54497427, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ig63j"]
 texture = ExtResource("3_6078c")
-
-[sub_resource type="LabelSettings" id="LabelSettings_jgmqt"]
-font = ExtResource("5_mbdlm")
-font_size = 20
-font_color = Color(1, 0.7529412, 0.36078432, 1)
-shadow_size = 0
-shadow_color = Color(0.85490197, 0.4, 0.16470589, 1)
-shadow_offset = Vector2(0, 1)
+modulate_color = Color(0.45840496, 0.45840508, 0.4584049, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xlbg4"]
 texture = ExtResource("3_6078c")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n85x7"]
 texture = ExtResource("4_wfwuy")
+modulate_color = Color(0.6872149, 0.68721503, 0.6872149, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_24a7j"]
 texture = ExtResource("3_6078c")
+modulate_color = Color(0.5649617, 0.5649616, 0.5649616, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_eqfl0"]
 texture = ExtResource("3_6078c")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_x4rsx"]
 texture = ExtResource("4_wfwuy")
+modulate_color = Color(0.66656864, 0.6665687, 0.66656864, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6078c"]
 texture = ExtResource("3_6078c")
+modulate_color = Color(0.6052743, 0.6052743, 0.6052743, 1)
 
 [node name="Menuinicial" type="Control" unique_id=1129440493]
 layout_mode = 3
@@ -61,36 +60,43 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_ig63j")
+stretch_mode = 6
+metadata/_edit_use_anchors_ = true
 
 [node name="TextureRect2" type="TextureRect" parent="." unique_id=1752256748]
 layout_mode = 1
-anchors_preset = -1
-anchor_right = 0.53800005
+anchors_preset = 2
+anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = 306.0
-offset_right = -473.64008
-offset_bottom = -217.0
-grow_vertical = 2
-scale = Vector2(3.205, 3.205)
-pivot_offset_ratio = Vector2(0, 0.5)
+offset_top = -197.0
+offset_right = 215.0
+grow_vertical = 0
+scale = Vector2(3, 3)
+pivot_offset_ratio = Vector2(0, 1)
 texture = ExtResource("2_24a7j")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=1281852278]
 layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
+anchors_preset = 8
+anchor_left = 0.5
 anchor_top = 0.5
-anchor_right = 1.0
+anchor_right = 0.5
 anchor_bottom = 0.5
-grow_horizontal = 0
+offset_left = -640.0
+offset_top = -360.0
+offset_right = 640.0
+offset_bottom = 360.0
+grow_horizontal = 2
 grow_vertical = 2
 
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=1516469194]
 transparent_bg = true
+handle_input_locally = false
 use_taa = true
 canvas_item_default_texture_filter = 3
 oversampling_override = 4.0
 size = Vector2i(1280, 720)
+render_target_update_mode = 4
 
 [node name="CanvasLayer" type="CanvasLayer" parent="SubViewportContainer/SubViewport" unique_id=1942312042]
 
@@ -99,11 +105,11 @@ anchors_preset = -1
 anchor_left = 0.5
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 153.0
-offset_top = 304.0
-offset_right = -374.0
-offset_bottom = -304.0
-grow_horizontal = 0
+offset_left = 152.0
+offset_top = 312.0
+offset_right = -393.1607
+offset_bottom = -314.0
+grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(4, 4)
 pivot_offset_ratio = Vector2(0, 0.5)
@@ -122,13 +128,19 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_ig63j")
 
 [node name="Label" type="Label" parent="SubViewportContainer/SubViewport/CanvasLayer/VBoxContainer/BntJogar" unique_id=1259252773]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -8.0
+offset_right = 20.0
+offset_bottom = 8.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "jogar"
-label_settings = SubResource("LabelSettings_jgmqt")
+label_settings = ExtResource("7_6078c")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -141,13 +153,19 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_24a7j")
 
 [node name="Label" type="Label" parent="SubViewportContainer/SubViewport/CanvasLayer/VBoxContainer/BntCreditos" unique_id=1209207784]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -31.0
+offset_top = -8.0
+offset_right = 31.0
+offset_bottom = 8.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Créditos"
-label_settings = SubResource("LabelSettings_jgmqt")
+label_settings = ExtResource("7_6078c")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -160,15 +178,35 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_6078c")
 
 [node name="Label" type="Label" parent="SubViewportContainer/SubViewport/CanvasLayer/VBoxContainer/BntSair" unique_id=1549207953]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -15.5
+offset_top = -8.0
+offset_right = 15.5
+offset_bottom = 8.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "sair"
-label_settings = SubResource("LabelSettings_jgmqt")
+label_settings = ExtResource("7_6078c")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Label" type="Label" parent="." unique_id=546503379]
+layout_mode = 0
+offset_left = 1218.0
+offset_top = 680.0
+offset_right = 1276.0
+offset_bottom = 720.0
+theme_override_colors/font_color = Color(1, 0.7529412, 0.36078432, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_fonts/font = ExtResource("5_mbdlm")
+theme_override_font_sizes/font_size = 32
+text = "V1.0"
+horizontal_alignment = 1
 
 [connection signal="pressed" from="SubViewportContainer/SubViewport/CanvasLayer/VBoxContainer/BntJogar" to="." method="_on_bnt_jogar_pressed"]
 [connection signal="pressed" from="SubViewportContainer/SubViewport/CanvasLayer/VBoxContainer/BntCreditos" to="." method="_on_bnt_creditos_pressed"]
