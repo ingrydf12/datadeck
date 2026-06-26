@@ -10,7 +10,7 @@ func _on_carta_jogada(carta : Carta):
 		return
 	
 	if carta.dados:
-		mudar_array.emit()
+		mudar_array.emit(carta.dados)
 
 func checar_colisao_no_ponto(posicao_global: Vector2) -> Area2D:
 	# 1. Obtém o estado atual da física da cena

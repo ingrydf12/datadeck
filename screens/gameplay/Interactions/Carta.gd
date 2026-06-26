@@ -20,8 +20,9 @@ func definir_origem():
 	
 func setup(operation: Operacao):
 	dados = operation
-
-	$PopupDetalhes.title = Operacao.Tipo.keys()[dados.tipo]
+	$PopupDetalhes.title = Operacao.Tipo.keys()[dados.tipo] #.to_pascal_case() caso queira Capitalizar A Palavra
+	$PopupDetalhes.desc = descricao
+	mudar_textura_carta(Operacao.Tipo.keys()[dados.tipo].to_lower())
 
 	mudar_textura_carta(
 		Operacao.Tipo.keys()[dados.tipo].to_lower()

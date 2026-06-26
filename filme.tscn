@@ -1,0 +1,111 @@
+[gd_scene format=3 uid="uid://dk6tolo876q5i"]
+
+[ext_resource type="Script" uid="uid://b18wlxh14gsie" path="res://filme.gd" id="1_26eoh"]
+[ext_resource type="Texture2D" uid="uid://rbwmnwhfgx5g" path="res://assets/gameplay/gameplay_componentes/capas.png" id="1_oi565"]
+[ext_resource type="Texture2D" uid="uid://cumwlxfncn1da" path="res://assets/gameplay/gameplay_componentes/vidro_filme.png" id="2_26eoh"]
+[ext_resource type="Texture2D" uid="uid://d4fyr76va70ac" path="res://assets/gameplay/gameplay_componentes/base_filme.png" id="3_j5bkl"]
+[ext_resource type="FontFile" uid="uid://dsdm1dih5di33" path="res://styles/fonts/superstar_memesbruh03.ttf" id="4_4lbeg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cbwos"]
+resource_local_to_scene = true
+atlas = ExtResource("1_oi565")
+region = Rect2(0, 0, 33, 48)
+
+[sub_resource type="LabelSettings" id="LabelSettings_wim70"]
+font = ExtResource("4_4lbeg")
+font_size = 14
+font_color = Color(1, 0.3303333, 0.01999998, 1)
+
+[node name="Filme" type="Control" unique_id=83797343]
+custom_minimum_size = Vector2(37, 52)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 37.0
+offset_bottom = 52.0
+size_flags_horizontal = 3
+size_flags_vertical = 4
+script = ExtResource("1_26eoh")
+
+[node name="Control" type="Control" parent="." unique_id=138609931]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -18.5
+offset_top = -26.0
+offset_right = 18.5
+offset_bottom = 26.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Capa" type="TextureRect" parent="Control" unique_id=644498591]
+custom_minimum_size = Vector2(33, 48)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.5
+offset_top = -24.0
+offset_right = 16.5
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_cbwos")
+stretch_mode = 3
+
+[node name="Vidro" type="TextureRect" parent="Control" unique_id=1992217688]
+custom_minimum_size = Vector2(37, 52)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -18.5
+offset_top = -26.0
+offset_right = 18.5
+offset_bottom = 26.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_26eoh")
+stretch_mode = 3
+
+[node name="Base" type="TextureRect" parent="Control" unique_id=1277490160]
+custom_minimum_size = Vector2(42, 26)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -21.25
+offset_top = -2.869999
+offset_right = 20.75
+offset_bottom = 23.130013
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset_ratio = Vector2(0.5, 1)
+texture = ExtResource("3_j5bkl")
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="Control/Base" unique_id=1641317184]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -2.375
+offset_top = -18.0
+offset_right = 4.375
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "0"
+label_settings = SubResource("LabelSettings_wim70")
+horizontal_alignment = 1
+vertical_alignment = 2

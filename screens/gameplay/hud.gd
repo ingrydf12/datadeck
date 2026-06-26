@@ -2,7 +2,7 @@ extends CanvasLayer
 
 signal carta_jogada(carta : Carta)
 
-var inverte = false
+#var inverte = false
 
 func _ready() -> void:
 	pass
@@ -21,11 +21,11 @@ func carregar_array_objetivo(arrayobj):
 	
 	for index in arrayobj:
 		var regiao = Rect2((largura_sprite + espacamento) * index, 0, largura_sprite, 18)
-		var node : TextureRect = $ArrayObjetivo/MarginContainer/HBoxContainer/Base.duplicate()
+		var node : TextureRect = $ArrayObjetivo/MarginContainer/VBoxContainer/HBoxContainer/Base.duplicate()
 		node.visible = true
 		node.texture = node.texture.duplicate()
 		node.texture.region = regiao
-		$ArrayObjetivo/MarginContainer/HBoxContainer.add_child(node)
+		$ArrayObjetivo/MarginContainer/VBoxContainer/HBoxContainer.add_child(node)
 
 #func _unhandled_input(event: InputEvent) -> void:
 	#if event is InputEventMouseButton and event.is_pressed() and event.button_index == MOUSE_BUTTON_RIGHT and not inverte:
