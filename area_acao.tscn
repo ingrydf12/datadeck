@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://1jan6m0nx0i"]
+
+[ext_resource type="Script" uid="uid://dte2xg1mvle3n" path="res://area_acao.gd" id="1_qft2i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_56mg4"]
+size = Vector2(1137.5, 395.5)
+
+[node name="AreaAcao" type="Area2D" unique_id=466778117]
+script = ExtResource("1_qft2i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1806044198]
+shape = SubResource("RectangleShape2D_56mg4")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

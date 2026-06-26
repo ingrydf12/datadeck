@@ -1,14 +1,16 @@
 [gd_scene format=3 uid="uid://ctpi2odakf7jn"]
 
-[ext_resource type="Script" uid="uid://e8nebwmen0vc" path="res://screens/gameplay/Interactions/Carta.gd" id="1_5j5l1"]
-[ext_resource type="Script" uid="uid://1hd4e2j6uxmt" path="res://models/Operacao.gd" id="2_wi1y2"]
-[ext_resource type="Script" uid="uid://b84o3y3mkwlgh" path="res://popup_detalhes.gd" id="3_5ihr8"]
-[ext_resource type="Texture2D" uid="uid://dakeyqlnlf5ls" path="res://assets/cartas maior1.png" id="4_ugx6h"]
-[ext_resource type="Texture2D" uid="uid://bf8gm2rve7moc" path="res://assets/gameplay/gameplay_componentes/cartas.png" id="5_34g3j"]
-[ext_resource type="Shader" uid="uid://b3haynmqxkal4" path="res://efeitos/carta.tres" id="6_8lkxl"]
+[ext_resource type="Script" uid="uid://e8nebwmen0vc" path="res://screens/gameplay/Interactions/Carta.gd" id="1_4gtqo"]
+[ext_resource type="Script" uid="uid://1hd4e2j6uxmt" path="res://models/Operacao.gd" id="2_77s45"]
+[ext_resource type="Texture2D" uid="uid://dakeyqlnlf5ls" path="res://assets/cartas maior1.png" id="3_77s45"]
+[ext_resource type="Script" uid="uid://b84o3y3mkwlgh" path="res://popup_detalhes.gd" id="3_ce55x"]
+[ext_resource type="Texture2D" uid="uid://bf8gm2rve7moc" path="res://assets/gameplay/gameplay_componentes/cartas.png" id="4_xu3ok"]
+[ext_resource type="Shader" uid="uid://b3haynmqxkal4" path="res://efeitos/carta.tres" id="5_vdnt1"]
+[ext_resource type="Texture2D" uid="uid://btq0gjspnen4s" path="res://assets/gameplay/gameplay_componentes/mini_vidro.png" id="8_rrb0j"]
+[ext_resource type="FontFile" uid="uid://dsdm1dih5di33" path="res://styles/fonts/superstar_memesbruh03.ttf" id="9_y1jwu"]
 
 [sub_resource type="Resource" id="Resource_xu3ok"]
-script = ExtResource("2_wi1y2")
+script = ExtResource("2_77s45")
 tipo = 7
 metadata/_custom_type_script = "uid://1hd4e2j6uxmt"
 
@@ -16,15 +18,41 @@ metadata/_custom_type_script = "uid://1hd4e2j6uxmt"
 bg_color = Color(0.18, 0.18, 0.18, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ce55x"]
-shader = ExtResource("6_8lkxl")
+shader = ExtResource("5_vdnt1")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4gtqo"]
-size = Vector2(148, 208)
+[sub_resource type="AtlasTexture" id="AtlasTexture_y1jwu"]
+resource_local_to_scene = true
+atlas = ExtResource("4_xu3ok")
+region = Rect2(74, 0, 37, 52)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_50gob"]
+load_path = "res://.godot/imported/capas_obj.png-bd1afe6346c6f7206050c72872ff6445.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_50gob"]
+resource_local_to_scene = true
+atlas = SubResource("CompressedTexture2D_50gob")
+region = Rect2(0, 0, 12, 18)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ci48n"]
+font = ExtResource("9_y1jwu")
+font_size = 20
+font_color = Color(0.81, 0.405, 0, 1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rrb0j"]
+load_path = "res://.godot/imported/capas_obj.png-bd1afe6346c6f7206050c72872ff6445.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rrb0j"]
+resource_local_to_scene = true
+atlas = SubResource("CompressedTexture2D_rrb0j")
+region = Rect2(0, 0, 12, 18)
 
 [node name="Carta" type="Control" unique_id=1784490872]
 layout_mode = 3
 anchors_preset = 0
-script = ExtResource("1_5j5l1")
+pivot_offset_ratio = Vector2(0.5, 0.5)
+size_flags_horizontal = 0
+mouse_filter = 1
+script = ExtResource("1_4gtqo")
 dados = SubResource("Resource_xu3ok")
 descricao = "olá professores, estes é um teste da capacidade de expansão textual do contêiner e se tuddo der certo o negocio vai começar a abaixar aaaaaaaaaaaaaaaaaaaaaaaaaaaaa a a a a a  a a"
 
@@ -35,6 +63,7 @@ points = PackedVector2Array(-337, -31, 1, 0)
 [node name="PopupDetalhes" type="PanelContainer" parent="." unique_id=1504594219]
 visible = false
 top_level = true
+z_index = 5
 layout_mode = 0
 offset_left = -507.0
 offset_top = -155.0
@@ -43,7 +72,7 @@ offset_bottom = 49.0
 size_flags_horizontal = 0
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_xu3ok")
-script = ExtResource("3_5ihr8")
+script = ExtResource("3_ce55x")
 
 [node name="MarginContainer" type="MarginContainer" parent="PopupDetalhes" unique_id=537500978]
 layout_mode = 2
@@ -55,7 +84,7 @@ custom_minimum_size = Vector2(100, 73.69)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
-texture = ExtResource("4_ugx6h")
+texture = ExtResource("3_77s45")
 expand_mode = 1
 stretch_mode = 3
 
@@ -93,24 +122,157 @@ autowrap_mode = 3
 [node name="Sombra" type="Sprite2D" parent="." unique_id=1340384892]
 self_modulate = Color(0, 0, 0, 0.58431375)
 scale = Vector2(4, 4)
-texture = ExtResource("5_34g3j")
+texture = ExtResource("4_xu3ok")
 region_enabled = true
 region_rect = Rect2(74, 0, 37, 52)
 
-[node name="Texture" type="Sprite2D" parent="." unique_id=1863234624]
+[node name="Texture" type="TextureRect" parent="." unique_id=2016232433]
 material = SubResource("ShaderMaterial_ce55x")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 scale = Vector2(4, 4)
-texture = ExtResource("5_34g3j")
-region_enabled = true
-region_rect = Rect2(74, 0, 37, 52)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = SubResource("AtlasTexture_y1jwu")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=477981428]
+[node name="Control" type="Control" parent="Texture" unique_id=731994631]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.25, 0.25)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=692846492]
-shape = SubResource("RectangleShape2D_4gtqo")
+[node name="Parametros" type="HBoxContainer" parent="Texture/Control" unique_id=1610001200]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -80.0
+offset_top = 70.0
+offset_right = 10.0
+offset_bottom = 121.0
+grow_horizontal = 0
+theme_override_constants/separation = 10
+
+[node name="P1" type="Control" parent="Texture/Control/Parametros" unique_id=2139888704]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Capa" type="TextureRect" parent="Texture/Control/Parametros/P1" unique_id=986823731]
+material = SubResource("ShaderMaterial_ce55x")
+instance_shader_parameters/escala = Vector2(1, 1)
+instance_shader_parameters/tamanho = 0.0
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -18.0
+offset_right = 18.0
+offset_bottom = 54.0
+grow_horizontal = 2
+texture = SubResource("AtlasTexture_50gob")
+stretch_mode = 5
+
+[node name="Base" type="TextureRect" parent="Texture/Control/Parametros/P1" unique_id=559432837]
+material = SubResource("ShaderMaterial_ce55x")
+instance_shader_parameters/escala = Vector2(1, 1)
+instance_shader_parameters/tamanho = 0.0
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -27.0
+offset_top = -3.0
+offset_right = 27.0
+offset_bottom = 87.0
+grow_horizontal = 2
+texture = ExtResource("8_rrb0j")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Texture/Control/Parametros/P1/Base" unique_id=1713719839]
+material = SubResource("ShaderMaterial_ce55x")
+instance_shader_parameters/escala = Vector2(1, 1)
+instance_shader_parameters/tamanho = 0.0
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -2.5
+offset_top = -27.0
+offset_right = 2.5
+grow_horizontal = 2
+grow_vertical = 0
+text = "1"
+label_settings = SubResource("LabelSettings_ci48n")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="P2" type="Control" parent="Texture/Control/Parametros" unique_id=1134417134]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Capa" type="TextureRect" parent="Texture/Control/Parametros/P2" unique_id=2089368543]
+material = SubResource("ShaderMaterial_ce55x")
+instance_shader_parameters/escala = Vector2(1, 1)
+instance_shader_parameters/tamanho = 0.0
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -18.0
+offset_right = 18.0
+offset_bottom = 54.0
+grow_horizontal = 2
+texture = SubResource("AtlasTexture_rrb0j")
+stretch_mode = 5
+
+[node name="Base" type="TextureRect" parent="Texture/Control/Parametros/P2" unique_id=1875378890]
+material = SubResource("ShaderMaterial_ce55x")
+instance_shader_parameters/escala = Vector2(1, 1)
+instance_shader_parameters/tamanho = 0.0
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -27.0
+offset_top = -3.0
+offset_right = 27.0
+offset_bottom = 87.0
+grow_horizontal = 2
+texture = ExtResource("8_rrb0j")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Texture/Control/Parametros/P2/Base" unique_id=2103685177]
+material = SubResource("ShaderMaterial_ce55x")
+instance_shader_parameters/escala = Vector2(1, 1)
+instance_shader_parameters/tamanho = 0.0
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -2.5
+offset_top = -27.0
+offset_right = 2.5
+grow_horizontal = 2
+grow_vertical = 0
+text = "1"
+label_settings = SubResource("LabelSettings_ci48n")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Button" type="Button" parent="." unique_id=1704378800]
-modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 1, 1, 0)
 layout_mode = 0
 offset_left = -74.0
 offset_top = -104.0

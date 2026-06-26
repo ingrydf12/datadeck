@@ -1,19 +1,21 @@
 extends Node2D
-@onready var cartas_container = $HUD/Cartas
-@onready var curva_mao = $HUD/CurvaMao
+@onready var cartas_container = HudCartas.get_node("./Cartas");
+@onready var curva_mao = HudCartas.get_node("./CurvaMao");
+
 const CARTA_SCENE = preload("res://screens/gameplay/Interactions/carta.tscn")
 var fase: Phase
 var _loading := false
 
-# Fase 1: Listas (Bloco de conteúdo)
+func _ready() -> void:
+	if fase != null:
+		_load_cards()
+	HudCartas.visible = true
+	HudCartas.carregar_array_objetivo([0,1,2,3])
+	pass
 
 func setup(phase: Phase):
 	fase = phase
 	_load_cards()
-
-func _ready():
-	if fase != null:
-		_load_cards()
 
 func _load_cards():
 	if fase == null or _loading:
@@ -38,3 +40,10 @@ func _load_cards():
 		)
 
 	_loading = false
+
+func _on_area_acao_mudar_array(operation: Operacao) -> void:
+	match operation.tipo:
+		Operacao.Tipo.POP:
+			$Array.pop()
+		Operacao.Tipo.PUSH:
+			$Array.push(operation.elemento)
