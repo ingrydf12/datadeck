@@ -25,6 +25,8 @@ enum Funcoes {
 @export var tipo : Tipo = Tipo.PUSH
 @export var posicao : int = 0
 @export var elemento : int = 0
+@export var posicao_final : int = 0
+@export var elemento_final : int = 0
 @export var funcao : Funcoes = Funcoes.NONE
 
 func is_callback() -> bool:

@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://cb7sd7o7537x6"]
 
-[ext_resource type="Script" uid="uid://2nvnxqbdlo5u" path="res://hud.gd" id="1_cklxt"]
+[ext_resource type="Script" uid="uid://2nvnxqbdlo5u" path="res://screens/gameplay/hud.gd" id="1_cklxt"]
 [ext_resource type="Texture2D" uid="uid://dxh8fg0essrba" path="res://assets/gameplay/tilesets/container_cartas.png" id="2_sqq4g"]
-[ext_resource type="PackedScene" uid="uid://ctpi2odakf7jn" path="res://carta.tscn" id="3_sqq4g"]
+[ext_resource type="PackedScene" uid="uid://ctpi2odakf7jn" path="res://screens/gameplay/Interactions/Carta.tscn" id="3_sqq4g"]
 [ext_resource type="Texture2D" uid="uid://dx7bucqww2tvg" path="res://assets/gameplay/tilesets/container_obj_hst.png" id="4_cklxt"]
 [ext_resource type="PackedScene" uid="uid://c7mk3oyur7wxi" path="res://curva_mao.tscn" id="4_nkr5l"]
-[ext_resource type="Script" uid="uid://1hd4e2j6uxmt" path="res://Operacao.gd" id="4_wg0hk"]
+[ext_resource type="Script" uid="uid://1hd4e2j6uxmt" path="res://models/Operacao.gd" id="4_wg0hk"]
 [ext_resource type="Texture2D" uid="uid://ctoia6xv6yb7b" path="res://assets/gameplay/gameplay_componentes/cartas_utilizadas.png" id="5_sqq4g"]
 [ext_resource type="Texture2D" uid="uid://rmcau3bs152m" path="res://assets/gameplay/gameplay_componentes/capas_obj.png" id="7_nkr5l"]
 [ext_resource type="FontFile" uid="uid://dsdm1dih5di33" path="res://styles/fonts/superstar_memesbruh03.ttf" id="8_sowp3"]
@@ -20,33 +20,36 @@ texture_margin_bottom = 11.0
 [sub_resource type="Resource" id="Resource_sowp3"]
 resource_local_to_scene = true
 script = ExtResource("4_wg0hk")
-elemento = 1
-metadata/_custom_type_script = "uid://1hd4e2j6uxmt"
-
-[sub_resource type="Resource" id="Resource_wg0hk"]
-resource_local_to_scene = true
-script = ExtResource("4_wg0hk")
-elemento = 2
 metadata/_custom_type_script = "uid://1hd4e2j6uxmt"
 
 [sub_resource type="Resource" id="Resource_kkc4b"]
 resource_local_to_scene = true
 script = ExtResource("4_wg0hk")
-elemento = 3
+posicao = 1
+elemento = 1
 metadata/_custom_type_script = "uid://1hd4e2j6uxmt"
 
 [sub_resource type="Resource" id="Resource_qy020"]
 resource_local_to_scene = true
 script = ExtResource("4_wg0hk")
+posicao = 2
+elemento = 2
 metadata/_custom_type_script = "uid://1hd4e2j6uxmt"
 
 [sub_resource type="Resource" id="Resource_jtult"]
 resource_local_to_scene = true
 script = ExtResource("4_wg0hk")
+posicao = 3
+elemento = 3
+metadata/_custom_type_script = "uid://1hd4e2j6uxmt"
+
+[sub_resource type="Resource" id="Resource_e7j14"]
+resource_local_to_scene = true
+script = ExtResource("4_wg0hk")
 tipo = 1
 metadata/_custom_type_script = "uid://1hd4e2j6uxmt"
 
-[sub_resource type="Curve2D" id="Curve2D_nkr5l"]
+[sub_resource type="Curve2D" id="Curve2D_3chc0"]
 resource_local_to_scene = true
 bake_interval = 10.0
 _data = {
@@ -82,6 +85,7 @@ region = Rect2(0, 0, 12, 18)
 
 [node name="HUD" type="CanvasLayer" unique_id=1854730849]
 layer = 6
+visible = false
 script = ExtResource("1_cklxt")
 
 [node name="ContainerFake" type="Panel" parent="." unique_id=1280168472]
@@ -132,7 +136,7 @@ offset_top = -100.68219
 offset_right = -113.149475
 offset_bottom = -100.68219
 rotation = -0.23275006
-dados = SubResource("Resource_wg0hk")
+dados = SubResource("Resource_kkc4b")
 
 [node name="Carta3" parent="Cartas" unique_id=1794250641 instance=ExtResource("3_sqq4g")]
 layout_mode = 0
@@ -141,7 +145,7 @@ offset_top = -114.12622
 offset_right = 0.17669678
 offset_bottom = -114.12622
 rotation = -0.0023192088
-dados = SubResource("Resource_kkc4b")
+dados = SubResource("Resource_qy020")
 
 [node name="Carta4" parent="Cartas" unique_id=1827319490 instance=ExtResource("3_sqq4g")]
 layout_mode = 0
@@ -150,7 +154,7 @@ offset_top = -101.01898
 offset_right = 113.53143
 offset_bottom = -101.01898
 rotation = 0.23314375
-dados = SubResource("Resource_qy020")
+dados = SubResource("Resource_jtult")
 
 [node name="Carta5" parent="Cartas" unique_id=522243788 instance=ExtResource("3_sqq4g")]
 layout_mode = 0
@@ -159,11 +163,11 @@ offset_top = -61.768433
 offset_right = 220.67871
 offset_bottom = -61.768433
 rotation = 0.46832854
-dados = SubResource("Resource_jtult")
+dados = SubResource("Resource_e7j14")
 
 [node name="CurvaMao" parent="." unique_id=486530762 instance=ExtResource("4_nkr5l")]
 position = Vector2(643, 662)
-curve = SubResource("Curve2D_nkr5l")
+curve = SubResource("Curve2D_3chc0")
 
 [node name="Historico" type="Control" parent="." unique_id=165886100]
 layout_mode = 3

@@ -2,25 +2,40 @@
 
 [ext_resource type="Script" uid="uid://cbypt34o38mg3" path="res://models/Capa.gd" id="1_284sv"]
 [ext_resource type="Shader" uid="uid://b3haynmqxkal4" path="res://efeitos/carta.tres" id="2_v52jt"]
-[ext_resource type="Texture2D" uid="uid://rbwmnwhfgx5g" path="res://assets/gameplay/gameplay_componentes/capas.png" id="3_284sv"]
+[ext_resource type="Texture2D" uid="uid://rmcau3bs152m" path="res://assets/gameplay/gameplay_componentes/capas_obj.png" id="3_284sv"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6nr1f"]
 shader = ExtResource("2_v52jt")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_rccyw"]
+atlas = ExtResource("3_284sv")
+region = Rect2(0, 0, 12, 18)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vlwg7"]
-size = Vector2(132, 208)
+size = Vector2(48, 72.5)
 
 [node name="Capa" type="Control" unique_id=89555609]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_284sv")
 
-[node name="Texture" type="Sprite2D" parent="." unique_id=827461738]
+[node name="Texture" type="TextureRect" parent="." unique_id=609546766]
 material = SubResource("ShaderMaterial_6nr1f")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -6.0
+offset_top = -9.0
+offset_right = 6.0
+offset_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 2
 scale = Vector2(4, 4)
-texture = ExtResource("3_284sv")
-region_enabled = true
-region_rect = Rect2(170, 0, 33, 52)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = SubResource("AtlasTexture_rccyw")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=535663981]
 

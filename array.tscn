@@ -2,10 +2,7 @@
 
 [ext_resource type="Script" uid="uid://udoy1ogvf4mq" path="res://array.gd" id="1_44ixo"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_tyb76"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8msyb"]
-texture = SubResource("PlaceholderTexture2D_tyb76")
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_44ixo"]
 
 [node name="Array" type="Control" unique_id=1250333486]
 layout_mode = 3
@@ -26,7 +23,7 @@ offset_right = 17.0
 offset_bottom = 26.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_8msyb")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_44ixo")
 
 [node name="Itens" type="HBoxContainer" parent="PanelContainer" unique_id=1710974761]
 layout_mode = 2
