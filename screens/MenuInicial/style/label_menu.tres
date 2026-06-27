@@ -1,0 +1,10 @@
+[gd_resource type="LabelSettings" format=3 uid="uid://cyir5o71uqhao"]
+
+[ext_resource type="FontFile" uid="uid://dsdm1dih5di33" path="res://styles/fonts/superstar_memesbruh03.ttf" id="1_cnwck"]
+
+[resource]
+font = ExtResource("1_cnwck")
+font_color = Color(1, 0.7529412, 0.36078432, 1)
+shadow_size = 0
+shadow_color = Color(0.85490197, 0.4, 0.16470589, 1)
+shadow_offset = Vector2(0, 1)

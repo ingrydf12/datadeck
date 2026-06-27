@@ -15,13 +15,14 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="CardGame1"
-run/main_scene="uid://nwembvc3ticr"
+run/main_scene="uid://gx6qmfpcot02"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
 
 HudCartas="*uid://cb7sd7o7537x6"
+CartaTransition="*uid://2kpr7efyb5mg"
 
 [display]
 
@@ -32,6 +33,7 @@ mouse_cursor/custom_image="uid://ce31bes0vsox"
 
 [gui]
 
+theme/default_font_antialiasing=0
 theme/default_font_multichannel_signed_distance_field=true
 theme/default_font_generate_mipmaps=true
 
