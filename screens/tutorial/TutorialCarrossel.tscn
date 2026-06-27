@@ -73,17 +73,8 @@ script = ExtResource("1_jm8cr")
 steps = Array[ExtResource("2_dm4x3")]([SubResource("Resource_epva1"), SubResource("Resource_mpqly"), SubResource("Resource_dw2uv"), SubResource("Resource_dqekb")])
 indicator_scene = ExtResource("5_dqekb")
 
-[node name="OverlayBg" type="ColorRect" parent="." unique_id=241462625]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 6
-size_flags_vertical = 6
-color = Color(0.11372549, 0.039215688, 0.14901961, 0.3882353)
-
 [node name="TutorialControl" type="Control" parent="." unique_id=1378298564]
+z_index = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -92,6 +83,19 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="OverlayBg" type="ColorRect" parent="TutorialControl" unique_id=241462625]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+mouse_filter = 2
+color = Color(0.11372549, 0.039215688, 0.14901961, 0.3882353)
 
 [node name="TutorialContent" type="PanelContainer" parent="TutorialControl" unique_id=1990468577]
 custom_minimum_size = Vector2(860, 470)
@@ -107,6 +111,7 @@ offset_right = 430.0
 offset_bottom = 235.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_d3t24")
 
 [node name="MarginCtn" type="MarginContainer" parent="TutorialControl/TutorialContent" unique_id=594506259]
@@ -114,6 +119,7 @@ custom_minimum_size = Vector2(860, 470)
 layout_mode = 2
 size_flags_horizontal = 13
 size_flags_vertical = 13
+mouse_filter = 2
 theme_override_constants/margin_left = 30
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 30
@@ -125,6 +131,7 @@ theme_override_constants/separation = 8
 
 [node name="Topbar" type="HBoxContainer" parent="TutorialControl/TutorialContent/MarginCtn/VBoxContainer" unique_id=1067702078]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="Padding" type="Control" parent="TutorialControl/TutorialContent/MarginCtn/VBoxContainer/Topbar" unique_id=888397468]
 layout_mode = 2
@@ -169,6 +176,7 @@ stretch_mode = 5
 
 [node name="Navigation" type="HBoxContainer" parent="TutorialControl/TutorialContent/MarginCtn/VBoxContainer" unique_id=1901799147]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/separation = 20
 alignment = 1
 
@@ -194,3 +202,7 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_h3dof")
 theme_override_styles/hover = SubResource("StyleBoxTexture_466xk")
 icon = ExtResource("6_dqekb")
 icon_alignment = 1
+
+[connection signal="pressed" from="TutorialControl/TutorialContent/MarginCtn/VBoxContainer/Topbar/CloseTutorial" to="." method="close_tutorial"]
+[connection signal="pressed" from="TutorialControl/TutorialContent/MarginCtn/VBoxContainer/Navigation/BackBtn" to="." method="back_step"]
+[connection signal="pressed" from="TutorialControl/TutorialContent/MarginCtn/VBoxContainer/Navigation/NextBtn" to="." method="next_step"]

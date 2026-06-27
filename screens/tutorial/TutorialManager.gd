@@ -5,8 +5,8 @@ class_name TutorialManager
 @export var steps: Array[TutorialStepResource]
 @export var indicator_scene: PackedScene
 
-@onready var overlay_bg = $OverlayBg
 @onready var tutorial_control = $TutorialControl
+@onready var overlay_bg = $TutorialControl/OverlayBg
 @onready var tutorial_content = $TutorialControl/TutorialContent
 
 @onready var title_label = $TutorialControl/TutorialContent/MarginCtn/VBoxContainer/VBoxContainer2/Title
@@ -21,25 +21,22 @@ class_name TutorialManager
 var current_step := 0
 
 func _ready():
-	tutorial_control.show()
+	layer = 100
+	process_mode = Node.PROCESS_MODE_WHEN_PAUSED
 
 	build_indicators()
-
-	next_button.pressed.connect(next_step)
-	prev_button.pressed.connect(back_step)
-	close_button.pressed.connect(close_tutorial)
-
-	show_step(current_step)
+	hide()
 
 func open_tutorial():
+	get_tree().paused = true
+
+	show()
 	current_step = 0
-
-	tutorial_control.show()
-
 	show_step(current_step)
 	
 func close_tutorial():
-	tutorial_control.hide()
+	hide()
+	get_tree().paused = false
 	
 func next_step():
 	current_step += 1
