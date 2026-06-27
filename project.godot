@@ -22,6 +22,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 HudCartas="*uid://cb7sd7o7537x6"
+CartaTransition="*uid://2kpr7efyb5mg"
 
 [display]
 
