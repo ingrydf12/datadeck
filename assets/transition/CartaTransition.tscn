@@ -1,0 +1,114 @@
+[gd_scene format=3 uid="uid://2kpr7efyb5mg"]
+
+[ext_resource type="Script" uid="uid://w466llfek12e" path="res://assets/transition/carta_transition.gd" id="1_4nmb5"]
+[ext_resource type="Texture2D" uid="uid://cqoi1lpby4tlw" path="res://assets/transition/tela-menu-transicao.png" id="1_ys6oh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4nmb5"]
+atlas = ExtResource("1_ys6oh")
+region = Rect2(0, 0, 360, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bkjde"]
+atlas = ExtResource("1_ys6oh")
+region = Rect2(360, 0, 360, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aucpr"]
+atlas = ExtResource("1_ys6oh")
+region = Rect2(720, 0, 360, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wdes0"]
+atlas = ExtResource("1_ys6oh")
+region = Rect2(1080, 0, 360, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sxmdd"]
+atlas = ExtResource("1_ys6oh")
+region = Rect2(1440, 0, 360, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_avkut"]
+atlas = ExtResource("1_ys6oh")
+region = Rect2(1800, 0, 360, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1cd2k"]
+atlas = ExtResource("1_ys6oh")
+region = Rect2(2160, 0, 360, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3pyny"]
+atlas = ExtResource("1_ys6oh")
+region = Rect2(2520, 0, 360, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p6onh"]
+atlas = ExtResource("1_ys6oh")
+region = Rect2(2880, 0, 360, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vqo3f"]
+atlas = ExtResource("1_ys6oh")
+region = Rect2(3240, 0, 360, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uhrnw"]
+atlas = ExtResource("1_ys6oh")
+region = Rect2(3600, 0, 360, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8e1cr"]
+atlas = ExtResource("1_ys6oh")
+region = Rect2(3960, 0, 360, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_inv8l"]
+atlas = ExtResource("1_ys6oh")
+region = Rect2(4320, 0, 360, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rccyw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4nmb5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bkjde")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aucpr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wdes0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sxmdd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_avkut")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1cd2k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3pyny")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p6onh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vqo3f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uhrnw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8e1cr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_inv8l")
+}],
+"loop": 1,
+"name": &"carta",
+"speed": 8.0
+}]
+
+[node name="CartaTransition" type="CanvasLayer" unique_id=885011638]
+layer = 2
+script = ExtResource("1_4nmb5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=540201683]
+position = Vector2(644, 514)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_rccyw")
+animation = &"carta"
+frame_progress = 0.5775599

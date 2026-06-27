@@ -19,6 +19,10 @@ run/main_scene="uid://gx6qmfpcot02"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+CartaTransition="*uid://2kpr7efyb5mg"
+
 [display]
 
 window/size/viewport_width=1280
