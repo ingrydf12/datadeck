@@ -30,6 +30,9 @@ func load_phase(scene: PackedScene, phase_data: Phase) -> void:
 	if current_phase.has_method("undo"):
 		gameplay_hud.undo_pressed.connect(current_phase.undo)
 
+func _on_undo_pressed() -> void:
+	if current_phase:
+		current_phase.undo()
 
 func _on_pause_pressed() -> void:
 	get_tree().paused = true

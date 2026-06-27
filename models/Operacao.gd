@@ -27,6 +27,7 @@ enum Funcoes {
 @export var elemento : int = 0
 @export var posicao_final : int = 0
 @export var elemento_final : int = 0
+@export var tamanho_array: int = 0
 @export var funcao : Funcoes = Funcoes.NONE
 
 func is_callback() -> bool:

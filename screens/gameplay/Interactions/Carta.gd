@@ -20,15 +20,14 @@ func _ready() -> void:
 	#$PopupDetalhes.title = Operacao.Tipo.keys()[dados.tipo] #.to_pascal_case() caso queira Capitalizar A Palavra
 	#$PopupDetalhes.desc = descricao
 	#mudar_textura_carta(Operacao.Tipo.keys()[dados.tipo].to_lower())
-	_preparar()
+
 
 func setup(operation: Operacao):
+	print("Carta recebeu:", operation.tipo)
+
 	dados = operation
 	$PopupDetalhes.title = Operacao.Tipo.keys()[dados.tipo]
-
-	mudar_textura_carta(
-		Operacao.Tipo.keys()[dados.tipo].to_lower()
-	)
+	_preparar()
 
 func _process(_delta: float) -> void:
 	if Engine.is_editor_hint():
@@ -73,20 +72,13 @@ func _on_button_button_down() -> void:
 	desativar_irmas()
 	
 func _on_button_button_up() -> void:
-	
 	controlled = false
-	
-	##vai detectar se foi soltada em cima da "mesa"
-	#var areas = $Area2D.get_overlapping_areas()
-	#if areas and areas[0].get_node('../').has_method('add_carta'):
-		#areas[0].get_node('../').add_carta(self)
 	
 	_voltar_original()
 	_diminuir()
 	ativar_irmas()
 	
 	HudCartas.propagar_carta(self)
-
 	
 func _on_button_mouse_exited() -> void:
 	_diminuir()
@@ -110,9 +102,24 @@ func _preparar():
 			ativar_params(1)
 		Operacao.Tipo.POP:
 			ativar_params(0)
+		Operacao.Tipo.UPDATE:
+			ativar_params(2)
+		Operacao.Tipo.INSERT:
+			ativar_params(2)
+		Operacao.Tipo.REMOVE:
+			ativar_params(1)
+		Operacao.Tipo.SLICE:
+			ativar_params(2)
 	atualizar_parametros(dados)
 
 # - - - - - - - - - - - - - ANIMAÇÕES E VISUAL
+
+var estado_atual:Array
+
+# gambiarra pra atualizar os parametros das cartas depois que o array usuario muda
+func atualizar_contexto(array: Array):
+	estado_atual = array
+	atualizar_parametros(dados, estado_atual)
 
 func ativar_params(quantos):
 	$Texture/Control/Parametros/P1.hide()
@@ -128,12 +135,54 @@ func mudar_textura_carta(tipo : String):
 	$Texture.texture.region = Rect2(37*indx, 0, 37, 52)
 	$Sombra.region_rect = Rect2(37*indx, 0, 37, 52)
 
-func atualizar_parametros(data : Operacao):
-	$Texture/Control/Parametros/P1/Base/Label.text = str(data.posicao)
-	$Texture/Control/Parametros/P2/Base/Label.text = str(data.posicao_final)
-	$Texture/Control/Parametros/P1/Capa.texture.region = Rect2((12+1)*data.elemento,0, 12,18)
-	$Texture/Control/Parametros/P2/Capa.texture.region = Rect2((12+1)*data.elemento_final,0, 12,18)
-
+func atualizar_parametros(data: Operacao, estado: Array = []):
+	match data.tipo:
+		Operacao.Tipo.PUSH:
+			$Texture/Control/Parametros/P1/Base/Label.text = str(estado.size())
+			$Texture/Control/Parametros/P1/Capa.texture.region = Rect2(
+				(12 + 1) * data.elemento,
+				0,
+				12,
+				18
+			)
+		Operacao.Tipo.POP:
+			pass
+		Operacao.Tipo.UPDATE:
+			$Texture/Control/Parametros/P1/Base/Label.text = str(data.posicao)
+			$Texture/Control/Parametros/P2/Capa.texture.region = Rect2(
+				(12 + 1) * data.elemento,
+				0,
+				12,
+				18
+			)
+		Operacao.Tipo.INSERT:
+			$Texture/Control/Parametros/P1/Base/Label.text = str(data.posicao)
+			$Texture/Control/Parametros/P2/Capa.texture.region = Rect2(
+				(12 + 1) * data.elemento,
+				0,
+				12,
+				18
+			)
+		Operacao.Tipo.REMOVE:
+			# REMOVE(posicao)
+			$Texture/Control/Parametros/P1/Base/Label.text = str(data.posicao)
+		Operacao.Tipo.REVERSE:
+			# REVERSE()
+			pass
+		Operacao.Tipo.SORT:
+			# SORT()
+			pass
+		Operacao.Tipo.FILTER:
+			# FILTER()
+			pass
+		Operacao.Tipo.SLICE:
+			# SLICE(inicio, fim)
+			$Texture/Control/Parametros/P1/Base/Label.text = str(data.posicao)
+			$Texture/Control/Parametros/P2/Base/Label.text = str(data.posicao_final)
+		Operacao.Tipo.MAP:
+			# MAP()
+			pass
+			
 func _crescer():
 	create_tween().tween_method(mudaroffset, textura.get_instance_shader_parameter('tamanho'), 22, 0.15)
 	create_tween().tween_property($Texture, 'scale',Vector2(4.8, 4.8), 0.15)

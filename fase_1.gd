@@ -6,32 +6,57 @@ const CARTA_SCENE = preload("res://screens/gameplay/Interactions/carta.tscn")
 var fase: Phase
 var _loading := false
 
+var historico: Array[Array] = []
+
 func _ready() -> void:
 	if fase != null:
 		_load_cards()
-	HudCartas.visible = true
-	HudCartas.carregar_array_objetivo([0,1,2,3])
 	pass
 
 func setup(phase: Phase):
 	fase = phase
+
+	HudCartas.visible = true
+	HudCartas.carregar_array_objetivo(fase.target_state)
+
+	$Array.carregar_estado_inicial(fase.initial_state)
+	historico.clear()
+	historico.append(fase.initial_state.duplicate(true))
 	_load_cards()
+
+	await get_tree().process_frame
+
+	atualizar_array()
+	
+# --------- ESTADOS -------------
+func atualizar_array():
+	var estado = $Array.get_state()
+
+	for carta: Carta in cartas_container.get_children():
+		carta.atualizar_contexto(estado)
+		
+func salvar_estado():
+	historico.append($Array.get_state().duplicate(true))
 
 func _load_cards():
 	if fase == null or _loading:
 		return
+
 	_loading = true
 
 	for child in cartas_container.get_children():
 		child.queue_free()
+
 	await get_tree().process_frame
 
-	for tipo in fase.available_cards:
+	for operacao in fase.available_cards:
 		var carta: Carta = CARTA_SCENE.instantiate()
-		var op := Operacao.new()
-		op.tipo = tipo
-		carta.setup(op)
+		carta.setup(operacao)
 		cartas_container.add_child(carta)
+
+		print("Carta adicionada:", carta)
+		print("Filhos do container:", cartas_container.get_child_count())
+		
 	await get_tree().process_frame
 
 	if curva_mao:
@@ -41,9 +66,26 @@ func _load_cards():
 
 	_loading = false
 
-func _on_area_acao_mudar_array(operation: Operacao) -> void:
+# --- INTERACAO COM AREA ACAO PARA ATUALIZAR O ARRAY
+func _on_area_acao_mudar_array(operation: Operacao):
+	salvar_estado()
+	
 	match operation.tipo:
 		Operacao.Tipo.POP:
 			$Array.pop()
+
 		Operacao.Tipo.PUSH:
 			$Array.push(operation.elemento)
+
+	atualizar_array()
+	
+func undo():
+	if historico.is_empty():
+		return
+
+	var move: Move = historico.pop_back()
+
+	$Array.carregar_estado_inicial(move.previous_state)
+	atualizar_array()
+
+	HudCartas.remover_ultima_carta_historico()
