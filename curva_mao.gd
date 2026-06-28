@@ -11,8 +11,8 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	if Engine.is_editor_hint():
-		if curve:
-			line.points = curve.get_baked_points()
+		line.points = curve.get_baked_points()
+		_organizar_filhos()
 
 func get_filler_points(n_elements: int) -> Array[Transform2D]:
 	var lista: Array[Transform2D] = []
@@ -35,7 +35,7 @@ func get_filler_points(n_elements: int) -> Array[Transform2D]:
 		)
 
 	return lista
-
+	
 func organizar_cartas(cartas: Array) -> void:
 	if cartas.is_empty():
 		return
@@ -62,3 +62,14 @@ func organizar_cartas(cartas: Array) -> void:
 		elif "origem" in carta:
 			carta.origem = carta.global_position
 			carta.rotacao_original = carta.rotation
+
+func _organizar_filhos():
+	var filhos : Array[Node] = get_children().slice(1)
+	if not filhos:
+		return
+
+	var transforms : Array[Transform2D] = get_filler_points(filhos.size())
+
+	for i in range(len(filhos)):
+		filhos[i].position = transforms[i].get_origin()
+		filhos[i].rotation = transforms[i].get_rotation()

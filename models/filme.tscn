@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dk6tolo876q5i"]
 
-[ext_resource type="Script" uid="uid://b18wlxh14gsie" path="res://filme.gd" id="1_26eoh"]
+[ext_resource type="Script" uid="uid://b18wlxh14gsie" path="res://models/filme.gd" id="1_26eoh"]
 [ext_resource type="Texture2D" uid="uid://rbwmnwhfgx5g" path="res://assets/gameplay/gameplay_componentes/capas.png" id="1_oi565"]
 [ext_resource type="Texture2D" uid="uid://cumwlxfncn1da" path="res://assets/gameplay/gameplay_componentes/vidro_filme.png" id="2_26eoh"]
 [ext_resource type="Texture2D" uid="uid://d4fyr76va70ac" path="res://assets/gameplay/gameplay_componentes/base_filme.png" id="3_j5bkl"]
@@ -13,8 +13,8 @@ region = Rect2(0, 0, 33, 48)
 
 [sub_resource type="LabelSettings" id="LabelSettings_wim70"]
 font = ExtResource("4_4lbeg")
-font_size = 14
-font_color = Color(1, 0.3303333, 0.01999998, 1)
+font_size = 12
+font_color = Color(0.5647059, 0.23137255, 0.09019608, 1)
 
 [node name="Filme" type="Control" unique_id=83797343]
 custom_minimum_size = Vector2(37, 52)
@@ -108,4 +108,4 @@ grow_vertical = 0
 text = "0"
 label_settings = SubResource("LabelSettings_wim70")
 horizontal_alignment = 1
-vertical_alignment = 2
+vertical_alignment = 1
