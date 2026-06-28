@@ -1,24 +1,18 @@
 extends CanvasLayer
 
 signal carta_jogada(carta : Carta)
-const CAPA_SCENE = preload("res://models/Capa.tscn")
-const CARTA_SCENE = preload("res://screens/gameplay/Interactions/Carta.tscn")
+
 @onready var objetivo_container = $ArrayObjetivo/MarginContainer/VBoxContainer/HBoxContainer
 @onready var historico_container = $Historico/PanelContainer/VBoxContainer
 
-#var inverte = false
+const CAPA_SCENE = preload("res://models/Capa.tscn")
+const CARTA_SCENE = preload("res://screens/gameplay/Interactions/Carta.tscn")
 
 func _ready() -> void:
 	GameManager.history_changed.connect(atualizar_historico)
 
-func _on_ajuda_tutorial_pressed() -> void:
-	pass # Replace with function body.
-func carregar_cartas_fase(cartas):
-	pass
-
 func propagar_carta(carta : Carta):
 	carta_jogada.emit(carta)
-
 
 func carregar_array_objetivo(target_state: Array):
 	for child in objetivo_container.get_children():
@@ -50,13 +44,3 @@ func remover_ultima_carta_historico():
 		return
 
 	historico_container.get_child(-1).queue_free()
-
-#func _unhandled_input(event: InputEvent) -> void:
-	#if event is InputEventMouseButton and event.is_pressed() and event.button_index == MOUSE_BUTTON_RIGHT and not inverte:
-		#carregar_array_objetivo([0,1,2,3,4,5])
-		#inverte = !inverte
-	#elif inverte:
-		#for c in $ArrayObjetivo/MarginContainer/HBoxContainer.get_children():
-			#if c == $ArrayObjetivo/MarginContainer/HBoxContainer/Base: continue
-			#$ArrayObjetivo/MarginContainer/HBoxContainer.remove_child(c)
-		#inverte = !inverte

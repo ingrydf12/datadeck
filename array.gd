@@ -10,19 +10,14 @@ func _process(delta: float) -> void:
 		_organizar_posicoes()
 	pass
 	
-func carregar_estado_inicial(initial_state: Array):
-	print("Carregando:", initial_state)
-
+func atualizar_estado(state: Array):
 	for item in itens.get_children():
-		print("Removendo", item)
 		item.queue_free()
 
 	await get_tree().process_frame
 
-	for valor in initial_state:
+	for valor in state:
 		push(valor)
-
-	print("Quantidade:", itens.get_child_count())
 
 func _organizar_posicoes():
 	var contagem = 0
@@ -38,7 +33,10 @@ func get_state() -> Array:
 
 	return estado
 
-# --------- OPERACOES -----------
+func carregar_estado_inicial(initial_state:Array):
+	atualizar_estado(initial_state)
+
+# --------- OPERACOES DE CARTAS NO ARRAY -----------
 func pop():
 	if itens.get_child_count() < 1:
 		invalid_operation.emit("Array vazio")
@@ -52,9 +50,8 @@ func pop():
 
 	return true
 
-
 func push(valor: int):
-	var filme_novo = load("res://filme.tscn").instantiate()
+	var filme_novo = load("res://models/filme.tscn").instantiate()
 	filme_novo.valor = valor
 	
 	itens.add_child(filme_novo)
@@ -78,7 +75,7 @@ func insert(posicao: int, valor: int):
 		invalid_operation.emit("Posição inválida")
 		return false
 
-	var filme_novo = load("res://filme.tscn").instantiate()
+	var filme_novo = load("res://models/filme.tscn").instantiate()
 	filme_novo.valor = valor
 
 	itens.add_child(filme_novo)
@@ -108,7 +105,7 @@ func reverse():
 	var valores := get_state()
 	valores.reverse()
 
-	carregar_estado_inicial(valores)
+	atualizar_estado(valores)
 
 
 func sort():

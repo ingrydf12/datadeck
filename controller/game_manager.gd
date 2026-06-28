@@ -15,6 +15,7 @@ var history: Array[Move] = []
 func _ready():
 	stages = Phase.build_all_stages()
 
+# ---- CONTROLES E VALIDACAO DE FASE
 func load_stage(index: int):
 	if index < 0 or index >= stages.size():
 		return
@@ -25,6 +26,7 @@ func load_stage(index: int):
 	current_state = current_stage.initial_state.duplicate(true)
 
 	history.clear()
+	history_changed.emit(history)
 
 	stage_loaded.emit(current_stage)
 	state_changed.emit(current_state)
@@ -65,15 +67,21 @@ func validate_state(state: Array) -> bool:
 
 func next_stage():
 	if current_stage_index + 1 >= stages.size():
-		print("Fim do jogo.")
 		return
 	load_stage(current_stage_index + 1)
 
+
+# --- GET IMPORTANTES PARA RESULTADO e CARREGAR FASE
 func get_current_cost() -> int:
 	var total := 0
 	for op in history:
 		total += op.cost()
 	return total
+
+func get_available_cards() -> Array[Operacao]:
+	if current_stage == null:
+		return []
+	return current_stage.available_cards
 
 func restart_stage():
 	if current_stage == null:
@@ -81,8 +89,3 @@ func restart_stage():
 	current_state = current_stage.initial_state.duplicate(true)
 	history.clear()
 	emit_signal("state_changed", current_state)
-
-func get_available_cards() -> Array[Operacao]:
-	if current_stage == null:
-		return []
-	return current_stage.available_cards

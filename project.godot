@@ -24,13 +24,13 @@ config/icon="res://icon.svg"
 CartaTransition="*uid://2kpr7efyb5mg"
 HudCartas="*uid://cb7sd7o7537x6"
 GameManager="*uid://b740c1j4dosjh"
+CursorManager="*uid://dr0gi1ut33q5o"
 
 [display]
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
 window/stretch/mode="viewport"
-mouse_cursor/custom_image="uid://ce31bes0vsox"
 
 [gui]
 

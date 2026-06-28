@@ -324,6 +324,7 @@ alignment = 1
 [node name="BntJogar" type="TextureButton" parent="SubViewportContainer/SubViewport/CanvasLayer/VBoxContainer" unique_id=1597961727]
 layout_mode = 2
 size_flags_vertical = 3
+mouse_default_cursor_shape = 2
 theme = SubResource("Theme_mt1gs")
 texture_normal = ExtResource("5_mt1gs")
 texture_pressed = ExtResource("5_mt1gs")
@@ -353,6 +354,7 @@ vertical_alignment = 1
 [node name="BntCreditos" type="TextureButton" parent="SubViewportContainer/SubViewport/CanvasLayer/VBoxContainer" unique_id=2132923656]
 layout_mode = 2
 size_flags_vertical = 3
+mouse_default_cursor_shape = 2
 texture_normal = ExtResource("5_mt1gs")
 texture_pressed = ExtResource("5_mt1gs")
 texture_hover = ExtResource("5_mt1gs")
@@ -381,6 +383,7 @@ vertical_alignment = 1
 [node name="BntSair" type="TextureButton" parent="SubViewportContainer/SubViewport/CanvasLayer/VBoxContainer" unique_id=503969832]
 layout_mode = 2
 size_flags_vertical = 3
+mouse_default_cursor_shape = 2
 texture_normal = ExtResource("5_mt1gs")
 texture_pressed = ExtResource("5_mt1gs")
 texture_hover = ExtResource("5_mt1gs")

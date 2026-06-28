@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dk6tolo876q5i"]
 
-[ext_resource type="Script" uid="uid://b18wlxh14gsie" path="res://filme.gd" id="1_26eoh"]
+[ext_resource type="Script" uid="uid://b18wlxh14gsie" path="res://models/filme.gd" id="1_26eoh"]
 [ext_resource type="Texture2D" uid="uid://rbwmnwhfgx5g" path="res://assets/gameplay/gameplay_componentes/capas.png" id="1_oi565"]
 [ext_resource type="Texture2D" uid="uid://cumwlxfncn1da" path="res://assets/gameplay/gameplay_componentes/vidro_filme.png" id="2_26eoh"]
 [ext_resource type="Texture2D" uid="uid://d4fyr76va70ac" path="res://assets/gameplay/gameplay_componentes/base_filme.png" id="3_j5bkl"]

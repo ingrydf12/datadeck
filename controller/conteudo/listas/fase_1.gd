@@ -21,15 +21,13 @@ func setup(phase: Phase):
 	GameManager.history.clear()
 
 	_load_cards()
-
-	await get_tree().process_frame
 	
 # --------- ESTADOS -------------
 
-func _on_state_changed(state: Array):
-	$Array.carregar_estado_inicial(state)
+func _on_state_changed(state:Array):
+	$Array.atualizar_estado(state)
 
-	for carta: Carta in cartas_container.get_children():
+	for carta:Carta in cartas_container.get_children():
 		carta.atualizar_contexto(state)
 		
 func atualizar_array():
@@ -47,18 +45,12 @@ func _load_cards():
 	for child in cartas_container.get_children():
 		child.queue_free()
 
-	await get_tree().process_frame
-
 	for operacao in fase.available_cards:
 		var carta: Carta = CARTA_SCENE.instantiate()
+
 		carta.setup(operacao)
 		cartas_container.add_child(carta)
-
-		print("Carta adicionada:", carta)
-		print("Filhos do container:", cartas_container.get_child_count())
 		
-	await get_tree().process_frame
-
 	if curva_mao:
 		curva_mao.organizar_cartas(
 			cartas_container.get_children()
@@ -66,30 +58,35 @@ func _load_cards():
 
 	_loading = false
 
-# --- INTERACAO COM AREA ACAO PARA ATUALIZAR O ARRAY
+# --- INTERACOES QUE ALTERAM O ARRAY
 func _on_area_acao_mudar_array(carta:Carta):
 	GameManager.apply_operation(carta)
 
 	if carta.get_parent() == cartas_container:
 		cartas_container.remove_child(carta)
-	
+
+# TODO: Mover isso para game manager
 func undo():
 	if GameManager.history.is_empty():
 		return
 
 	var move: Move = GameManager.history.pop_back()
 
-	$Array.carregar_estado_inicial(move.previous)
+	GameManager.current_state = move.previous.duplicate(true)
+
+	await $Array.carregar_estado_inicial(
+		GameManager.current_state
+	)
+
 	var carta: Carta = move.card
 
 	if carta:
 		cartas_container.add_child(carta)
 		carta.resetar_na_mao()
-		curva_mao.organizar_cartas(
-			cartas_container.get_children()
-		)
 
-	HudCartas.atualizar_historico(GameManager.history)
-
-	await get_tree().process_frame
-	atualizar_array()
+	curva_mao.organizar_cartas(
+		cartas_container.get_children()
+	)
+	HudCartas.atualizar_historico(
+		GameManager.history
+	)

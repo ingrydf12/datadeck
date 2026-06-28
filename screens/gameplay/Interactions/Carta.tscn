@@ -1,18 +1,12 @@
 [gd_scene format=3 uid="uid://ctpi2odakf7jn"]
 
 [ext_resource type="Script" uid="uid://e8nebwmen0vc" path="res://screens/gameplay/Interactions/Carta.gd" id="1_4gtqo"]
-[ext_resource type="Script" uid="uid://1hd4e2j6uxmt" path="res://models/Operacao.gd" id="2_77s45"]
 [ext_resource type="Texture2D" uid="uid://dakeyqlnlf5ls" path="res://assets/cartas maior1.png" id="3_77s45"]
 [ext_resource type="Script" uid="uid://b84o3y3mkwlgh" path="res://popup_detalhes.gd" id="3_ce55x"]
 [ext_resource type="Texture2D" uid="uid://bf8gm2rve7moc" path="res://assets/gameplay/gameplay_componentes/cartas.png" id="4_xu3ok"]
 [ext_resource type="Shader" uid="uid://b3haynmqxkal4" path="res://efeitos/carta.tres" id="5_vdnt1"]
 [ext_resource type="Texture2D" uid="uid://btq0gjspnen4s" path="res://assets/gameplay/gameplay_componentes/mini_vidro.png" id="8_rrb0j"]
 [ext_resource type="FontFile" uid="uid://dsdm1dih5di33" path="res://styles/fonts/superstar_memesbruh03.ttf" id="9_y1jwu"]
-
-[sub_resource type="Resource" id="Resource_xu3ok"]
-script = ExtResource("2_77s45")
-tipo = 7
-metadata/_custom_type_script = "uid://1hd4e2j6uxmt"
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xu3ok"]
 bg_color = Color(0.18, 0.18, 0.18, 1)
@@ -53,12 +47,18 @@ pivot_offset_ratio = Vector2(0.5, 0.5)
 size_flags_horizontal = 0
 mouse_filter = 1
 script = ExtResource("1_4gtqo")
-dados = SubResource("Resource_xu3ok")
 descricao = "olá professores, estes é um teste da capacidade de expansão textual do contêiner e se tuddo der certo o negocio vai começar a abaixar aaaaaaaaaaaaaaaaaaaaaaaaaaaaa a a a a a  a a"
 
 [node name="Line2D" type="Line2D" parent="." unique_id=49205797]
 visible = false
 points = PackedVector2Array(-337, -31, 1, 0)
+
+[node name="Sombra" type="Sprite2D" parent="." unique_id=1340384892]
+self_modulate = Color(0, 0, 0, 0.58431375)
+scale = Vector2(4, 4)
+texture = ExtResource("4_xu3ok")
+region_enabled = true
+region_rect = Rect2(74, 0, 37, 52)
 
 [node name="PopupDetalhes" type="PanelContainer" parent="." unique_id=1504594219]
 visible = false
@@ -118,13 +118,6 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "olá professores, estes é um teste da capacidade de expansão textual do contêiner e se tuddo der certo o negocio vai começar a abaixar aaaaaaaaaaaaaaaaaaaaaaaaaaaaa a a a a a  a a"
 autowrap_mode = 3
-
-[node name="Sombra" type="Sprite2D" parent="." unique_id=1340384892]
-self_modulate = Color(0, 0, 0, 0.58431375)
-scale = Vector2(4, 4)
-texture = ExtResource("4_xu3ok")
-region_enabled = true
-region_rect = Rect2(74, 0, 37, 52)
 
 [node name="Texture" type="TextureRect" parent="." unique_id=2016232433]
 material = SubResource("ShaderMaterial_ce55x")
@@ -279,6 +272,7 @@ offset_top = -104.0
 offset_right = 74.0
 offset_bottom = 104.0
 mouse_filter = 1
+mouse_default_cursor_shape = 6
 button_mask = 3
 
 [connection signal="button_down" from="Button" to="." method="_on_button_button_down"]

@@ -1,6 +1,6 @@
 extends Node2D
 
-const LISTAS_SCENE := preload("res://Fase1.tscn")
+const LISTAS_SCENE := preload("res://controller/conteudo/listas/Fase1.tscn")
 
 @onready var phase_container: Node2D = $PhaseContainer
 @onready var gameplay_hud: GameplayHUD = $ControllerUserInteractions
