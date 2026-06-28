@@ -1,6 +1,15 @@
 [gd_scene format=3 uid="uid://jmsla6dieyhk"]
 
 [ext_resource type="Script" uid="uid://cgfnip2i7qpuo" path="res://screens/gameplay/main.gd" id="1_glrfj"]
+[ext_resource type="PackedScene" uid="uid://d2o038gyl5ki" path="res://screens/tutorial/TutorialCarrossel.tscn" id="3_mv30t"]
+[ext_resource type="PackedScene" uid="uid://ct33q7ctloxj5" path="res://screens/gameplay/Interactions/ControllerUserInteractions.tscn" id="3_t4r3t"]
 
 [node name="Main" type="Node2D" unique_id=1428579286]
 script = ExtResource("1_glrfj")
+
+[node name="ControllerUserInteractions" parent="." unique_id=205812112 instance=ExtResource("3_t4r3t")]
+
+[node name="TutorialCarrossel" parent="." unique_id=1278216754 instance=ExtResource("3_mv30t")]
+visible = false
+
+[node name="PhaseContainer" type="Node2D" parent="." unique_id=1093345159]

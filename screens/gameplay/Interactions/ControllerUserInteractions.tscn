@@ -1,0 +1,85 @@
+[gd_scene format=3 uid="uid://ct33q7ctloxj5"]
+
+[ext_resource type="Script" uid="uid://byqmyo42081s" path="res://screens/gameplay/Interactions/controller_user_interactions.gd" id="1_n7onw"]
+[ext_resource type="Texture2D" uid="uid://edn4xupv26pg" path="res://assets/gameplay/gameplay_componentes/icone_ajuda.png" id="2_kpof5"]
+[ext_resource type="Texture2D" uid="uid://d38hp6nav502j" path="res://assets/gameplay/gameplay_componentes/icone_retornar.png" id="3_rjx2s"]
+[ext_resource type="Script" uid="uid://b07gpraio4lyr" path="res://styles/button/pixel_btn.gd" id="3_sxykh"]
+[ext_resource type="Texture2D" uid="uid://cbm2rlwebbaka" path="res://assets/gameplay/tilesets/botao_largo1.png" id="4_sxykh"]
+[ext_resource type="Texture2D" uid="uid://b4yt215x8ldcg" path="res://assets/gameplay/gameplay_componentes/icone_pausa.png" id="5_762gh"]
+
+[node name="ControllerUserInteractions" type="CanvasLayer" unique_id=205812112]
+script = ExtResource("1_n7onw")
+
+[node name="Tutorial" type="TextureButton" parent="." unique_id=65342973]
+offset_left = 30.0
+offset_top = 22.0
+offset_right = 70.0
+offset_bottom = 62.0
+scale = Vector2(1.5, 1.5)
+size_flags_horizontal = 4
+size_flags_vertical = 0
+texture_normal = ExtResource("4_sxykh")
+texture_pressed = ExtResource("4_sxykh")
+texture_hover = ExtResource("4_sxykh")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("3_sxykh")
+
+[node name="TextureRect" type="TextureRect" parent="Tutorial" unique_id=1595216638]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_kpof5")
+
+[node name="Desfazer" type="TextureButton" parent="." unique_id=2067112070]
+offset_left = 30.0
+offset_top = 85.0
+offset_right = 70.0
+offset_bottom = 125.0
+scale = Vector2(1.5, 1.5)
+texture_normal = ExtResource("4_sxykh")
+texture_pressed = ExtResource("4_sxykh")
+texture_hover = ExtResource("4_sxykh")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("3_sxykh")
+
+[node name="TextureRect" type="TextureRect" parent="Desfazer" unique_id=1540116316]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_rjx2s")
+
+[node name="Pausar" type="TextureButton" parent="." unique_id=709452954]
+offset_left = 1209.0
+offset_top = 32.0
+offset_right = 1249.0
+offset_bottom = 72.0
+scale = Vector2(1.5, 1.5)
+size_flags_horizontal = 4
+size_flags_vertical = 0
+texture_normal = ExtResource("4_sxykh")
+texture_pressed = ExtResource("4_sxykh")
+texture_hover = ExtResource("4_sxykh")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("3_sxykh")
+
+[node name="TextureRect" type="TextureRect" parent="Pausar" unique_id=114540339]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_762gh")
+
+[connection signal="pressed" from="Tutorial" to="." method="_on_tutorial_pressed"]
+[connection signal="pressed" from="Desfazer" to="." method="_on_undo_pressed"]
+[connection signal="pressed" from="Pausar" to="." method="_on_pause_pressed"]

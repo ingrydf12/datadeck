@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cb7sd7o7537x6"]
 
-[ext_resource type="Script" uid="uid://2nvnxqbdlo5u" path="res://screens/gameplay/hud.gd" id="1_cklxt"]
+[ext_resource type="Script" uid="uid://evnoguamu87o" path="res://screens/gameplay/hud.gd" id="1_cklxt"]
 [ext_resource type="Texture2D" uid="uid://dxh8fg0essrba" path="res://assets/gameplay/tilesets/container_cartas.png" id="2_sqq4g"]
 [ext_resource type="PackedScene" uid="uid://ctpi2odakf7jn" path="res://screens/gameplay/Interactions/Carta.tscn" id="3_sqq4g"]
 [ext_resource type="Texture2D" uid="uid://dx7bucqww2tvg" path="res://assets/gameplay/tilesets/container_obj_hst.png" id="4_cklxt"]
@@ -85,7 +85,6 @@ region = Rect2(0, 0, 12, 18)
 
 [node name="HUD" type="CanvasLayer" unique_id=1854730849]
 layer = 6
-visible = false
 script = ExtResource("1_cklxt")
 
 [node name="ContainerFake" type="Panel" parent="." unique_id=1280168472]
