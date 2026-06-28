@@ -11,10 +11,8 @@ var target_state: Array # array objetivo
 
 var available_cards: Array[Operacao]
 
-
 func validate(state: Array) -> bool:
 	return state == target_state
-
 
 static func create(
 	id:int,

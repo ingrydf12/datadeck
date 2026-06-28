@@ -12,10 +12,10 @@ func _ready() -> void:
 	gameplay_hud.tutorial_pressed.connect(tutorial.open_tutorial)
 	gameplay_hud.pause_pressed.connect(_on_pause_pressed)
 
-	load_phase(
-		LISTAS_SCENE,
-		Phase.build_all_stages()[0]
-	)
+	GameManager.stage_loaded.connect(_on_stage_loaded)
+	GameManager.stage_completed.connect(_on_stage_completed)
+	
+	GameManager.load_stage(0)
 
 func load_phase(scene: PackedScene, phase_data: Phase) -> void:
 	if current_phase:
@@ -29,6 +29,16 @@ func load_phase(scene: PackedScene, phase_data: Phase) -> void:
 
 	if current_phase.has_method("undo"):
 		gameplay_hud.undo_pressed.connect(current_phase.undo)
+
+func _on_stage_completed(stage: Phase):
+	print("Fase", stage.stage_id, "concluída!")
+
+	await get_tree().create_timer(1.0).timeout
+
+	GameManager.next_stage()
+	
+func _on_stage_loaded(stage: Phase): 
+	load_phase(LISTAS_SCENE, stage)
 
 func _on_undo_pressed() -> void:
 	if current_phase:

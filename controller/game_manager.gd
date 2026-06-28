@@ -11,11 +11,8 @@ var current_stage: Phase
 var current_state: Array = []
 var history: Array[Move] = []
 
-func initialize():
+func _ready():
 	stages = Phase.build_all_stages()
-
-	if stages.size() > 0:
-		load_stage(0)
 
 func load_stage(index: int):
 	if index < 0 or index >= stages.size():
@@ -46,16 +43,26 @@ func apply_operation(operation: Operacao):
 	current_state = operation.apply(current_state)
 	state_changed.emit(current_state)
 
-	if check_victory():
-		await _handle_victory()
+func validate_state(state: Array) -> bool:
+	print("current_stage:", current_stage)
 
-func check_victory() -> bool:
-	return current_stage.validate(current_state)
+	if current_stage == null:
+		print("Stage nulo")
+		return false
 
-func _handle_victory():
-	emit_signal("stage_completed", current_stage)
-	await get_tree().create_timer(1.0).timeout
-	next_stage()
+	print("Estado:", state)
+	print("Objetivo:", current_stage.target_state)
+
+	var venceu := current_stage.validate(state)
+
+	print("Resultado da validação:", venceu)
+
+	if venceu:
+		print("VENCEU")
+		stage_completed.emit(current_stage)
+		return true
+
+	return false
 
 func next_stage():
 	if current_stage_index + 1 >= stages.size():
@@ -63,14 +70,14 @@ func next_stage():
 		return
 	load_stage(current_stage_index + 1)
 	
-func undo():
-	if history.is_empty():
-		return
-
-	var move: Move = history.pop_back()
-
-	current_state = move.previous_state.duplicate(true)
-	state_changed.emit(current_state)
+#func undo():
+	#if history.is_empty():
+		#return
+#
+	#var move: Move = history.pop_back()
+#
+	#current_state = move.previous_state.duplicate(true)
+	#state_changed.emit(current_state)
 
 func get_current_cost() -> int:
 	var total := 0

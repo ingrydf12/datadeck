@@ -6,8 +6,6 @@ const CARTA_SCENE = preload("res://screens/gameplay/Interactions/carta.tscn")
 var fase: Phase
 var _loading := false
 
-var historico: Array[Array] = []
-
 func _ready() -> void:
 	if fase != null:
 		_load_cards()
@@ -15,17 +13,17 @@ func _ready() -> void:
 
 func setup(phase: Phase):
 	fase = phase
+	GameManager.current_stage = phase
 
 	HudCartas.visible = true
 	HudCartas.carregar_array_objetivo(fase.target_state)
 
 	$Array.carregar_estado_inicial(fase.initial_state)
-	historico.clear()
-	historico.append(fase.initial_state.duplicate(true))
+	GameManager.history.clear()
+
 	_load_cards()
 
 	await get_tree().process_frame
-
 	atualizar_array()
 	
 # --------- ESTADOS -------------
@@ -34,9 +32,7 @@ func atualizar_array():
 
 	for carta: Carta in cartas_container.get_children():
 		carta.atualizar_contexto(estado)
-		
-func salvar_estado():
-	historico.append($Array.get_state().duplicate(true))
+	
 
 func _load_cards():
 	if fase == null or _loading:
@@ -66,10 +62,21 @@ func _load_cards():
 
 	_loading = false
 
+func salvar_estado(operation: Operacao):
+	var move := Move.create(
+		$Array.get_state().duplicate(true),
+		operation
+	)
+
+	GameManager.history.append(move)
+	HudCartas.atualizar_historico(GameManager.history)
+
 # --- INTERACAO COM AREA ACAO PARA ATUALIZAR O ARRAY
-func _on_area_acao_mudar_array(operation: Operacao):
-	salvar_estado()
-	
+func _on_area_acao_mudar_array(carta: Carta):
+	var operation := carta.dados
+
+	salvar_estado(operation)
+
 	match operation.tipo:
 		Operacao.Tipo.POP:
 			$Array.pop()
@@ -77,15 +84,19 @@ func _on_area_acao_mudar_array(operation: Operacao):
 		Operacao.Tipo.PUSH:
 			$Array.push(operation.elemento)
 
+	cartas_container.remove_child(carta)
+	HudCartas.adicionar_carta_historico(carta)
 	atualizar_array()
+	GameManager.validate_state($Array.get_state())
 	
 func undo():
-	if historico.is_empty():
+	if GameManager.history.is_empty():
 		return
 
-	var move: Move = historico.pop_back()
+	var move: Move = GameManager.history.pop_back()
 
-	$Array.carregar_estado_inicial(move.previous_state)
+	$Array.carregar_estado_inicial(move.previous)
+	HudCartas.atualizar_historico(GameManager.history)
+
+	await get_tree().process_frame
 	atualizar_array()
-
-	HudCartas.remover_ultima_carta_historico()

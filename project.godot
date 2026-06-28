@@ -23,6 +23,7 @@ config/icon="res://icon.svg"
 
 CartaTransition="*uid://2kpr7efyb5mg"
 HudCartas="*uid://cb7sd7o7537x6"
+GameManager="*uid://b740c1j4dosjh"
 
 [display]
 
