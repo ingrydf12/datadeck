@@ -110,6 +110,8 @@ func _preparar():
 			ativar_params(1)
 		Operacao.Tipo.SLICE:
 			ativar_params(2)
+		Operacao.Tipo.REVERSE:
+			ativar_params(0)
 	atualizar_parametros(dados)
 
 # - - - - - - - - - - - - - ANIMAÇÕES E VISUAL
@@ -149,6 +151,7 @@ func atualizar_parametros(data: Operacao, estado: Array = []):
 			pass
 		Operacao.Tipo.UPDATE:
 			$Texture/Control/Parametros/P1/Base/Label.text = str(data.posicao)
+			$Texture/Control/Parametros/P2/Base/Label.text = str(data.elemento)
 			$Texture/Control/Parametros/P2/Capa.texture.region = Rect2(
 				(12 + 1) * data.elemento,
 				0,
@@ -157,6 +160,7 @@ func atualizar_parametros(data: Operacao, estado: Array = []):
 			)
 		Operacao.Tipo.INSERT:
 			$Texture/Control/Parametros/P1/Base/Label.text = str(data.posicao)
+			$Texture/Control/Parametros/P2/Base/Label.text = str(data.elemento)
 			$Texture/Control/Parametros/P2/Capa.texture.region = Rect2(
 				(12 + 1) * data.elemento,
 				0,
@@ -182,7 +186,12 @@ func atualizar_parametros(data: Operacao, estado: Array = []):
 		Operacao.Tipo.MAP:
 			# MAP()
 			pass
-			
+
+func resetar_na_mao():
+	origem = global_position
+	rotation = 0
+	z_index = 0
+	
 func _crescer():
 	create_tween().tween_method(mudaroffset, textura.get_instance_shader_parameter('tamanho'), 22, 0.15)
 	create_tween().tween_property($Texture, 'scale',Vector2(4.8, 4.8), 0.15)

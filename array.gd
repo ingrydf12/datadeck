@@ -38,18 +38,109 @@ func get_state() -> Array:
 
 	return estado
 
+# --------- OPERACOES -----------
 func pop():
 	if itens.get_child_count() < 1:
-		invalid_operation.emit("Array não pode")
+		invalid_operation.emit("Array vazio")
 		return false
 	
 	var filme = itens.get_child(-1)
 	itens.remove_child(filme)
-	return filme
+	filme.queue_free()
 
-func push(valor:int):
+	_organizar_posicoes()
+
+	return true
+
+
+func push(valor: int):
 	var filme_novo = load("res://filme.tscn").instantiate()
 	filme_novo.valor = valor
+	
 	itens.add_child(filme_novo)
 
 	_organizar_posicoes()
+
+
+func update(posicao: int, valor: int):
+	if posicao < 0 or posicao >= itens.get_child_count():
+		invalid_operation.emit("Posição inválida")
+		return false
+
+	var filme: Filme = itens.get_child(posicao)
+	filme.valor = valor
+
+	return true
+
+
+func insert(posicao: int, valor: int):
+	if posicao < 0 or posicao > itens.get_child_count():
+		invalid_operation.emit("Posição inválida")
+		return false
+
+	var filme_novo = load("res://filme.tscn").instantiate()
+	filme_novo.valor = valor
+
+	itens.add_child(filme_novo)
+	itens.move_child(filme_novo, posicao)
+
+	_organizar_posicoes()
+
+	return true
+
+
+func remove(posicao: int):
+	if posicao < 0 or posicao >= itens.get_child_count():
+		invalid_operation.emit("Posição inválida")
+		return false
+
+	var filme = itens.get_child(posicao)
+
+	itens.remove_child(filme)
+	filme.queue_free()
+
+	_organizar_posicoes()
+
+	return true
+
+
+func reverse():
+	var valores := get_state()
+	valores.reverse()
+
+	carregar_estado_inicial(valores)
+
+
+func sort():
+	var valores := get_state()
+	valores.sort()
+
+	carregar_estado_inicial(valores)
+
+
+func slice(inicio: int, fim: int):
+	var valores := get_state()
+	var novo_estado := valores.slice(inicio, fim)
+
+	carregar_estado_inicial(novo_estado)
+
+
+func filter(valor: int):
+	var valores := get_state()
+	var novo_estado := []
+
+	for item in valores:
+		if item == valor:
+			novo_estado.append(item)
+
+	carregar_estado_inicial(novo_estado)
+
+
+func map(valor: int):
+	var valores := get_state()
+	var novo_estado := []
+
+	for item in valores:
+		novo_estado.append(item + valor)
+
+	carregar_estado_inicial(novo_estado)

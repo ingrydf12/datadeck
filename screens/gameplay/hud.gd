@@ -9,7 +9,7 @@ const CARTA_SCENE = preload("res://screens/gameplay/Interactions/Carta.tscn")
 #var inverte = false
 
 func _ready() -> void:
-	pass
+	GameManager.history_changed.connect(atualizar_historico)
 
 func _on_ajuda_tutorial_pressed() -> void:
 	pass # Replace with function body.

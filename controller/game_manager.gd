@@ -3,6 +3,7 @@ extends Node
 signal state_changed(state: Array)
 signal stage_loaded(stage: Phase)
 signal stage_completed(stage: Phase)
+signal history_changed(history: Array[Move])
 
 var stages: Array[Phase] = []
 var current_stage_index: int = 0
@@ -28,37 +29,35 @@ func load_stage(index: int):
 	stage_loaded.emit(current_stage)
 	state_changed.emit(current_state)
 
-func apply_operation(operation: Operacao):
-	if operation == null:
+func apply_operation(carta: Carta):
+	if carta.dados == null:
 		return
 
-	if !operation.is_valid(current_state):
-		print("Operação inválida.")
+	if !carta.dados.is_valid(current_state):
 		return
 
-	history.append(
-		Move.create(current_state, operation)
+	var move := Move.create(
+		current_state.duplicate(true),
+		carta.dados,
+		carta
 	)
 
-	current_state = operation.apply(current_state)
+	history.append(move)
+	history_changed.emit(history)
+	var novo_estado = carta.dados.apply(current_state)
+
+	current_state = novo_estado
 	state_changed.emit(current_state)
+	validate_state(current_state)
 
 func validate_state(state: Array) -> bool:
-	print("current_stage:", current_stage)
-
 	if current_stage == null:
 		print("Stage nulo")
 		return false
 
-	print("Estado:", state)
-	print("Objetivo:", current_stage.target_state)
-
 	var venceu := current_stage.validate(state)
 
-	print("Resultado da validação:", venceu)
-
 	if venceu:
-		print("VENCEU")
 		stage_completed.emit(current_stage)
 		return true
 
@@ -69,15 +68,6 @@ func next_stage():
 		print("Fim do jogo.")
 		return
 	load_stage(current_stage_index + 1)
-	
-#func undo():
-	#if history.is_empty():
-		#return
-#
-	#var move: Move = history.pop_back()
-#
-	#current_state = move.previous_state.duplicate(true)
-	#state_changed.emit(current_state)
 
 func get_current_cost() -> int:
 	var total := 0

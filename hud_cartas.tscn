@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://cb7sd7o7537x6"]
+[gd_scene format=4 uid="uid://cb7sd7o7537x6"]
 
 [ext_resource type="Script" uid="uid://evnoguamu87o" path="res://screens/gameplay/hud.gd" id="1_cklxt"]
 [ext_resource type="Texture2D" uid="uid://dxh8fg0essrba" path="res://assets/gameplay/tilesets/container_cartas.png" id="2_sqq4g"]
@@ -9,50 +9,77 @@
 [ext_resource type="Texture2D" uid="uid://rmcau3bs152m" path="res://assets/gameplay/gameplay_componentes/capas_obj.png" id="7_nkr5l"]
 [ext_resource type="FontFile" uid="uid://dsdm1dih5di33" path="res://styles/fonts/superstar_memesbruh03.ttf" id="8_sowp3"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_82fsy"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wg0hk"]
 texture = ExtResource("2_sqq4g")
-texture_margin_left = 11.0
-texture_margin_top = 11.0
-texture_margin_right = 11.0
-texture_margin_bottom = 11.0
+texture_region_size = Vector2i(30, 30)
+use_texture_padding = false
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
 
-[sub_resource type="Resource" id="Resource_sowp3"]
+[sub_resource type="TileSet" id="TileSet_rccyw"]
+tile_size = Vector2i(30, 30)
+sources/1 = SubResource("TileSetAtlasSource_wg0hk")
+
+[sub_resource type="Resource" id="Resource_wg0hk"]
 resource_local_to_scene = true
 script = ExtResource("4_wg0hk")
 metadata/_custom_type_script = "uid://1hd4e2j6uxmt"
 
-[sub_resource type="Resource" id="Resource_kkc4b"]
+[sub_resource type="Resource" id="Resource_sowp3"]
 resource_local_to_scene = true
 script = ExtResource("4_wg0hk")
 posicao = 1
 elemento = 1
 metadata/_custom_type_script = "uid://1hd4e2j6uxmt"
 
-[sub_resource type="Resource" id="Resource_qy020"]
+[sub_resource type="Resource" id="Resource_kkc4b"]
 resource_local_to_scene = true
 script = ExtResource("4_wg0hk")
 posicao = 2
 elemento = 2
 metadata/_custom_type_script = "uid://1hd4e2j6uxmt"
 
-[sub_resource type="Resource" id="Resource_jtult"]
+[sub_resource type="Resource" id="Resource_qy020"]
 resource_local_to_scene = true
 script = ExtResource("4_wg0hk")
 posicao = 3
 elemento = 3
 metadata/_custom_type_script = "uid://1hd4e2j6uxmt"
 
-[sub_resource type="Resource" id="Resource_e7j14"]
+[sub_resource type="Resource" id="Resource_jtult"]
 resource_local_to_scene = true
 script = ExtResource("4_wg0hk")
 tipo = 1
 metadata/_custom_type_script = "uid://1hd4e2j6uxmt"
 
-[sub_resource type="Curve2D" id="Curve2D_3chc0"]
+[sub_resource type="Curve2D" id="Curve2D_e7j14"]
 resource_local_to_scene = true
 bake_interval = 10.0
 _data = {
-"points": PackedVector2Array(-166.01279, -5.300995, 166.013, 0, -317, -1, -188.186, 0, 188.18582, 156.57239, 596, 0)
+"points": PackedVector2Array(-166.01279, -5.300995, 166.013, 0, -317, -1, -188.186, 0, 188.18582, 156.57239, 441, 4)
 }
 point_count = 2
 
@@ -80,26 +107,12 @@ region = Rect2(0, 0, 12, 18)
 
 [node name="HUD" type="CanvasLayer" unique_id=1854730849]
 layer = 6
-visible = false
 script = ExtResource("1_cklxt")
 
-[node name="ContainerFake" type="Panel" parent="." unique_id=1280168472]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -351.0
-offset_top = -270.0
-offset_right = -175.0
-offset_bottom = -205.25
-grow_horizontal = 2
-grow_vertical = 0
-scale = Vector2(4, 4)
-size_flags_horizontal = 8
-size_flags_vertical = 8
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_82fsy")
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1588346103]
+scale = Vector2(3, 3)
+tile_map_data = PackedByteArray("AAALAAYAAQACAAEAAAALAAcAAQACAAEAAAAEAAYAAQABAAEAAAAEAAcAAQABAAEAAAAFAAYAAQABAAEAAAAFAAcAAQABAAEAAAAGAAYAAQABAAEAAAAGAAcAAQABAAEAAAAHAAYAAQABAAEAAAAHAAcAAQABAAEAAAAIAAYAAQABAAEAAAAIAAcAAQABAAEAAAAJAAYAAQABAAEAAAAJAAcAAQABAAEAAAAKAAYAAQABAAEAAAAKAAcAAQABAAEAAAADAAYAAQAAAAEAAAADAAcAAQAAAAEAAAADAAUAAQAAAAAAAAAEAAUAAQABAAAAAAAFAAUAAQABAAAAAAAGAAUAAQABAAAAAAAHAAUAAQABAAAAAAAIAAUAAQABAAAAAAAJAAUAAQABAAAAAAAKAAUAAQABAAAAAAALAAUAAQACAAAAAAA=")
+tile_set = SubResource("TileSet_rccyw")
 
 [node name="Cartas" type="Control" parent="." unique_id=1856107978]
 layout_mode = 3
@@ -122,7 +135,7 @@ offset_top = -98.88318
 offset_right = -291.83325
 offset_bottom = -98.88318
 rotation = 0.00112228
-dados = SubResource("Resource_sowp3")
+dados = SubResource("Resource_wg0hk")
 
 [node name="Carta2" parent="Cartas" unique_id=1588019557 instance=ExtResource("3_sqq4g")]
 layout_mode = 0
@@ -131,7 +144,7 @@ offset_top = -98.69403
 offset_right = -139.66653
 offset_bottom = -98.69403
 rotation = 0.0013221893
-dados = SubResource("Resource_kkc4b")
+dados = SubResource("Resource_sowp3")
 
 [node name="Carta3" parent="Cartas" unique_id=1794250641 instance=ExtResource("3_sqq4g")]
 layout_mode = 0
@@ -140,7 +153,7 @@ offset_top = -98.48871
 offset_right = 12.500061
 offset_bottom = -98.48871
 rotation = 0.001358108
-dados = SubResource("Resource_qy020")
+dados = SubResource("Resource_kkc4b")
 
 [node name="Carta4" parent="Cartas" unique_id=1827319490 instance=ExtResource("3_sqq4g")]
 layout_mode = 0
@@ -149,7 +162,7 @@ offset_top = -98.28595
 offset_right = 164.66669
 offset_bottom = -98.28595
 rotation = 0.0012877823
-dados = SubResource("Resource_jtult")
+dados = SubResource("Resource_qy020")
 
 [node name="Carta5" parent="Cartas" unique_id=522243788 instance=ExtResource("3_sqq4g")]
 layout_mode = 0
@@ -158,11 +171,11 @@ offset_top = -98.10492
 offset_right = 316.8333
 offset_bottom = -98.10492
 rotation = 0.0010483422
-dados = SubResource("Resource_e7j14")
+dados = SubResource("Resource_jtult")
 
 [node name="CurvaMao" parent="." unique_id=486530762 instance=ExtResource("4_nkr5l")]
-position = Vector2(516, 564)
-curve = SubResource("Curve2D_3chc0")
+position = Vector2(624.165, 568.87)
+curve = SubResource("Curve2D_e7j14")
 
 [node name="Historico" type="Control" parent="." unique_id=165886100]
 layout_mode = 3
