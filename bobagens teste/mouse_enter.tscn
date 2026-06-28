@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cw0ih6qnbtlyy"]
 
-[ext_resource type="PackedScene" uid="uid://1jan6m0nx0i" path="res://area_acao.tscn" id="2_tvyuw"]
+[ext_resource type="PackedScene" uid="uid://1jan6m0nx0i" path="res://styles/display/area_acao.tscn" id="2_tvyuw"]
 
 [node name="MouseEnter" type="Node2D" unique_id=1420569222]
 

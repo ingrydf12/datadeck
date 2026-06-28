@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://cymc6rw6aa6i8" path="res://controller/conteudo/listas/fase_1.gd" id="1_0e1q4"]
 [ext_resource type="Texture2D" uid="uid://dgdbmran5vg5e" path="res://assets/gameplay/cenario/background.png" id="2_y26v0"]
 [ext_resource type="Texture2D" uid="uid://glj21tgopfq2" path="res://assets/gameplay/cenario/foreground.png" id="3_k888p"]
-[ext_resource type="Script" uid="uid://dte2xg1mvle3n" path="res://area_acao.gd" id="4_2hftg"]
-[ext_resource type="PackedScene" uid="uid://c3gapmpb2q8wa" path="res://array.tscn" id="5_g3oi3"]
+[ext_resource type="Script" uid="uid://dte2xg1mvle3n" path="res://styles/display/area_acao.gd" id="4_2hftg"]
+[ext_resource type="PackedScene" uid="uid://c3gapmpb2q8wa" path="res://screens/gameplay/Interactions/array.tscn" id="5_g3oi3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_56mg4"]
 size = Vector2(1350, 255)

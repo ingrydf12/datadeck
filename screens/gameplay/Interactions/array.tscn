@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c3gapmpb2q8wa"]
 
-[ext_resource type="Script" uid="uid://udoy1ogvf4mq" path="res://array.gd" id="1_44ixo"]
+[ext_resource type="Script" uid="uid://udoy1ogvf4mq" path="res://screens/gameplay/Interactions/array.gd" id="1_44ixo"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_44ixo"]
 

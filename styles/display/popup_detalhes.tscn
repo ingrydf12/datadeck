@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://crjlv3kqdg4n2"]
 
 [ext_resource type="Texture2D" uid="uid://dakeyqlnlf5ls" path="res://assets/cartas maior1.png" id="1_8vcb5"]
-[ext_resource type="Script" uid="uid://b84o3y3mkwlgh" path="res://popup_detalhes.gd" id="1_fetl4"]
+[ext_resource type="Script" uid="uid://b84o3y3mkwlgh" path="res://styles/display/popup_detalhes.gd" id="1_fetl4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xu3ok"]
 bg_color = Color(0.18, 0.18, 0.18, 1)
