@@ -1,0 +1,155 @@
+[gd_scene format=3 uid="uid://bajdtlspvt5i2"]
+
+[ext_resource type="Texture2D" uid="uid://dnpb24r1vqyxm" path="res://assets/gameplay/tilesets/botao_UI.png" id="1_nt0pi"]
+[ext_resource type="Script" uid="uid://dxbmfyvwlekys" path="res://screens/pausa/pausa.gd" id="1_pkh4c"]
+[ext_resource type="FontFile" uid="uid://dsdm1dih5di33" path="res://styles/fonts/superstar_memesbruh03.ttf" id="2_nt0pi"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_foji7"]
+texture = ExtResource("1_nt0pi")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mt1gs"]
+texture = ExtResource("1_nt0pi")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+modulate_color = Color(0.318, 0.318, 0.318, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cudtu"]
+texture = ExtResource("1_nt0pi")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+modulate_color = Color(0.617, 0.617, 0.617, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_pkh4c"]
+font = ExtResource("2_nt0pi")
+font_size = 34
+font_color = Color(1, 0.7529412, 0.36078432, 1)
+shadow_color = Color(0.85490197, 0.4, 0.16470589, 1)
+shadow_offset = Vector2(0, 2)
+
+[node name="Pausa" type="Control" unique_id=998425768]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_pkh4c")
+
+[node name="OverlayBg" type="ColorRect" parent="." unique_id=1845312952]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+mouse_filter = 2
+color = Color(0.11372549, 0.039215688, 0.14901961, 0.3882353)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1598739123]
+layout_mode = 0
+offset_left = 484.0
+offset_top = 212.0
+offset_right = 796.0
+offset_bottom = 508.0
+theme_override_constants/separation = 20
+
+[node name="Retornar" type="Button" parent="VBoxContainer" unique_id=1953219363]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 34
+theme_override_styles/normal = SubResource("StyleBoxTexture_foji7")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_mt1gs")
+theme_override_styles/hover = SubResource("StyleBoxTexture_cudtu")
+
+[node name="Label" type="Label" parent="VBoxContainer/Retornar" unique_id=683492613]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "RETOMAR"
+label_settings = SubResource("LabelSettings_pkh4c")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Fases" type="Button" parent="VBoxContainer" unique_id=1300054191]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 34
+theme_override_styles/normal = SubResource("StyleBoxTexture_foji7")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_mt1gs")
+theme_override_styles/hover = SubResource("StyleBoxTexture_cudtu")
+
+[node name="Label" type="Label" parent="VBoxContainer/Fases" unique_id=1977693613]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "FASES"
+label_settings = SubResource("LabelSettings_pkh4c")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Resetar" type="Button" parent="VBoxContainer" unique_id=349165280]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 34
+theme_override_styles/normal = SubResource("StyleBoxTexture_foji7")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_mt1gs")
+theme_override_styles/hover = SubResource("StyleBoxTexture_cudtu")
+
+[node name="Label" type="Label" parent="VBoxContainer/Resetar" unique_id=673847605]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "RESETAR FASE"
+label_settings = SubResource("LabelSettings_pkh4c")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Menu" type="Button" parent="VBoxContainer" unique_id=1989561064]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 34
+theme_override_styles/normal = SubResource("StyleBoxTexture_foji7")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_mt1gs")
+theme_override_styles/hover = SubResource("StyleBoxTexture_cudtu")
+
+[node name="Label" type="Label" parent="VBoxContainer/Menu" unique_id=1125545491]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "SAIR PARA O MENU"
+label_settings = SubResource("LabelSettings_pkh4c")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="VBoxContainer/Retornar" to="." method="_on_retornar_pressed"]
+[connection signal="pressed" from="VBoxContainer/Fases" to="." method="_on_fases_pressed"]
+[connection signal="pressed" from="VBoxContainer/Resetar" to="." method="_on_resetar_pressed"]
+[connection signal="pressed" from="VBoxContainer/Menu" to="." method="_on_menu_pressed"]
