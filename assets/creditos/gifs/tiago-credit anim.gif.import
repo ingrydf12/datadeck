@@ -1,0 +1,14 @@
+[remap]
+
+importer="import_gif_to_animated_texture"
+type="AnimatedTexture"
+uid="uid://cgm0611mwa5u7"
+path="res://.godot/imported/tiago-credit anim.gif-c4c45209771e9f7c87303b6ac3b3eaf6.tres"
+
+[deps]
+
+source_file="res://assets/creditos/gifs/tiago-credit anim.gif"
+dest_files=["res://.godot/imported/tiago-credit anim.gif-c4c45209771e9f7c87303b6ac3b3eaf6.tres"]
+
+[params]
+

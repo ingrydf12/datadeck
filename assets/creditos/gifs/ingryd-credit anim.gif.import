@@ -1,0 +1,14 @@
+[remap]
+
+importer="import_gif_to_animated_texture"
+type="AnimatedTexture"
+uid="uid://dtluxihsvu4hp"
+path="res://.godot/imported/ingryd-credit anim.gif-c49f1336f4264a377d53d613a4e82f37.tres"
+
+[deps]
+
+source_file="res://assets/creditos/gifs/ingryd-credit anim.gif"
+dest_files=["res://.godot/imported/ingryd-credit anim.gif-c49f1336f4264a377d53d613a4e82f37.tres"]
+
+[params]
+

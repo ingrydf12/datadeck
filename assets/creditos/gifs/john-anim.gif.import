@@ -1,0 +1,14 @@
+[remap]
+
+importer="import_gif_to_animated_texture"
+type="AnimatedTexture"
+uid="uid://bdkindslwyeve"
+path="res://.godot/imported/john-anim.gif-b89d399ef650140cd4f19a7c1f918960.tres"
+
+[deps]
+
+source_file="res://assets/creditos/gifs/john-anim.gif"
+dest_files=["res://.godot/imported/john-anim.gif-b89d399ef650140cd4f19a7c1f918960.tres"]
+
+[params]
+

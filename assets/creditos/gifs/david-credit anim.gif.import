@@ -1,0 +1,14 @@
+[remap]
+
+importer="import_gif_to_animated_texture"
+type="AnimatedTexture"
+uid="uid://d3oi5nsvmede8"
+path="res://.godot/imported/david-credit anim.gif-7861958333f5bbc1667bcb3793bdc81c.tres"
+
+[deps]
+
+source_file="res://assets/creditos/gifs/david-credit anim.gif"
+dest_files=["res://.godot/imported/david-credit anim.gif-7861958333f5bbc1667bcb3793bdc81c.tres"]
+
+[params]
+

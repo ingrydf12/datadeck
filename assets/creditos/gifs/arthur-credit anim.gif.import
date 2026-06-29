@@ -1,0 +1,14 @@
+[remap]
+
+importer="import_gif_to_animated_texture"
+type="AnimatedTexture"
+uid="uid://dng001evmiuhj"
+path="res://.godot/imported/arthur-credit anim.gif-df2a49f902072d3bc570111dbab9c135.tres"
+
+[deps]
+
+source_file="res://assets/creditos/gifs/arthur-credit anim.gif"
+dest_files=["res://.godot/imported/arthur-credit anim.gif-df2a49f902072d3bc570111dbab9c135.tres"]
+
+[params]
+

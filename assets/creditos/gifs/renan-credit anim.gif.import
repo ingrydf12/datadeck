@@ -1,0 +1,14 @@
+[remap]
+
+importer="import_gif_to_animated_texture"
+type="AnimatedTexture"
+uid="uid://joqbvweja6o4"
+path="res://.godot/imported/renan-credit anim.gif-15d21d5e1dbe5d66dbfa88b0a5f50ae0.tres"
+
+[deps]
+
+source_file="res://assets/creditos/gifs/renan-credit anim.gif"
+dest_files=["res://.godot/imported/renan-credit anim.gif-15d21d5e1dbe5d66dbfa88b0a5f50ae0.tres"]
+
+[params]
+
