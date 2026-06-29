@@ -1,0 +1,175 @@
+[gd_scene format=3 uid="uid://0v36uhu3x7qe"]
+
+[ext_resource type="Script" uid="uid://cj56cdf34imjo" path="res://screens/creditos/creditos.gd" id="1_8gw8q"]
+[ext_resource type="Texture2D" uid="uid://do58m6vi8edow" path="res://assets/creditos/container_creditos.png" id="1_g8let"]
+[ext_resource type="Texture2D" uid="uid://dng001evmiuhj" path="res://assets/creditos/gifs/arthur-credit anim.gif" id="2_hmob1"]
+[ext_resource type="Texture2D" uid="uid://diasdxapjbh41" path="res://assets/creditos/opacidade.png" id="2_m12tx"]
+[ext_resource type="Texture2D" uid="uid://dtluxihsvu4hp" path="res://assets/creditos/gifs/ingryd-credit anim.gif" id="2_wnaj6"]
+[ext_resource type="Texture2D" uid="uid://joqbvweja6o4" path="res://assets/creditos/gifs/renan-credit anim.gif" id="3_p5g5a"]
+[ext_resource type="Texture2D" uid="uid://d3oi5nsvmede8" path="res://assets/creditos/gifs/david-credit anim.gif" id="4_8pp6g"]
+[ext_resource type="Texture2D" uid="uid://bdkindslwyeve" path="res://assets/creditos/gifs/john-anim.gif" id="5_8gw8q"]
+[ext_resource type="Texture2D" uid="uid://cgm0611mwa5u7" path="res://assets/creditos/gifs/tiago-credit anim.gif" id="7_m12tx"]
+[ext_resource type="Texture2D" uid="uid://bb7umuv5gna3i" path="res://assets/gameplay/gameplay_componentes/icone_fechar.png" id="9_8gw8q"]
+[ext_resource type="Texture2D" uid="uid://cbm2rlwebbaka" path="res://assets/gameplay/tilesets/botao_largo1.png" id="10_m12tx"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lp48o"]
+texture = ExtResource("1_g8let")
+texture_margin_left = 11.0
+texture_margin_top = 11.0
+texture_margin_right = 11.0
+texture_margin_bottom = 11.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_m12tx"]
+font_size = 41
+font_color = Color(0.5647059, 0.23137255, 0.09019608, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_fmu1e"]
+font_size = 38
+font_color = Color(0.5647059, 0.23137255, 0.09019608, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i5xvx"]
+texture = ExtResource("10_m12tx")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+
+[node name="Creditos" type="Control" unique_id=1156927869]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_8gw8q")
+
+[node name="Fundo" type="TextureRect" parent="." unique_id=537669077]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_m12tx")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1810931599]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer" unique_id=1780280014]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_lp48o")
+
+[node name="Titulo" type="Label" parent="HBoxContainer/PanelContainer" unique_id=947230496]
+layout_mode = 2
+size_flags_vertical = 0
+text = "EQUIPE"
+label_settings = SubResource("LabelSettings_m12tx")
+horizontal_alignment = 1
+
+[node name="Equipe" type="MarginContainer" parent="HBoxContainer/PanelContainer" unique_id=184723111]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/margin_left = 15
+
+[node name="GridContainer" type="GridContainer" parent="HBoxContainer/PanelContainer/Equipe" unique_id=531798140]
+layout_mode = 2
+theme_override_constants/h_separation = 28
+theme_override_constants/v_separation = 3
+columns = 2
+
+[node name="Ingryd" type="TextureRect" parent="HBoxContainer/PanelContainer/Equipe/GridContainer" unique_id=1492408167]
+layout_mode = 2
+texture = ExtResource("2_wnaj6")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="HBoxContainer/PanelContainer/Equipe/GridContainer" unique_id=1458238886]
+layout_mode = 2
+text = "INGRYD CORDEIRO"
+label_settings = SubResource("LabelSettings_fmu1e")
+
+[node name="Renan" type="TextureRect" parent="HBoxContainer/PanelContainer/Equipe/GridContainer" unique_id=2100966853]
+layout_mode = 2
+texture = ExtResource("3_p5g5a")
+stretch_mode = 5
+
+[node name="Label2" type="Label" parent="HBoxContainer/PanelContainer/Equipe/GridContainer" unique_id=1485415191]
+layout_mode = 2
+text = "RENAN POLAINAS"
+label_settings = SubResource("LabelSettings_fmu1e")
+
+[node name="David" type="TextureRect" parent="HBoxContainer/PanelContainer/Equipe/GridContainer" unique_id=80258905]
+layout_mode = 2
+texture = ExtResource("4_8pp6g")
+stretch_mode = 5
+
+[node name="Label3" type="Label" parent="HBoxContainer/PanelContainer/Equipe/GridContainer" unique_id=1043462380]
+layout_mode = 2
+text = "DAVID BOANERGES"
+label_settings = SubResource("LabelSettings_fmu1e")
+
+[node name="John" type="TextureRect" parent="HBoxContainer/PanelContainer/Equipe/GridContainer" unique_id=1794339702]
+layout_mode = 2
+texture = ExtResource("5_8gw8q")
+stretch_mode = 5
+
+[node name="Label4" type="Label" parent="HBoxContainer/PanelContainer/Equipe/GridContainer" unique_id=1695909018]
+layout_mode = 2
+text = "JOHN FERNANDES"
+label_settings = SubResource("LabelSettings_fmu1e")
+
+[node name="Arthur" type="TextureRect" parent="HBoxContainer/PanelContainer/Equipe/GridContainer" unique_id=197366239]
+layout_mode = 2
+texture = ExtResource("2_hmob1")
+stretch_mode = 5
+
+[node name="Label5" type="Label" parent="HBoxContainer/PanelContainer/Equipe/GridContainer" unique_id=1952132914]
+layout_mode = 2
+text = "ARTHUR HERÁCLIO"
+label_settings = SubResource("LabelSettings_fmu1e")
+
+[node name="Tiago" type="TextureRect" parent="HBoxContainer/PanelContainer/Equipe/GridContainer" unique_id=802161250]
+layout_mode = 2
+texture = ExtResource("7_m12tx")
+stretch_mode = 5
+
+[node name="Label6" type="Label" parent="HBoxContainer/PanelContainer/Equipe/GridContainer" unique_id=311398517]
+layout_mode = 2
+text = "TIAGO VIANA"
+label_settings = SubResource("LabelSettings_fmu1e")
+
+[node name="Fechar" type="Button" parent="HBoxContainer/PanelContainer" unique_id=66072837]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_i5xvx")
+icon_alignment = 1
+expand_icon = true
+
+[node name="Icon" type="TextureRect" parent="HBoxContainer/PanelContainer/Fechar" unique_id=1343393768]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_8gw8q")
+
+[node name="Expand" type="Button" parent="HBoxContainer" unique_id=933827704]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_default_cursor_shape = 2
+flat = true
+
+[connection signal="pressed" from="HBoxContainer/PanelContainer/Fechar" to="." method="_on_fechar_pressed"]
+[connection signal="pressed" from="HBoxContainer/Expand" to="." method="_on_fechar_pressed"]

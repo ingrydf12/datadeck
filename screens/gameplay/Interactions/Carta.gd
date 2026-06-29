@@ -1,10 +1,8 @@
-@tool
-
 class_name Carta
 extends Control
 
 @export_category("Dados")
-var dados : Operacao
+@export var dados : Operacao
 @export var descricao : String = 'teste'
 
 var controlled : bool = false
@@ -26,12 +24,6 @@ func setup(operation: Operacao) -> void:
 	_preparar()
 
 func _process(_delta: float) -> void:
-	if Engine.is_editor_hint():
-		$PopupDetalhes.title = Operacao.Tipo.keys()[dados.tipo] #.to_pascal_case() caso queira Capitalizar A Palavra
-		$PopupDetalhes.desc = descricao
-		mudar_textura_carta(Operacao.Tipo.keys()[dados.tipo].to_lower())
-		return
-
 	if controlled:
 		global_position = get_global_mouse_position().clamp(Vector2(10,10), Vector2(1100,600))
 

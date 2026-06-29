@@ -1,4 +1,3 @@
-@tool
 extends PanelContainer
 
 var title : String = 'None': set = settitle

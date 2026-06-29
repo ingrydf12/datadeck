@@ -4,10 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://7i4c16srethn" path="res://assets/menu/background.png" id="1_ig63j"]
 [ext_resource type="Texture2D" uid="uid://cg7lf3idid7d1" path="res://assets/menu/titulo.png" id="2_24a7j"]
 [ext_resource type="FontFile" uid="uid://dsdm1dih5di33" path="res://styles/fonts/superstar_memesbruh03.ttf" id="5_mbdlm"]
-[ext_resource type="Texture2D" uid="uid://bvfn4355vhrn4" path="res://assets/gameplay/tilesets/botao_largo2.png" id="5_mt1gs"]
-[ext_resource type="Script" uid="uid://b07gpraio4lyr" path="res://styles/button/pixel_btn.gd" id="6_wfwuy"]
+[ext_resource type="Texture2D" uid="uid://dnpb24r1vqyxm" path="res://assets/gameplay/tilesets/botao_UI.png" id="5_wfwuy"]
 [ext_resource type="LabelSettings" uid="uid://cyir5o71uqhao" path="res://screens/MenuInicial/style/label_menu.tres" id="7_6078c"]
 [ext_resource type="Texture2D" uid="uid://cx315ofifnl1w" path="res://assets/menu/tela-menu-animada.png" id="8_wfwuy"]
+[ext_resource type="PackedScene" uid="uid://0v36uhu3x7qe" path="res://screens/creditos/creditos.tscn" id="9_mbdlm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wfwuy"]
 atlas = ExtResource("8_wfwuy")
@@ -229,6 +229,29 @@ animations = [{
 
 [sub_resource type="Theme" id="Theme_mt1gs"]
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6078c"]
+texture = ExtResource("5_wfwuy")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mt1gs"]
+texture = ExtResource("5_wfwuy")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+modulate_color = Color(0.318, 0.318, 0.318, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cudtu"]
+texture = ExtResource("5_wfwuy")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+modulate_color = Color(0.617, 0.617, 0.617, 1)
+
 [node name="Menuinicial" type="Control" unique_id=1129440493]
 layout_mode = 3
 anchors_preset = 15
@@ -318,20 +341,18 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(4, 4)
 pivot_offset_ratio = Vector2(0, 0.5)
+mouse_behavior_recursive = 2
 theme_override_constants/separation = 10
 alignment = 1
 
-[node name="BntJogar" type="TextureButton" parent="SubViewportContainer/SubViewport/CanvasLayer/VBoxContainer" unique_id=1597961727]
+[node name="BntJogar" type="Button" parent="SubViewportContainer/SubViewport/CanvasLayer/VBoxContainer" unique_id=105051893]
 layout_mode = 2
 size_flags_vertical = 3
 mouse_default_cursor_shape = 2
 theme = SubResource("Theme_mt1gs")
-texture_normal = ExtResource("5_mt1gs")
-texture_pressed = ExtResource("5_mt1gs")
-texture_hover = ExtResource("5_mt1gs")
-ignore_texture_size = true
-stretch_mode = 0
-script = ExtResource("6_wfwuy")
+theme_override_styles/normal = SubResource("StyleBoxTexture_6078c")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_mt1gs")
+theme_override_styles/hover = SubResource("StyleBoxTexture_cudtu")
 
 [node name="Label" type="Label" parent="SubViewportContainer/SubViewport/CanvasLayer/VBoxContainer/BntJogar" unique_id=1259252773]
 layout_mode = 1
@@ -351,16 +372,13 @@ label_settings = ExtResource("7_6078c")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="BntCreditos" type="TextureButton" parent="SubViewportContainer/SubViewport/CanvasLayer/VBoxContainer" unique_id=2132923656]
+[node name="BntCreditos" type="Button" parent="SubViewportContainer/SubViewport/CanvasLayer/VBoxContainer" unique_id=1861583206]
 layout_mode = 2
 size_flags_vertical = 3
 mouse_default_cursor_shape = 2
-texture_normal = ExtResource("5_mt1gs")
-texture_pressed = ExtResource("5_mt1gs")
-texture_hover = ExtResource("5_mt1gs")
-ignore_texture_size = true
-stretch_mode = 0
-script = ExtResource("6_wfwuy")
+theme_override_styles/normal = SubResource("StyleBoxTexture_6078c")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_mt1gs")
+theme_override_styles/hover = SubResource("StyleBoxTexture_cudtu")
 
 [node name="Label" type="Label" parent="SubViewportContainer/SubViewport/CanvasLayer/VBoxContainer/BntCreditos" unique_id=1209207784]
 layout_mode = 1
@@ -380,16 +398,13 @@ label_settings = ExtResource("7_6078c")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="BntSair" type="TextureButton" parent="SubViewportContainer/SubViewport/CanvasLayer/VBoxContainer" unique_id=503969832]
+[node name="BntSair" type="Button" parent="SubViewportContainer/SubViewport/CanvasLayer/VBoxContainer" unique_id=1639276708]
 layout_mode = 2
 size_flags_vertical = 3
 mouse_default_cursor_shape = 2
-texture_normal = ExtResource("5_mt1gs")
-texture_pressed = ExtResource("5_mt1gs")
-texture_hover = ExtResource("5_mt1gs")
-ignore_texture_size = true
-stretch_mode = 0
-script = ExtResource("6_wfwuy")
+theme_override_styles/normal = SubResource("StyleBoxTexture_6078c")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_mt1gs")
+theme_override_styles/hover = SubResource("StyleBoxTexture_cudtu")
 
 [node name="Label" type="Label" parent="SubViewportContainer/SubViewport/CanvasLayer/VBoxContainer/BntSair" unique_id=1549207953]
 layout_mode = 1
@@ -422,6 +437,10 @@ theme_override_fonts/font = ExtResource("5_mbdlm")
 theme_override_font_sizes/font_size = 32
 text = "V1.0"
 horizontal_alignment = 1
+
+[node name="Creditos" parent="." unique_id=1330183409 instance=ExtResource("9_mbdlm")]
+visible = false
+layout_mode = 1
 
 [connection signal="button_down" from="SubViewportContainer/SubViewport/CanvasLayer/VBoxContainer/BntJogar" to="." method="_on_bnt_jogar_button_down"]
 [connection signal="button_up" from="SubViewportContainer/SubViewport/CanvasLayer/VBoxContainer/BntJogar" to="." method="_on_bnt_jogar_button_up"]
