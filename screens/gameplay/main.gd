@@ -5,6 +5,7 @@ const LISTAS_SCENE := preload("res://controller/conteudo/listas/Fase1.tscn")
 @onready var phase_container: Node2D = $PhaseContainer
 @onready var gameplay_hud: GameplayHUD = $ControllerUserInteractions
 @onready var tutorial: TutorialManager = $TutorialCarrossel
+@onready var vitoria = $Resultado/TelaVitoria
 
 var current_phase: Node2D
 
@@ -14,6 +15,9 @@ func _ready() -> void:
 
 	GameManager.stage_loaded.connect(_on_stage_loaded)
 	GameManager.stage_completed.connect(_on_stage_completed)
+	
+	vitoria.avancar.connect(_on_avancar_pressed)
+	vitoria.voltar.connect(_on_voltar_pressed)
 	
 	GameManager.load_stage(0)
 
@@ -34,9 +38,11 @@ func _on_stage_completed(stage: Phase):
 	print("Fase", stage.stage_id, "concluída!")
 
 	await get_tree().create_timer(1.0).timeout
-
-	GameManager.next_stage()
 	
+	get_tree().paused = true
+	
+	vitoria.subir()
+
 func _on_stage_loaded(stage: Phase): 
 	load_phase(LISTAS_SCENE, stage)
 
@@ -47,3 +53,14 @@ func _on_undo_pressed() -> void:
 func _on_pause_pressed() -> void:
 	get_tree().paused = true
 	$PauseMenu.show()
+
+func _on_avancar_pressed() -> void:
+	await vitoria.animacao_finalizada
+	
+	get_tree().paused = false
+	
+	GameManager.next_stage()
+
+func _on_voltar_pressed() -> void:
+	print("FAZER ESSA PARTE DE VOLTAR")
+	
