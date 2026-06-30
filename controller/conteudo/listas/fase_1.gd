@@ -70,7 +70,7 @@ func undo():
 	if GameManager.history.is_empty():
 		return
 
-	var move: Move = GameManager.history.pop_back()
+	var move: Move = GameManager.history.pop_front()
 
 	GameManager.current_state = move.previous.duplicate(true)
 
