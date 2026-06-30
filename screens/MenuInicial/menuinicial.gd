@@ -1,6 +1,6 @@
 extends Control
 
-@onready var title_animation: AnimatedSprite2D = $TextureRect3/AnimatedSprite2D
+@onready var title_animation: AnimatedSprite2D = $Animation
 
 func _on_bnt_jogar_pressed() -> void:
 	$SubViewportContainer/SubViewport/CanvasLayer/VBoxContainer.mouse_behavior_recursive = MOUSE_BEHAVIOR_DISABLED

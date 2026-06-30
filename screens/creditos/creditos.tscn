@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://bdkindslwyeve" path="res://assets/creditos/gifs/john-anim.gif" id="5_8gw8q"]
 [ext_resource type="Texture2D" uid="uid://cgm0611mwa5u7" path="res://assets/creditos/gifs/tiago-credit anim.gif" id="7_m12tx"]
 [ext_resource type="Texture2D" uid="uid://bb7umuv5gna3i" path="res://assets/gameplay/gameplay_componentes/icone_fechar.png" id="9_8gw8q"]
-[ext_resource type="Texture2D" uid="uid://cbm2rlwebbaka" path="res://assets/gameplay/tilesets/botao_largo1.png" id="10_m12tx"]
+[ext_resource type="Texture2D" uid="uid://dnpb24r1vqyxm" path="res://assets/gameplay/tilesets/botao_UI.png" id="10_m12tx"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lp48o"]
 texture = ExtResource("1_g8let")
@@ -29,10 +29,7 @@ font_color = Color(0.5647059, 0.23137255, 0.09019608, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i5xvx"]
 texture = ExtResource("10_m12tx")
-texture_margin_left = 3.0
-texture_margin_top = 3.0
-texture_margin_right = 3.0
-texture_margin_bottom = 3.0
+modulate_color = Color(0.39308548, 0.39308557, 0.39308506, 1)
 
 [node name="Creditos" type="Control" unique_id=1156927869]
 layout_mode = 3
@@ -152,10 +149,14 @@ size_flags_horizontal = 8
 size_flags_vertical = 0
 mouse_default_cursor_shape = 2
 theme_override_styles/normal = SubResource("StyleBoxTexture_i5xvx")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_i5xvx")
+theme_override_styles/hover = SubResource("StyleBoxTexture_i5xvx")
+icon = ExtResource("9_8gw8q")
 icon_alignment = 1
 expand_icon = true
 
 [node name="Icon" type="TextureRect" parent="HBoxContainer/PanelContainer/Fechar" unique_id=1343393768]
+visible = false
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 1
 anchors_preset = 15

@@ -99,7 +99,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"carta",
-"speed": 8.0
+"speed": 10.0
 }]
 
 [node name="CartaTransition" type="CanvasLayer" unique_id=885011638]
@@ -107,8 +107,8 @@ layer = 2
 script = ExtResource("1_4nmb5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=540201683]
-position = Vector2(644, 514)
-scale = Vector2(4, 4)
+position = Vector2(642.1406, 459.5)
+scale = Vector2(3.5507813, 3.5507813)
 sprite_frames = SubResource("SpriteFrames_rccyw")
 animation = &"carta"
-frame_progress = 0.5775599
+frame_progress = 0.7098748
