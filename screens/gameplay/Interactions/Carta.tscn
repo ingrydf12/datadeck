@@ -5,8 +5,8 @@
 [ext_resource type="Script" uid="uid://b84o3y3mkwlgh" path="res://popup_detalhes.gd" id="3_ce55x"]
 [ext_resource type="Texture2D" uid="uid://bf8gm2rve7moc" path="res://assets/gameplay/gameplay_componentes/cartas.png" id="4_xu3ok"]
 [ext_resource type="Shader" uid="uid://b3haynmqxkal4" path="res://efeitos/carta.tres" id="5_vdnt1"]
+[ext_resource type="FontFile" uid="uid://cns2afop65n1o" path="res://styles/fonts/DataDeck Index.otf" id="7_wi1y2"]
 [ext_resource type="Texture2D" uid="uid://btq0gjspnen4s" path="res://assets/gameplay/gameplay_componentes/mini_vidro.png" id="8_rrb0j"]
-[ext_resource type="FontFile" uid="uid://dsdm1dih5di33" path="res://styles/fonts/superstar_memesbruh03.ttf" id="9_y1jwu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lp48o"]
 atlas = ExtResource("4_xu3ok")
@@ -32,8 +32,8 @@ atlas = SubResource("CompressedTexture2D_50gob")
 region = Rect2(0, 0, 12, 18)
 
 [sub_resource type="LabelSettings" id="LabelSettings_ci48n"]
-font = ExtResource("9_y1jwu")
-font_size = 20
+font = ExtResource("7_wi1y2")
+font_size = 24
 font_color = Color(0.81, 0.405, 0, 1)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rrb0j"]
@@ -227,9 +227,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -2.5
-offset_top = -27.0
-offset_right = 2.5
+offset_left = -4.0
+offset_top = -23.0
+offset_right = 5.0
+offset_bottom = 4.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "1"
@@ -282,14 +283,15 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -2.5
-offset_top = -27.0
-offset_right = 2.5
+offset_left = -4.0
+offset_top = -24.0
+offset_right = 5.0
+offset_bottom = 3.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "1"
 label_settings = SubResource("LabelSettings_ci48n")
-horizontal_alignment = 1
+horizontal_alignment = 3
 vertical_alignment = 1
 
 [node name="Button" type="Button" parent="." unique_id=1704378800]

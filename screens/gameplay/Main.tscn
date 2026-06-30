@@ -14,10 +14,10 @@ script = ExtResource("1_glrfj")
 [node name="TutorialCarrossel" parent="." unique_id=1278216754 instance=ExtResource("3_mv30t")]
 visible = false
 
-[node name="PhaseContainer" type="Node2D" parent="." unique_id=1093345159]
-
-[node name="PauseMenu" type="CanvasLayer" parent="." unique_id=1524916506]
+[node name="Pausa" parent="." unique_id=998425768 instance=ExtResource("4_t4r3t")]
 visible = false
+
+[node name="PhaseContainer" type="Node2D" parent="." unique_id=1093345159]
 
 [node name="Pausa" parent="PauseMenu" unique_id=998425768 instance=ExtResource("4_t4r3t")]
 

@@ -6,6 +6,7 @@ const LISTAS_SCENE := preload("res://controller/conteudo/listas/Fase1.tscn")
 @onready var gameplay_hud: GameplayHUD = $ControllerUserInteractions
 @onready var tutorial: TutorialManager = $TutorialCarrossel
 @onready var vitoria = $Resultado/TelaVitoria
+@onready var pause = $Pausa
 
 var current_phase: Node2D
 
@@ -51,8 +52,7 @@ func _on_undo_pressed() -> void:
 		current_phase.undo()
 
 func _on_pause_pressed() -> void:
-	get_tree().paused = true
-	$PauseMenu.show()
+		pause.open()
 
 func _on_avancar_pressed() -> void:
 	await vitoria.animacao_finalizada
@@ -64,3 +64,4 @@ func _on_avancar_pressed() -> void:
 func _on_voltar_pressed() -> void:
 	print("FAZER ESSA PARTE DE VOLTAR")
 	
+

@@ -44,7 +44,7 @@ func apply_operation(carta: Carta):
 		carta
 	)
 
-	history.append(move)
+	history.insert(0, move)
 	history_changed.emit(history)
 	var novo_estado = carta.dados.apply(current_state)
 
