@@ -8,6 +8,8 @@
 layout_mode = 3
 anchors_preset = 0
 scale = Vector2(4, 4)
+mouse_filter = 2
+mouse_behavior_recursive = 1
 script = ExtResource("1_44ixo")
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=720288433]

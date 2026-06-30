@@ -19,13 +19,13 @@ func _ready():
 			
 func setup(operation: Operacao) -> void:
 	dados = operation
-
+	
 	$PopupDetalhes.title = Operacao.Tipo.keys()[dados.tipo]
 	_preparar()
 
 func _process(_delta: float) -> void:
 	if controlled:
-		global_position = get_global_mouse_position().clamp(Vector2(10,10), Vector2(1100,600))
+		global_position = (get_global_mouse_position() - size/2).clamp(Vector2(10,10), Vector2(1280,720))
 
 # - - - - - - - - - - - FUNCIONALIDADES E EVENTOS
 
@@ -129,7 +129,7 @@ func mudar_textura_carta(tipo : String):
 	var ordem = ['reverse', 'sort', 'slice','pop','filter','map','update', 'push', 'remove']
 	var indx = ordem.find(tipo)
 	$Texture.texture.region = Rect2(37*indx, 0, 37, 52)
-	$Sombra.region_rect = Rect2(37*indx, 0, 37, 52)
+	$Sombra.texture.region = Rect2(37*indx, 0, 37, 52)
 
 func atualizar_parametros(data: Operacao, estado: Array = []):
 	match data.tipo:
@@ -225,7 +225,7 @@ func _diminuir():
 	z_index = 0
 
 func _voltar_original():
-	if not origem or not rotacao_original:
+	if origem == null or rotacao_original == null:
 		return
 
 	if tween and tween.is_running():

@@ -1,51 +1,26 @@
-[gd_scene format=4 uid="uid://cb7sd7o7537x6"]
+[gd_scene format=3 uid="uid://cb7sd7o7537x6"]
 
 [ext_resource type="Script" uid="uid://evnoguamu87o" path="res://screens/gameplay/hud.gd" id="1_cklxt"]
-[ext_resource type="Texture2D" uid="uid://dxh8fg0essrba" path="res://assets/gameplay/tilesets/container_cartas.png" id="2_sqq4g"]
+[ext_resource type="Texture2D" uid="uid://bcue7il6shc0m" path="res://assets/gameplay/tilesets/container_obj_hst_direita.png" id="2_nkr5l"]
 [ext_resource type="PackedScene" uid="uid://ctpi2odakf7jn" path="res://screens/gameplay/Interactions/Carta.tscn" id="3_sqq4g"]
 [ext_resource type="Texture2D" uid="uid://dx7bucqww2tvg" path="res://assets/gameplay/tilesets/container_obj_hst.png" id="4_cklxt"]
-[ext_resource type="PackedScene" uid="uid://c7mk3oyur7wxi" path="res://curva_mao.tscn" id="4_nkr5l"]
+[ext_resource type="Texture2D" uid="uid://d1afup0gh8m2w" path="res://assets/gameplay/tilesets/container_obj_hst_baixo.png" id="6_wg0hk"]
 [ext_resource type="Texture2D" uid="uid://rmcau3bs152m" path="res://assets/gameplay/gameplay_componentes/capas_obj.png" id="7_nkr5l"]
 [ext_resource type="FontFile" uid="uid://dsdm1dih5di33" path="res://styles/fonts/superstar_memesbruh03.ttf" id="8_sowp3"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wg0hk"]
-texture = ExtResource("2_sqq4g")
-texture_region_size = Vector2i(30, 30)
-use_texture_padding = false
-0:0/0 = 0
-1:0/0 = 0
-2:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
-2:1/0 = 0
-0:2/0 = 0
-1:2/0 = 0
-2:2/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_rccyw"]
-tile_size = Vector2i(30, 30)
-sources/1 = SubResource("TileSetAtlasSource_wg0hk")
-
-[sub_resource type="Curve2D" id="Curve2D_nkr5l"]
-resource_local_to_scene = true
-bake_interval = 10.0
-_data = {
-"points": PackedVector2Array(-166.01279, -5.300995, 166.013, 0, -317, -1, -188.186, 0, 188.18582, 156.57239, 441, 4)
-}
-point_count = 2
-
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sqq4g"]
-texture = ExtResource("4_cklxt")
-texture_margin_left = 5.0
-texture_margin_right = 5.0
+texture = ExtResource("2_nkr5l")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
 texture_margin_bottom = 6.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sowp3"]
 texture = ExtResource("4_cklxt")
-texture_margin_left = 12.0
-texture_margin_top = 12.0
-texture_margin_right = 12.0
-texture_margin_bottom = 12.0
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_kkc4b"]
 font = ExtResource("8_sowp3")
@@ -56,89 +31,41 @@ font_color = Color(0.73, 0.37010998, 0.0949, 1)
 atlas = ExtResource("7_nkr5l")
 region = Rect2(0, 0, 12, 18)
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lp48o"]
+texture = ExtResource("6_wg0hk")
+texture_margin_left = 24.0
+texture_margin_top = 24.0
+texture_margin_right = 24.0
+texture_margin_bottom = 24.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
 [node name="HUD" type="CanvasLayer" unique_id=1854730849]
 layer = 6
 visible = false
 script = ExtResource("1_cklxt")
 
-[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1588346103]
-scale = Vector2(3, 3)
-tile_map_data = PackedByteArray("AAALAAYAAQACAAEAAAALAAcAAQACAAEAAAAEAAYAAQABAAEAAAAEAAcAAQABAAEAAAAFAAYAAQABAAEAAAAFAAcAAQABAAEAAAAGAAYAAQABAAEAAAAGAAcAAQABAAEAAAAHAAYAAQABAAEAAAAHAAcAAQABAAEAAAAIAAYAAQABAAEAAAAIAAcAAQABAAEAAAAJAAYAAQABAAEAAAAJAAcAAQABAAEAAAAKAAYAAQABAAEAAAAKAAcAAQABAAEAAAADAAYAAQAAAAEAAAADAAcAAQAAAAEAAAADAAUAAQAAAAAAAAAEAAUAAQABAAAAAAAFAAUAAQABAAAAAAAGAAUAAQABAAAAAAAHAAUAAQABAAAAAAAIAAUAAQABAAAAAAAJAAUAAQABAAAAAAAKAAUAAQABAAAAAAALAAUAAQACAAAAAAA=")
-tile_set = SubResource("TileSet_rccyw")
-
-[node name="Cartas" type="Control" parent="." unique_id=1856107978]
-layout_mode = 3
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = 3.0
-offset_top = -58.0
-offset_right = 3.0
-offset_bottom = -58.0
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="Carta" parent="Cartas" unique_id=1784490872 instance=ExtResource("3_sqq4g")]
-layout_mode = 0
-offset_left = -291.83325
-offset_top = -98.88318
-offset_right = -291.83325
-offset_bottom = -98.88318
-rotation = 0.00112228
-
-[node name="Carta2" parent="Cartas" unique_id=1588019557 instance=ExtResource("3_sqq4g")]
-layout_mode = 0
-offset_left = -139.66653
-offset_top = -98.69403
-offset_right = -139.66653
-offset_bottom = -98.69403
-rotation = 0.0013221893
-
-[node name="Carta3" parent="Cartas" unique_id=1794250641 instance=ExtResource("3_sqq4g")]
-layout_mode = 0
-offset_left = 12.500061
-offset_top = -98.48871
-offset_right = 12.500061
-offset_bottom = -98.48871
-rotation = 0.001358108
-
-[node name="Carta4" parent="Cartas" unique_id=1827319490 instance=ExtResource("3_sqq4g")]
-layout_mode = 0
-offset_left = 164.66669
-offset_top = -98.28595
-offset_right = 164.66669
-offset_bottom = -98.28595
-rotation = 0.0012877823
-
-[node name="Carta5" parent="Cartas" unique_id=522243788 instance=ExtResource("3_sqq4g")]
-layout_mode = 0
-offset_left = 316.8333
-offset_top = -98.10492
-offset_right = 316.8333
-offset_bottom = -98.10492
-rotation = 0.0010483422
-
-[node name="CurvaMao" parent="." unique_id=486530762 instance=ExtResource("4_nkr5l")]
-position = Vector2(624.165, 568.87)
-curve = SubResource("Curve2D_nkr5l")
-
 [node name="Historico" type="Control" parent="." unique_id=165886100]
 layout_mode = 3
+anchor_left = 1.0
+anchor_top = 0.17
+anchor_right = 1.0
+anchor_bottom = 0.17
+grow_horizontal = 0
+mouse_filter = 2
+mouse_behavior_recursive = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="Historico" unique_id=2043428087]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
+offset_left = -20.0
+offset_bottom = 21.0
 grow_horizontal = 0
-mouse_filter = 2
-
-[node name="PanelContainer" type="PanelContainer" parent="Historico" unique_id=2043428087]
-layout_mode = 0
-offset_left = -115.0
-offset_top = 275.0
-offset_right = -85.75
-offset_bottom = 296.0
 scale = Vector2(4, 4)
+pivot_offset_ratio = Vector2(1, 0)
 theme_override_styles/panel = SubResource("StyleBoxTexture_sqq4g")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Historico/PanelContainer" unique_id=3721731]
@@ -158,18 +85,15 @@ pivot_offset_ratio = Vector2(0.5, 0)
 size_flags_horizontal = 6
 size_flags_vertical = 3
 mouse_filter = 2
+mouse_behavior_recursive = 1
 theme_override_styles/panel = SubResource("StyleBoxTexture_sowp3")
 
 [node name="MarginContainer" type="MarginContainer" parent="ArrayObjetivo" unique_id=124987463]
 layout_mode = 2
-theme_override_constants/margin_left = -5
 theme_override_constants/margin_top = -5
-theme_override_constants/margin_right = -5
-theme_override_constants/margin_bottom = -5
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ArrayObjetivo/MarginContainer" unique_id=202610691]
 layout_mode = 2
-theme_override_constants/separation = 0
 
 [node name="Label" type="Label" parent="ArrayObjetivo/MarginContainer/VBoxContainer" unique_id=1556464524]
 layout_mode = 2
@@ -188,3 +112,50 @@ alignment = 1
 visible = false
 layout_mode = 2
 texture = SubResource("AtlasTexture_kkc4b")
+
+[node name="Control" type="Control" parent="." unique_id=703805419]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="Control" unique_id=681154924]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -436.0
+offset_top = -288.0
+offset_right = 436.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_lp48o")
+
+[node name="Cartas" type="HBoxContainer" parent="Control/PanelContainer" unique_id=1912102492]
+layout_mode = 2
+size_flags_vertical = 0
+alignment = 1
+
+[node name="Carta" parent="Control/PanelContainer/Cartas" unique_id=1784490872 instance=ExtResource("3_sqq4g")]
+layout_mode = 2
+
+[node name="Carta2" parent="Control/PanelContainer/Cartas" unique_id=1588019557 instance=ExtResource("3_sqq4g")]
+layout_mode = 2
+
+[node name="Carta3" parent="Control/PanelContainer/Cartas" unique_id=1794250641 instance=ExtResource("3_sqq4g")]
+layout_mode = 2
+
+[node name="Carta4" parent="Control/PanelContainer/Cartas" unique_id=1827319490 instance=ExtResource("3_sqq4g")]
+layout_mode = 2
+
+[node name="Carta5" parent="Control/PanelContainer/Cartas" unique_id=522243788 instance=ExtResource("3_sqq4g")]
+layout_mode = 2

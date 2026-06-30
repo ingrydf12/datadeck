@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cgfnip2i7qpuo" path="res://screens/gameplay/main.gd" id="1_glrfj"]
 [ext_resource type="PackedScene" uid="uid://d2o038gyl5ki" path="res://screens/tutorial/TutorialCarrossel.tscn" id="3_mv30t"]
 [ext_resource type="PackedScene" uid="uid://ct33q7ctloxj5" path="res://screens/gameplay/Interactions/ControllerUserInteractions.tscn" id="3_t4r3t"]
+[ext_resource type="PackedScene" uid="uid://bajdtlspvt5i2" path="res://screens/pausa/pausa.tscn" id="4_t4r3t"]
 
 [node name="Main" type="Node2D" unique_id=1428579286]
 script = ExtResource("1_glrfj")
@@ -13,3 +14,8 @@ script = ExtResource("1_glrfj")
 visible = false
 
 [node name="PhaseContainer" type="Node2D" parent="." unique_id=1093345159]
+
+[node name="PauseMenu" type="CanvasLayer" parent="." unique_id=1524916506]
+visible = false
+
+[node name="Pausa" parent="PauseMenu" unique_id=998425768 instance=ExtResource("4_t4r3t")]

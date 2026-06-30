@@ -1,6 +1,6 @@
 extends Node2D
-@onready var cartas_container = HudCartas.get_node("./Cartas");
-@onready var curva_mao = HudCartas.get_node("./CurvaMao");
+@onready var cartas_container = HudCartas.cartas_container;
+#@onready var curva_mao = HudCartas.get_node("./CurvaMao");
 
 const CARTA_SCENE = preload("res://screens/gameplay/Interactions/carta.tscn")
 var fase: Phase
@@ -51,10 +51,10 @@ func _load_cards():
 		carta.setup(operacao)
 		cartas_container.add_child(carta)
 		
-	if curva_mao:
-		curva_mao.organizar_cartas(
-			cartas_container.get_children()
-		)
+	#if curva_mao:
+		#curva_mao.organizar_cartas(
+			#cartas_container.get_children()
+		#)
 
 	_loading = false
 
@@ -84,9 +84,9 @@ func undo():
 		cartas_container.add_child(carta)
 		carta.resetar_na_mao()
 
-	curva_mao.organizar_cartas(
-		cartas_container.get_children()
-	)
+	#curva_mao.organizar_cartas(
+		#cartas_container.get_children()
+	#)
 	HudCartas.atualizar_historico(
 		GameManager.history
 	)

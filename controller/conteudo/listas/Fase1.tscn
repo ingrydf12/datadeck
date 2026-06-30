@@ -57,6 +57,8 @@ offset_bottom = 446.99994
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
+mouse_filter = 2
+mouse_behavior_recursive = 1
 
 [connection signal="mouse_entered" from="AreaAcao" to="AreaAcao" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="AreaAcao" to="AreaAcao" method="_on_mouse_exited"]
