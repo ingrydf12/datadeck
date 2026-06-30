@@ -17,7 +17,7 @@
 [sub_resource type="Resource" id="Resource_epva1"]
 script = ExtResource("2_dm4x3")
 title = "OBJETIVO"
-description = "Organize os itens centrais até que fiquem na disposição apresentada na aba de objetivos"
+description = "Organize os itens centrais até que fiquem na disposição apresentada na aba de objetivos."
 image = ExtResource("3_dqekb")
 metadata/_custom_type_script = "uid://buxybmdyhnpq"
 
@@ -28,18 +28,18 @@ description = "Elas representam as operações possíveis com o conteúdo estuda
 image = ExtResource("4_d3t24")
 metadata/_custom_type_script = "uid://buxybmdyhnpq"
 
-[sub_resource type="Resource" id="Resource_dw2uv"]
-script = ExtResource("2_dm4x3")
-title = "RESULTADO"
-description = "Ao final do exercício, você receberá o feedback do seu desempenho, levando em consideração a quantidade de ações realizadas em comparação à solução ideal. O tempo gasto não tem influência sobre o resultado."
-image = ExtResource("5_dw2uv")
-metadata/_custom_type_script = "uid://buxybmdyhnpq"
-
 [sub_resource type="Resource" id="Resource_dqekb"]
 script = ExtResource("2_dm4x3")
 title = "HISTÓRICO"
-description = "ao escolher uma operação, o ícone da carta escolhida será exibido em ordem na seção de histórico na direita. Você também pode desfazer ações, voltando a carta a sua mesa para utilizar novamente."
+description = "Ao escolher uma operação, a carta escolhida será exibido em ordem na seção de histórico na direita (a carta mais recente fica no topo). Você também pode desfazer ações, voltando a carta a sua mesa para utilizar novamente."
 image = ExtResource("6_h3dof")
+metadata/_custom_type_script = "uid://buxybmdyhnpq"
+
+[sub_resource type="Resource" id="Resource_dw2uv"]
+script = ExtResource("2_dm4x3")
+title = "RESULTADO"
+description = "Ao final do exercício, você receberá o feedback do seu desempenho, levando em consideração a quantidade de ações realizadas em comparação as cartas disponíveis na fase. O tempo gasto não tem influência sobre o resultado."
+image = ExtResource("5_dw2uv")
 metadata/_custom_type_script = "uid://buxybmdyhnpq"
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d3t24"]
@@ -70,7 +70,7 @@ modulate_color = Color(0.5, 0.5, 0.5, 1)
 
 [node name="TutorialCarrossel" type="CanvasLayer" unique_id=1278216754]
 script = ExtResource("1_jm8cr")
-steps = Array[ExtResource("2_dm4x3")]([SubResource("Resource_epva1"), SubResource("Resource_mpqly"), SubResource("Resource_dw2uv"), SubResource("Resource_dqekb")])
+steps = Array[ExtResource("2_dm4x3")]([SubResource("Resource_epva1"), SubResource("Resource_mpqly"), SubResource("Resource_dqekb"), SubResource("Resource_dw2uv")])
 indicator_scene = ExtResource("5_dqekb")
 
 [node name="TutorialControl" type="Control" parent="." unique_id=1378298564]
