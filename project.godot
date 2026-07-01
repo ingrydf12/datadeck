@@ -14,7 +14,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 [application]
 
-config/name="CardGame1"
+config/name="DataDeck"
 run/main_scene="uid://gx6qmfpcot02"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="uid://bjx184dg42e8i"
