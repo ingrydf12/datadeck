@@ -10,6 +10,8 @@ const LISTAS_SCENE := preload("res://controller/conteudo/listas/Fase1.tscn")
 
 var current_phase: Node2D
 
+var tempo_inicio : int = -1
+
 func _ready() -> void:
 	gameplay_hud.tutorial_pressed.connect(tutorial.open_tutorial)
 	gameplay_hud.pause_pressed.connect(_on_pause_pressed)
@@ -18,7 +20,7 @@ func _ready() -> void:
 	GameManager.stage_completed.connect(_on_stage_completed)
 	
 	vitoria.avancar.connect(_on_avancar_pressed)
-	vitoria.voltar.connect(_on_voltar_pressed)
+	vitoria.voltar.connect(pause._on_menu_pressed)
 	
 	GameManager.load_stage(0)
 
@@ -43,8 +45,10 @@ func _on_stage_completed(stage: Phase):
 	get_tree().paused = true
 	
 	vitoria.subir()
+	vitoria.mudar_tempo(floor((Time.get_ticks_msec() - tempo_inicio) / 1000))
 
 func _on_stage_loaded(stage: Phase): 
+	tempo_inicio = Time.get_ticks_msec() 
 	load_phase(LISTAS_SCENE, stage)
 
 func _on_undo_pressed() -> void:
@@ -60,8 +64,3 @@ func _on_avancar_pressed() -> void:
 	get_tree().paused = false
 	
 	GameManager.next_stage()
-
-func _on_voltar_pressed() -> void:
-	print("FAZER ESSA PARTE DE VOLTAR")
-	
-

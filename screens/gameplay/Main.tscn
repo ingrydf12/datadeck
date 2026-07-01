@@ -19,8 +19,6 @@ visible = false
 
 [node name="PhaseContainer" type="Node2D" parent="." unique_id=1093345159]
 
-[node name="Pausa" parent="PauseMenu" unique_id=998425768 instance=ExtResource("4_t4r3t")]
-
 [node name="Resultado" type="CanvasLayer" parent="." unique_id=1518968418]
 process_mode = 3
 layer = 7

@@ -27,9 +27,16 @@ font_color = Color(0.5647059, 0.23137255, 0.09019608, 1)
 font_size = 38
 font_color = Color(0.5647059, 0.23137255, 0.09019608, 1)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i5xvx"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m12tx"]
 texture = ExtResource("10_m12tx")
-modulate_color = Color(0.39308548, 0.39308557, 0.39308506, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t3p6g"]
+texture = ExtResource("10_m12tx")
+modulate_color = Color(0.51, 0.51, 0.51, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mf44l"]
+texture = ExtResource("10_m12tx")
+modulate_color = Color(0.30980393, 0.30980393, 0.30980393, 1)
 
 [node name="Creditos" type="Control" unique_id=1156927869]
 layout_mode = 3
@@ -148,9 +155,9 @@ layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
 mouse_default_cursor_shape = 2
-theme_override_styles/normal = SubResource("StyleBoxTexture_i5xvx")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_i5xvx")
-theme_override_styles/hover = SubResource("StyleBoxTexture_i5xvx")
+theme_override_styles/normal = SubResource("StyleBoxTexture_m12tx")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_t3p6g")
+theme_override_styles/hover = SubResource("StyleBoxTexture_mf44l")
 icon = ExtResource("9_8gw8q")
 icon_alignment = 1
 expand_icon = true

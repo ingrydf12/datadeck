@@ -331,7 +331,6 @@ grow_vertical = 2
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=1516469194]
 transparent_bg = true
 handle_input_locally = false
-use_taa = true
 canvas_item_default_texture_filter = 3
 oversampling_override = 4.0
 size = Vector2i(1280, 720)

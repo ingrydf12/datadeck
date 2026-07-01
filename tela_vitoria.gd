@@ -1,7 +1,12 @@
 extends Control
 
 var t : Tween = null
-var tempo : float = 0.2
+var tempo_animacao : float = 0.2
+
+var segundos : float = -1 :
+	set(seg):
+		segundos = seg
+		mudar_tempo(seg)
 
 signal animacao_finalizada #vai que precisa né...
 signal avancar
@@ -24,8 +29,8 @@ func subir():
 	t.set_trans(Tween.TRANS_EXPO)
 	t.set_ease(Tween.EASE_OUT)
 	
-	t.tween_property($MarginContainer, "position:y", 0, tempo)
-	t.tween_property($Fundo, 'color:a', 0.4, tempo)
+	t.tween_property($MarginContainer, "position:y", 0, tempo_animacao)
+	t.tween_property($Fundo, 'color:a', 0.4, tempo_animacao)
 	
 	t.finished.connect(
 		func():
@@ -41,8 +46,8 @@ func descer():
 	t.set_trans(Tween.TRANS_EXPO)
 	t.set_ease(Tween.EASE_OUT)
 	
-	t.tween_property($MarginContainer, "position:y", get_viewport_rect().size.y, tempo)
-	t.tween_property($Fundo, 'color:a', 0, tempo)
+	t.tween_property($MarginContainer, "position:y", get_viewport_rect().size.y, tempo_animacao)
+	t.tween_property($Fundo, 'color:a', 0, tempo_animacao)
 	
 	t.finished.connect(
 		func():
@@ -68,3 +73,17 @@ func liberar_inputs(liberar : bool = true):
 	else:
 		mouse_filter = Control.MOUSE_FILTER_IGNORE
 		mouse_behavior_recursive = Control.MOUSE_BEHAVIOR_DISABLED
+
+func mudar_tempo(seg : int):
+	var texto = ''
+	
+	var minutos = floor(seg/60)
+	seg = seg % 60
+	if minutos:
+		texto += '{0}min'.format([minutos])
+		if seg:
+			texto += ' {0}s'.format([seg])
+	elif seg:
+		texto += '{0} segundos'.format([seg])
+		
+	$MarginContainer/PanelContainer/Conteudo/MarginContainer/PanelContainer/MarginContainer/InfoFase/Tempo.text = texto

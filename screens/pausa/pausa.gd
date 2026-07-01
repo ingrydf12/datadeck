@@ -19,6 +19,7 @@ func _on_retornar_pressed() -> void:
 func _on_menu_pressed() -> void:
 	get_tree().paused = false
 	visible = false;
+	HudCartas.hide()
 	await CartaTransition.play_transition("res://screens/MenuInicial/menuinicial.tscn")
 
 func _on_resetar_pressed() -> void:
