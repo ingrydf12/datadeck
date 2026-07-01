@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://ctpi2odakf7jn" path="res://screens/gameplay/Interactions/Carta.tscn" id="1_6kkv1"]
 [ext_resource type="PackedScene" uid="uid://c7mk3oyur7wxi" path="res://curva_mao.tscn" id="1_k1smi"]
-[ext_resource type="Texture2D" uid="uid://dou0qyhqk7xy2" path="res://assets/image.png" id="1_p34la"]
+[ext_resource type="Texture2D" path="res://assets/image.png" id="1_p34la"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m6kfh"]
 texture = ExtResource("1_p34la")

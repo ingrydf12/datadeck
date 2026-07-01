@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://c3gapmpb2q8wa" path="res://array.tscn" id="5_g3oi3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_56mg4"]
-size = Vector2(1350, 255)
+size = Vector2(852, 255)
 
 [node name="Fase1" type="Node2D" unique_id=231452261]
 script = ExtResource("1_0e1q4")

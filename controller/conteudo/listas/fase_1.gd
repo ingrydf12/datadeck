@@ -1,8 +1,7 @@
 extends Node2D
-@onready var cartas_container = HudCartas.cartas_container;
-#@onready var curva_mao = HudCartas.get_node("./CurvaMao");
+@onready var cartas_container = HudCartas.cartas_container; #esse container aqui mudou tchauuuu
 
-const CARTA_SCENE = preload("res://screens/gameplay/Interactions/carta.tscn")
+const CARTA_SCENE = preload("res://screens/gameplay/Interactions/Carta.tscn")
 var fase: Phase
 var _loading := false
 
@@ -27,13 +26,13 @@ func setup(phase: Phase):
 func _on_state_changed(state:Array):
 	$Array.atualizar_estado(state)
 
-	for carta:Carta in cartas_container.get_children():
+	for carta:Carta in cartas_container.get_cartas():
 		carta.atualizar_contexto(state)
 		
 func atualizar_array():
 	var estado = GameManager.current_state
 
-	for carta: Carta in cartas_container.get_children():
+	for carta: Carta in cartas_container.get_cartas():
 		carta.atualizar_contexto(estado)
 	
 func _load_cards():
@@ -49,12 +48,8 @@ func _load_cards():
 		var carta: Carta = CARTA_SCENE.instantiate()
 
 		carta.setup(operacao)
-		cartas_container.add_child(carta)
+		cartas_container.adicionar_carta_na_mao(carta)
 		
-	#if curva_mao:
-		#curva_mao.organizar_cartas(
-			#cartas_container.get_children()
-		#)
 
 	_loading = false
 
@@ -62,8 +57,8 @@ func _load_cards():
 func _on_area_acao_mudar_array(carta:Carta):
 	GameManager.apply_operation(carta)
 
-	if carta.get_parent() == cartas_container:
-		cartas_container.remove_child(carta)
+	if carta.get_parent().get_parent() == cartas_container:
+		cartas_container.remover_carta(carta)
 
 # TODO: Mover isso para game manager
 func undo():
@@ -81,8 +76,8 @@ func undo():
 	var carta: Carta = move.card
 
 	if carta:
-		cartas_container.add_child(carta)
-		carta.resetar_na_mao()
+		cartas_container.adicionar_carta_na_mao(carta)
+		#carta.resetar_na_mao()
 
 	#curva_mao.organizar_cartas(
 		#cartas_container.get_children()

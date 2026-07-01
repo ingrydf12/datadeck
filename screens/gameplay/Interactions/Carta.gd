@@ -6,16 +6,16 @@ extends Control
 @export var descricao : String = 'teste'
 
 var controlled : bool = false
-var origem : Vector2
-var rotacao_original : float
+var origem : Vector2 = Vector2(0,0)
+var rotacao_original : float = 0
 var tween : Tween
 var tamanho_shader: float = 0.0
 
 @onready var textura = $Texture
 
 func _ready():
-	origem = global_position
-	rotacao_original = rotation
+	resetar_na_mao()
+	pass
 			
 func setup(operation: Operacao) -> void:
 	dados = operation
@@ -35,21 +35,20 @@ func _on_button_mouse_entered() -> void:
 
 func _on_button_button_down() -> void:
 	#caso ele queira ver os detalhes
-	if Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
-		var tam = get_viewport_rect().size
-		var meio : Vector2 = get_viewport_transform().affine_inverse() * tam/2
-		print(meio-tam/4)
-		if global_position.x <= meio.x:
-			$PopupDetalhes.global_position = meio - tam/4 - $PopupDetalhes.size/2
-			$PopupDetalhes.global_position.y += tam.y/4
-		else:
-			$PopupDetalhes.global_position = meio + tam/4 - $PopupDetalhes.size/2
-			$PopupDetalhes.global_position.y -= tam.y/4
-		$PopupDetalhes.show()
-		$Line2D.points[0] = Vector2(0,0)
-		$Line2D.points[1] = $PopupDetalhes.global_position - global_position + $PopupDetalhes.size/2
-		$Line2D.show()
-		return
+	#if Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
+		#var tam = get_viewport_rect().size
+		#var meio : Vector2 = get_viewport_transform().affine_inverse() * tam/2
+		#if global_position.x <= meio.x:
+			#$PopupDetalhes.global_position = meio - tam/4 - $PopupDetalhes.size/2
+			#$PopupDetalhes.global_position.y += tam.y/4
+		#else:
+			#$PopupDetalhes.global_position = meio + tam/4 - $PopupDetalhes.size/2
+			#$PopupDetalhes.global_position.y -= tam.y/4
+		#$PopupDetalhes.show()
+		#$Line2D.points[0] = Vector2(0,0)
+		#$Line2D.points[1] = $PopupDetalhes.global_position - global_position + $PopupDetalhes.size/2
+		#$Line2D.show()
+		#return
 
 	#caso normal de clicar e arrastar
 	$Line2D.hide()
@@ -74,16 +73,14 @@ func _on_button_mouse_exited() -> void:
 	_diminuir()
 
 func desativar_irmas():
-	for c in get_parent().get_children():
-		if c == self or c is not Control: continue
-		var b : Button = c.get_child(-1)
-		b.mouse_behavior_recursive = Control.MOUSE_BEHAVIOR_DISABLED
+	for c in HudCartas.cartas_container.get_cartas():
+		if c == self: continue
+		c.get_parent().mouse_behavior_recursive = Control.MOUSE_BEHAVIOR_DISABLED
 
 func ativar_irmas():
-	for c in get_parent().get_children():
-		if c == self or c is not Control: continue
-		var b : Button = c.get_child(-1)
-		b.mouse_behavior_recursive = Control.MOUSE_BEHAVIOR_INHERITED
+	for c in HudCartas.cartas_container.get_cartas():
+		if c == self: continue
+		c.get_parent().mouse_behavior_recursive = Control.MOUSE_BEHAVIOR_INHERITED
 
 func _preparar():
 	mudar_textura_carta(Operacao.Tipo.keys()[dados.tipo].to_lower())
@@ -190,7 +187,7 @@ func atualizar_numero(capa: TextureRect, valor:int):
 	)
 
 func resetar_na_mao():
-	origem = global_position
+	origem = position
 	rotation = 0
 	z_index = 0
 
@@ -235,7 +232,7 @@ func _voltar_original():
 	tween.set_parallel()
 	tween.set_trans(Tween.TRANS_SINE)
 	tween.set_ease(Tween.EASE_OUT)
-	tween.tween_property(self, 'global_position', origem, 0.15)
+	tween.tween_property(self, 'position', origem, 0.15)
 	tween.tween_property(self, 'rotation', rotacao_original, 0.15)
 
 func _rotacionar_gostoso():
@@ -256,7 +253,7 @@ func mudaroffset(off : float):
 	if $Texture/Control/Parametros/P1.visible:
 		$Texture/Control/Parametros/P1/Capa.set_instance_shader_parameter('escala', $Texture.scale/4)
 		$Texture/Control/Parametros/P1/Capa.set_instance_shader_parameter('tamanho', off)
-		$Texture/Control/Parametros/P1/Base.set_instance_shader_parameter('scale', $Texture.scale/4)
+		$Texture/Control/Parametros/P1/Base.set_instance_shader_parameter('escala', $Texture.scale/4)
 		$Texture/Control/Parametros/P1/Base.set_instance_shader_parameter('tamanho', off)
 		$Texture/Control/Parametros/P1/Base/Label.set_instance_shader_parameter('escala', $Texture.scale/4)
 		$Texture/Control/Parametros/P1/Base/Label.set_instance_shader_parameter('tamanho', off)
@@ -264,7 +261,7 @@ func mudaroffset(off : float):
 	if $Texture/Control/Parametros/P2.visible:
 		$Texture/Control/Parametros/P2/Capa.set_instance_shader_parameter('escala', $Texture.scale/4)
 		$Texture/Control/Parametros/P2/Capa.set_instance_shader_parameter('tamanho', off)
-		$Texture/Control/Parametros/P2/Base.set_instance_shader_parameter('scale', $Texture.scale/4)
+		$Texture/Control/Parametros/P2/Base.set_instance_shader_parameter('escala', $Texture.scale/4)
 		$Texture/Control/Parametros/P2/Base.set_instance_shader_parameter('tamanho', off)
 		$Texture/Control/Parametros/P2/Base/Label.set_instance_shader_parameter('escala', $Texture.scale/4)
 		$Texture/Control/Parametros/P2/Base/Label.set_instance_shader_parameter('tamanho', off)

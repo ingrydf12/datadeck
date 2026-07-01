@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dx7bucqww2tvg" path="res://assets/gameplay/tilesets/container_obj_hst.png" id="4_cklxt"]
 [ext_resource type="Texture2D" uid="uid://d1afup0gh8m2w" path="res://assets/gameplay/tilesets/container_obj_hst_baixo.png" id="6_wg0hk"]
 [ext_resource type="Texture2D" uid="uid://rmcau3bs152m" path="res://assets/gameplay/gameplay_componentes/capas_obj.png" id="7_nkr5l"]
+[ext_resource type="Script" uid="uid://5u7es0fqcs45" path="res://cartas_container.gd" id="7_wg0hk"]
 [ext_resource type="FontFile" uid="uid://dsdm1dih5di33" path="res://styles/fonts/superstar_memesbruh03.ttf" id="8_sowp3"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sqq4g"]
@@ -115,21 +116,7 @@ visible = false
 layout_mode = 2
 texture = SubResource("AtlasTexture_kkc4b")
 
-[node name="Control" type="Control" parent="." unique_id=703805419]
-layout_mode = 3
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -20.0
-offset_top = -40.0
-offset_right = 20.0
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="PanelContainer" type="PanelContainer" parent="Control" unique_id=681154924]
-layout_mode = 1
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=681154924]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -142,22 +129,24 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxTexture_lp48o")
 
-[node name="Cartas" type="HBoxContainer" parent="Control/PanelContainer" unique_id=1912102492]
+[node name="Cartas" type="HBoxContainer" parent="PanelContainer" unique_id=1912102492]
 layout_mode = 2
-size_flags_vertical = 0
 alignment = 1
+script = ExtResource("7_wg0hk")
 
-[node name="Carta" parent="Control/PanelContainer/Cartas" unique_id=1784490872 instance=ExtResource("3_sqq4g")]
+[node name="Control" type="Control" parent="PanelContainer/Cartas" unique_id=1186287511]
+custom_minimum_size = Vector2(148, 0)
 layout_mode = 2
 
-[node name="Carta2" parent="Control/PanelContainer/Cartas" unique_id=1588019557 instance=ExtResource("3_sqq4g")]
-layout_mode = 2
+[node name="Carta" parent="PanelContainer/Cartas/Control" unique_id=1784490872 instance=ExtResource("3_sqq4g")]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -74.0
+offset_top = 0.0
+offset_right = 74.0
+offset_bottom = 208.0
+grow_horizontal = 2
 
-[node name="Carta3" parent="Control/PanelContainer/Cartas" unique_id=1794250641 instance=ExtResource("3_sqq4g")]
-layout_mode = 2
-
-[node name="Carta4" parent="Control/PanelContainer/Cartas" unique_id=1827319490 instance=ExtResource("3_sqq4g")]
-layout_mode = 2
-
-[node name="Carta5" parent="Control/PanelContainer/Cartas" unique_id=522243788 instance=ExtResource("3_sqq4g")]
-layout_mode = 2
+[connection signal="child_order_changed" from="Historico" to="PanelContainer/Cartas" method="_on_historico_child_order_changed"]

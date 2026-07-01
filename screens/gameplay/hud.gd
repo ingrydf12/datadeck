@@ -4,7 +4,7 @@ signal carta_jogada(carta : Carta)
 
 @onready var objetivo_container = $ArrayObjetivo/MarginContainer/VBoxContainer/HBoxContainer
 @onready var historico_container = $Historico/PanelContainer/VBoxContainer
-@onready var cartas_container = $Control/PanelContainer/Cartas
+@onready var cartas_container = $PanelContainer/Cartas
 
 const CAPA_SCENE = preload("res://models/Capa.tscn")
 const CARTA_SCENE = preload("res://screens/gameplay/Interactions/Carta.tscn")

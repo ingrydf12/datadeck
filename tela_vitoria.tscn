@@ -32,12 +32,28 @@ font_color = Color(0.34117648, 0.0627451, 0.06666667, 1)
 font_size = 20
 font_color = Color(0.5647059, 0.23137255, 0.09019608, 1)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_foji7"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8xkdk"]
 texture = ExtResource("3_yxaj2")
 texture_margin_left = 3.0
 texture_margin_top = 3.0
 texture_margin_right = 3.0
 texture_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3q15y"]
+texture = ExtResource("3_yxaj2")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+modulate_color = Color(0.26, 0.26, 0.26, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jygeo"]
+texture = ExtResource("3_yxaj2")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+modulate_color = Color(0.48, 0.48, 0.48, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_i5xvx"]
 font_size = 28
@@ -140,7 +156,10 @@ theme_override_constants/separation = 50
 [node name="Voltar" type="Button" parent="MarginContainer/PanelContainer/Conteudo/Botoes" unique_id=733183768]
 custom_minimum_size = Vector2(240, 40)
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxTexture_foji7")
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_8xkdk")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_3q15y")
+theme_override_styles/hover = SubResource("StyleBoxTexture_jygeo")
 
 [node name="Label" type="Label" parent="MarginContainer/PanelContainer/Conteudo/Botoes/Voltar" unique_id=845412602]
 layout_mode = 1
@@ -157,7 +176,10 @@ vertical_alignment = 1
 [node name="Proximo" type="Button" parent="MarginContainer/PanelContainer/Conteudo/Botoes" unique_id=683946639]
 custom_minimum_size = Vector2(240, 40)
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxTexture_foji7")
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_8xkdk")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_3q15y")
+theme_override_styles/hover = SubResource("StyleBoxTexture_jygeo")
 
 [node name="Label" type="Label" parent="MarginContainer/PanelContainer/Conteudo/Botoes/Proximo" unique_id=676990336]
 layout_mode = 1
