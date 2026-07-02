@@ -25,19 +25,17 @@ scale = Vector2(4, 4)
 texture = ExtResource("3_k888p")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=796121485]
-position = Vector2(717, 479.99994)
-zoom = Vector2(0.71, 0.71)
+position = Vector2(717, 480)
+zoom = Vector2(0.7, 0.7)
 limit_left = -412
 limit_top = -373
 limit_right = 1743
 limit_bottom = 1131
-limit_smoothed = true
-position_smoothing_enabled = true
 position_smoothing_speed = 0.5
 editor_draw_limits = true
 
 [node name="AreaAcao" type="Area2D" parent="." unique_id=466778117]
-position = Vector2(717, 479.99994)
+position = Vector2(717, 475.575)
 script = ExtResource("4_2hftg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaAcao" unique_id=1806044198]

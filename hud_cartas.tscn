@@ -26,7 +26,7 @@ texture_margin_bottom = 6.0
 [sub_resource type="LabelSettings" id="LabelSettings_kkc4b"]
 line_spacing = 0.0
 font = ExtResource("8_sowp3")
-font_size = 12
+font_size = 10
 font_color = Color(0.5647059, 0.23137255, 0.09019608, 1)
 shadow_size = 0
 
@@ -45,6 +45,7 @@ axis_stretch_vertical = 1
 
 [node name="HUD" type="CanvasLayer" unique_id=1854730849]
 layer = 6
+visible = false
 script = ExtResource("1_cklxt")
 
 [node name="Historico" type="Control" parent="." unique_id=165886100]
@@ -60,12 +61,16 @@ mouse_behavior_recursive = 1
 [node name="PanelContainer" type="PanelContainer" parent="Historico" unique_id=2043428087]
 custom_minimum_size = Vector2(30, 0)
 layout_mode = 1
-anchors_preset = 1
+anchors_preset = 6
 anchor_left = 1.0
+anchor_top = 0.5
 anchor_right = 1.0
-offset_left = -20.0
-offset_bottom = 21.0
+anchor_bottom = 0.5
+offset_left = -30.0
+offset_top = 128.0
+offset_bottom = 149.0
 grow_horizontal = 0
+grow_vertical = 2
 scale = Vector2(4, 4)
 pivot_offset_ratio = Vector2(1, 0)
 theme_override_styles/panel = SubResource("StyleBoxTexture_sqq4g")
@@ -122,9 +127,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -436.0
-offset_top = -288.0
+offset_top = -240.0
 offset_right = 436.00024
-offset_bottom = 0.0004272461
+offset_bottom = 0.0010986328
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxTexture_lp48o")
@@ -135,18 +140,20 @@ alignment = 1
 script = ExtResource("7_wg0hk")
 
 [node name="Control" type="Control" parent="PanelContainer/Cartas" unique_id=1186287511]
-custom_minimum_size = Vector2(148, 0)
+custom_minimum_size = Vector2(111, 0)
 layout_mode = 2
 
 [node name="Carta" parent="PanelContainer/Cartas/Control" unique_id=1784490872 instance=ExtResource("3_sqq4g")]
 layout_mode = 1
-anchors_preset = 5
+anchors_preset = 8
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
+anchor_bottom = 0.5
 offset_left = -74.0
-offset_top = 0.0
 offset_right = 74.0
-offset_bottom = 208.0
+offset_bottom = 104.0
 grow_horizontal = 2
+grow_vertical = 2
 
 [connection signal="child_order_changed" from="Historico" to="PanelContainer/Cartas" method="_on_historico_child_order_changed"]

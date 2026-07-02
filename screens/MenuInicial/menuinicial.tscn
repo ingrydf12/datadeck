@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://41w0qpqsi00c" path="res://screens/MenuInicial/menuinicial.gd" id="1_24a7j"]
 [ext_resource type="Texture2D" uid="uid://7i4c16srethn" path="res://assets/menu/background.png" id="1_ig63j"]
-[ext_resource type="Texture2D" uid="uid://cg7lf3idid7d1" path="res://assets/menu/titulo.png" id="2_24a7j"]
 [ext_resource type="FontFile" uid="uid://dsdm1dih5di33" path="res://styles/fonts/superstar_memesbruh03.ttf" id="5_mbdlm"]
 [ext_resource type="Texture2D" uid="uid://dnpb24r1vqyxm" path="res://assets/gameplay/tilesets/botao_UI.png" id="5_wfwuy"]
 [ext_resource type="LabelSettings" uid="uid://cyir5o71uqhao" path="res://screens/MenuInicial/style/label_menu.tres" id="7_6078c"]
@@ -295,24 +294,9 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Animation" type="AnimatedSprite2D" parent="." unique_id=1010868541]
 position = Vector2(640, 360)
-scale = Vector2(2.8124993, 2.8124998)
+scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_rccyw")
 animation = &"title"
-autoplay = "title"
-
-[node name="TextureRect2" type="TextureRect" parent="." unique_id=1752256748]
-visible = false
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -197.0
-offset_right = 215.0
-grow_vertical = 0
-scale = Vector2(3, 3)
-pivot_offset_ratio = Vector2(0, 1)
-mouse_default_cursor_shape = 3
-texture = ExtResource("2_24a7j")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=1281852278]
 layout_mode = 1

@@ -17,6 +17,9 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 config/name="DataDeck"
 run/main_scene="uid://gx6qmfpcot02"
 config/features=PackedStringArray("4.7", "GL Compatibility")
+boot_splash/bg_color=Color(0.2784314, 0.1254902, 0.30588236, 1)
+boot_splash/stretch_mode=0
+boot_splash/image="uid://bjx184dg42e8i"
 config/icon="uid://bjx184dg42e8i"
 
 [autoload]
@@ -31,12 +34,14 @@ CursorManager="*uid://dr0gi1ut33q5o"
 window/size/viewport_width=1280
 window/size/viewport_height=720
 window/stretch/mode="viewport"
+window/bg_color=Color(0.2784314, 0.1254902, 0.30588236, 1)
+window/stretch_mode=1
+window/image=""
 
 [gui]
 
 theme/default_font_antialiasing=0
 theme/default_font_multichannel_signed_distance_field=true
-theme/default_font_generate_mipmaps=true
 theme/custom_font="uid://dsdm1dih5di33"
 
 [physics]
@@ -49,3 +54,5 @@ textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+2d/snap/snap_2d_transforms_to_pixel=true
+2d/snap/snap_2d_vertices_to_pixel=true

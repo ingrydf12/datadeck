@@ -116,7 +116,6 @@ var mostrando_hint := false
 func iniciar_hint():
 	if mostrando_hint:
 		return
-	print("Hint iniciou")
 
 	mostrando_hint = true
 
@@ -125,14 +124,14 @@ func iniciar_hint():
 
 		hint_tween.tween_property(
 			$Texture,
-			"scale",
+			"escala",
 			Vector2(4.3, 4.3),
 			0.25
 		)
 
 		hint_tween.tween_property(
 			$Texture,
-			"scale",
+			"escala",
 			Vector2(4.0, 4.0),
 			0.25
 		)
@@ -146,7 +145,7 @@ func parar_hint():
 	if hint_tween:
 		hint_tween.kill()
 
-	$Texture.scale = Vector2(4, 4)
+	$Texture.scale = Vector2(3, 3)
 
 # gambiarra pra atualizar os parametros das cartas depois que o array usuario muda
 func atualizar_contexto(array: Array):
@@ -252,7 +251,7 @@ func _crescer():
 
 	tween.tween_property(
 		$Texture,
-		"scale",
+		"escala",
 		Vector2(4.8,4.8),
 		0.15
 	)
@@ -261,7 +260,7 @@ func _crescer():
 
 func _diminuir():
 	create_tween().tween_method(mudaroffset, textura.get_instance_shader_parameter('tamanho'), 0, 0.15)
-	create_tween().tween_property($Texture, 'scale',Vector2(4, 4), 0.15)
+	create_tween().tween_property($Texture, 'escala',Vector2(4, 3), 0.15)
 	z_index = 0
 
 func _voltar_original():

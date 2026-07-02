@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://rbwmnwhfgx5g" path="res://assets/gameplay/gameplay_componentes/capas.png" id="1_oi565"]
 [ext_resource type="Texture2D" uid="uid://cumwlxfncn1da" path="res://assets/gameplay/gameplay_componentes/vidro_filme.png" id="2_26eoh"]
 [ext_resource type="Texture2D" uid="uid://d4fyr76va70ac" path="res://assets/gameplay/gameplay_componentes/base_filme.png" id="3_j5bkl"]
-[ext_resource type="FontFile" uid="uid://dsdm1dih5di33" path="res://styles/fonts/superstar_memesbruh03.ttf" id="4_4lbeg"]
+[ext_resource type="FontFile" uid="uid://cns2afop65n1o" path="res://styles/fonts/DataDeck Index.otf" id="5_suq8v"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cbwos"]
 resource_local_to_scene = true
@@ -12,8 +12,8 @@ atlas = ExtResource("1_oi565")
 region = Rect2(0, 0, 33, 48)
 
 [sub_resource type="LabelSettings" id="LabelSettings_wim70"]
-font = ExtResource("4_4lbeg")
-font_size = 12
+font = ExtResource("5_suq8v")
+font_size = 10
 font_color = Color(0.5647059, 0.23137255, 0.09019608, 1)
 
 [node name="Filme" type="Control" unique_id=83797343]
@@ -99,10 +99,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -2.375
-offset_top = -18.0
-offset_right = 4.375
-offset_bottom = -2.0
+offset_left = -5.25
+offset_top = -16.130013
+offset_right = 6.75
+offset_bottom = 2.8699875
 grow_horizontal = 2
 grow_vertical = 0
 text = "0"

@@ -12,9 +12,9 @@ class_name TutorialManager
 @onready var description_label = $TutorialContent/MarginCtn/VBoxContainer/VBoxContainer2/Description
 @onready var image_rect = $TutorialContent/MarginCtn/VBoxContainer/VBoxContainer2/ImageRelated
 
-@onready var prev_button = $TutorialContent/MarginCtn/VBoxContainer/VBoxContainer2/Navigation/BackBtn
-@onready var next_button = $TutorialContent/MarginCtn/VBoxContainer/VBoxContainer2/Navigation/NextBtn
-@onready var indicators_container = $TutorialContent/MarginCtn/VBoxContainer/VBoxContainer2/Navigation/IndicadoresCtn
+@onready var prev_button = $TutorialContent/MarginCtn/VBoxContainer/Navigation/BackBtn
+@onready var next_button = $TutorialContent/MarginCtn/VBoxContainer/Navigation/NextBtn
+@onready var indicators_container = $TutorialContent/MarginCtn/VBoxContainer/Navigation/IndicadoresCtn
 @onready var close_button = $TutorialContent/MarginCtn/VBoxContainer/Topbar/CloseTutorial
 
 signal tutorial_closed

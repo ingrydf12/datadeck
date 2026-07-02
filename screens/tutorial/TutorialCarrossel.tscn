@@ -91,7 +91,7 @@ size_flags_vertical = 6
 color = Color(0.11372549, 0.039215688, 0.14901961, 0.3882353)
 
 [node name="TutorialContent" type="PanelContainer" parent="." unique_id=1990468577]
-custom_minimum_size = Vector2(860, 480)
+custom_minimum_size = Vector2(860, 600)
 custom_maximum_size = Vector2(860, 600)
 propagate_maximum_size = false
 layout_mode = 1
@@ -110,8 +110,8 @@ mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_d3t24")
 
 [node name="MarginCtn" type="MarginContainer" parent="TutorialContent" unique_id=594506259]
-custom_minimum_size = Vector2(860, 560)
-custom_maximum_size = Vector2(860, 560)
+custom_minimum_size = Vector2(860, 600)
+custom_maximum_size = Vector2(860, 600)
 layout_mode = 2
 size_flags_horizontal = 12
 size_flags_vertical = 12
@@ -145,7 +145,8 @@ icon_alignment = 1
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="TutorialContent/MarginCtn/VBoxContainer" unique_id=1539847484]
 layout_mode = 2
-theme_override_constants/separation = 5
+size_flags_horizontal = 4
+theme_override_constants/separation = 8
 alignment = 1
 
 [node name="Title" type="Label" parent="TutorialContent/MarginCtn/VBoxContainer/VBoxContainer2" unique_id=1987916819]
@@ -168,19 +169,21 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ImageRelated" type="TextureRect" parent="TutorialContent/MarginCtn/VBoxContainer/VBoxContainer2" unique_id=1884819138]
-custom_maximum_size = Vector2(-1, 350)
+custom_minimum_size = Vector2(0, 300)
+custom_maximum_size = Vector2(-1, 300)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 stretch_mode = 5
 
-[node name="Navigation" type="HBoxContainer" parent="TutorialContent/MarginCtn/VBoxContainer/VBoxContainer2" unique_id=1901799147]
+[node name="Navigation" type="HBoxContainer" parent="TutorialContent/MarginCtn/VBoxContainer" unique_id=1901799147]
 layout_mode = 2
+size_flags_vertical = 6
 mouse_filter = 2
 theme_override_constants/separation = 20
 alignment = 1
 
-[node name="BackBtn" type="Button" parent="TutorialContent/MarginCtn/VBoxContainer/VBoxContainer2/Navigation" unique_id=1460326717]
+[node name="BackBtn" type="Button" parent="TutorialContent/MarginCtn/VBoxContainer/Navigation" unique_id=1460326717]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 mouse_default_cursor_shape = 2
@@ -190,12 +193,13 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_466xk")
 icon = ExtResource("5_dm4x3")
 icon_alignment = 1
 
-[node name="IndicadoresCtn" type="HBoxContainer" parent="TutorialContent/MarginCtn/VBoxContainer/VBoxContainer2/Navigation" unique_id=1277631954]
+[node name="IndicadoresCtn" type="HBoxContainer" parent="TutorialContent/MarginCtn/VBoxContainer/Navigation" unique_id=1277631954]
 layout_mode = 2
+size_flags_horizontal = 4
 theme_override_constants/separation = 20
 alignment = 1
 
-[node name="NextBtn" type="Button" parent="TutorialContent/MarginCtn/VBoxContainer/VBoxContainer2/Navigation" unique_id=295090298]
+[node name="NextBtn" type="Button" parent="TutorialContent/MarginCtn/VBoxContainer/Navigation" unique_id=295090298]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 mouse_default_cursor_shape = 2
@@ -206,5 +210,5 @@ icon = ExtResource("6_dqekb")
 icon_alignment = 1
 
 [connection signal="pressed" from="TutorialContent/MarginCtn/VBoxContainer/Topbar/CloseTutorial" to="." method="close_tutorial"]
-[connection signal="pressed" from="TutorialContent/MarginCtn/VBoxContainer/VBoxContainer2/Navigation/BackBtn" to="." method="back_step"]
-[connection signal="pressed" from="TutorialContent/MarginCtn/VBoxContainer/VBoxContainer2/Navigation/NextBtn" to="." method="next_step"]
+[connection signal="pressed" from="TutorialContent/MarginCtn/VBoxContainer/Navigation/BackBtn" to="." method="back_step"]
+[connection signal="pressed" from="TutorialContent/MarginCtn/VBoxContainer/Navigation/NextBtn" to="." method="next_step"]
