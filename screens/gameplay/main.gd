@@ -4,7 +4,8 @@ const LISTAS_SCENE := preload("res://controller/conteudo/listas/Fase1.tscn")
 
 @onready var phase_container: Node2D = $PhaseContainer
 @onready var gameplay_hud: GameplayHUD = $ControllerUserInteractions
-@onready var tutorial: TutorialManager = $TutorialCarrossel
+@onready var tutorial: TutorialManager = $Tutorial/TutorialCarrossel
+var first_time := true
 @onready var vitoria = $Resultado/TelaVitoria
 @onready var pause = $Pausa
 
@@ -15,6 +16,7 @@ var tempo_inicio : int = -1
 func _ready() -> void:
 	gameplay_hud.tutorial_pressed.connect(tutorial.open_tutorial)
 	gameplay_hud.pause_pressed.connect(_on_pause_pressed)
+	tutorial.tutorial_closed.connect(_on_tutorial_closed)
 
 	GameManager.stage_loaded.connect(_on_stage_loaded)
 	GameManager.stage_completed.connect(_on_stage_completed)
@@ -50,6 +52,16 @@ func _on_stage_completed(stage: Phase):
 func _on_stage_loaded(stage: Phase): 
 	tempo_inicio = Time.get_ticks_msec() 
 	load_phase(LISTAS_SCENE, stage)
+	
+	if first_time:
+		first_time = false
+
+		await get_tree().process_frame
+		tutorial.open_tutorial()
+		
+func _on_tutorial_closed():
+	if current_phase and current_phase.has_method("start_card_hint"):
+		current_phase.start_card_hint()
 
 func _on_undo_pressed() -> void:
 	if current_phase:

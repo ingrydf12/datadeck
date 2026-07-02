@@ -30,10 +30,15 @@ func _process(_delta: float) -> void:
 # - - - - - - - - - - - FUNCIONALIDADES E EVENTOS
 
 func _on_button_mouse_entered() -> void:
+	parar_hint()
 	CursorManager.set_cursor(CursorManager.CursorType.PICK)
 	_crescer()
 
 func _on_button_button_down() -> void:
+	parar_hint()
+
+	if !dados.is_valid(GameManager.current_state):
+		return
 	#caso ele queira ver os detalhes
 	#if Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
 		#var tam = get_viewport_rect().size
@@ -49,12 +54,12 @@ func _on_button_button_down() -> void:
 		#$Line2D.points[1] = $PopupDetalhes.global_position - global_position + $PopupDetalhes.size/2
 		#$Line2D.show()
 		#return
-
 	#caso normal de clicar e arrastar
 	$Line2D.hide()
 	$PopupDetalhes.hide()
 	controlled = true
 	CursorManager.set_cursor(CursorManager.CursorType.PICKED)
+	_crescer()
 	_rotacionar_gostoso()
 	desativar_irmas()
 
@@ -104,6 +109,44 @@ func _preparar():
 # - - - - - - - - - - - - - ANIMAÇÕES E VISUAL
 
 var estado_atual:Array
+
+var hint_tween: Tween
+var mostrando_hint := false
+
+func iniciar_hint():
+	if mostrando_hint:
+		return
+	print("Hint iniciou")
+
+	mostrando_hint = true
+
+	while mostrando_hint:
+		hint_tween = create_tween()
+
+		hint_tween.tween_property(
+			$Texture,
+			"scale",
+			Vector2(4.3, 4.3),
+			0.25
+		)
+
+		hint_tween.tween_property(
+			$Texture,
+			"scale",
+			Vector2(4.0, 4.0),
+			0.25
+		)
+
+		await hint_tween.finished
+		await get_tree().create_timer(1.0).timeout
+
+func parar_hint():
+	mostrando_hint = false
+
+	if hint_tween:
+		hint_tween.kill()
+
+	$Texture.scale = Vector2(4, 4)
 
 # gambiarra pra atualizar os parametros das cartas depois que o array usuario muda
 func atualizar_contexto(array: Array):

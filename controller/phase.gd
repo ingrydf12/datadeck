@@ -61,6 +61,7 @@ static func _create_operation(
 
 	return op
 
+
 static func build_all_stages() -> Array[Phase]:
 	return [
 		create(
@@ -70,16 +71,12 @@ static func build_all_stages() -> Array[Phase]:
 			[1, 2, 5],
 			[1, 2, 3],
 			[
-				_create_operation(
-					Operacao.Tipo.PUSH,
-					-1,
-					3
-				),
-				_create_operation(
-					Operacao.Tipo.POP
-				)
+				_create_operation(Operacao.Tipo.PUSH, -1, 3),
+				_create_operation(Operacao.Tipo.POP),
+				_create_operation(Operacao.Tipo.REVERSE)
 			]
 		),
+
 		create(
 			2,
 			"REVERSE",
@@ -87,36 +84,162 @@ static func build_all_stages() -> Array[Phase]:
 			[4, 3, 2, 1],
 			[1, 2, 3, 4],
 			[
-				_create_operation(
-					Operacao.Tipo.PUSH,
-					-1,
-					5
-				),
-				_create_operation(
-					Operacao.Tipo.POP
-				),
-				_create_operation(
-					Operacao.Tipo.REVERSE
-				)
+				_create_operation(Operacao.Tipo.REVERSE),
+				_create_operation(Operacao.Tipo.PUSH, -1, 4),
+				_create_operation(Operacao.Tipo.POP),
+				_create_operation(Operacao.Tipo.UPDATE, 0, 2)
 			]
 		),
+
 		create(
 			3,
-			"TROCA",
-			"Combine operações para chegar ao objetivo.",
+			"UPDATE",
+			"Corrija os valores.",
 			[2, 1, 3],
 			[1, 2, 3],
 			[
-				_create_operation(
-					Operacao.Tipo.UPDATE,
-					0,
-					1
-				),
-				_create_operation(
-					Operacao.Tipo.UPDATE,
-					1,
-					2
-				)
+				_create_operation(Operacao.Tipo.UPDATE, 0, 1),
+				_create_operation(Operacao.Tipo.UPDATE, 1, 2),
+				_create_operation(Operacao.Tipo.REVERSE),
+				_create_operation(Operacao.Tipo.PUSH, -1, 4)
+			]
+		),
+
+		create(
+			4,
+			"PUSH",
+			"Adicione um elemento.",
+			[1, 2],
+			[1, 2, 3],
+			[
+				_create_operation(Operacao.Tipo.PUSH, -1, 3),
+				_create_operation(Operacao.Tipo.PUSH, -1, 2),
+				_create_operation(Operacao.Tipo.POP),
+				_create_operation(Operacao.Tipo.REVERSE)
+			]
+		),
+
+		create(
+			5,
+			"POP",
+			"Remova o último elemento.",
+			[1, 2, 3],
+			[1, 2],
+			[
+				_create_operation(Operacao.Tipo.POP),
+				_create_operation(Operacao.Tipo.PUSH, -1, 2),
+				_create_operation(Operacao.Tipo.UPDATE, 1, 1),
+				_create_operation(Operacao.Tipo.REVERSE)
+			]
+		),
+
+		create(
+			6,
+			"UPDATE",
+			"Altere apenas o primeiro valor.",
+			[5, 2, 3],
+			[1, 2, 3],
+			[
+				_create_operation(Operacao.Tipo.UPDATE, 0, 1),
+				_create_operation(Operacao.Tipo.UPDATE, 2, 2),
+				_create_operation(Operacao.Tipo.REVERSE),
+				_create_operation(Operacao.Tipo.PUSH, -1, 4),
+				_create_operation(Operacao.Tipo.POP)
+			]
+		),
+
+		create(
+			7,
+			"REVERSE",
+			"Inverta a sequência.",
+			[5, 4, 3, 2, 1],
+			[1, 2, 3, 4, 5],
+			[
+				_create_operation(Operacao.Tipo.REVERSE),
+				_create_operation(Operacao.Tipo.POP),
+				_create_operation(Operacao.Tipo.PUSH, -1, 6),
+				_create_operation(Operacao.Tipo.UPDATE, 0, 4),
+				_create_operation(Operacao.Tipo.UPDATE, 4, 2)
+			]
+		),
+
+		create(
+			8,
+			"PUSH + UPDATE",
+			"Complete a sequência.",
+			[1, 2],
+			[1, 2, 4],
+			[
+				_create_operation(Operacao.Tipo.PUSH, -1, 3),
+				_create_operation(Operacao.Tipo.UPDATE, 2, 4),
+				_create_operation(Operacao.Tipo.REVERSE),
+				_create_operation(Operacao.Tipo.POP),
+				_create_operation(Operacao.Tipo.UPDATE, 0, 2)
+			]
+		),
+
+		create(
+			9,
+			"POP + PUSH",
+			"Troque o último elemento.",
+			[1, 2, 6],
+			[1, 2, 5],
+			[
+				_create_operation(Operacao.Tipo.POP),
+				_create_operation(Operacao.Tipo.PUSH, -1, 5),
+				_create_operation(Operacao.Tipo.REVERSE),
+				_create_operation(Operacao.Tipo.UPDATE, 2, 4),
+				_create_operation(Operacao.Tipo.PUSH, -1, 4),
+				_create_operation(Operacao.Tipo.UPDATE, 1, 3)
+			]
+		),
+
+		create(
+			10,
+			"REVERSE + UPDATE",
+			"Inverta e ajuste.",
+			[4, 3, 2, 6],
+			[1, 2, 3, 4],
+			[
+				_create_operation(Operacao.Tipo.REVERSE),
+				_create_operation(Operacao.Tipo.UPDATE, 0, 1),
+				_create_operation(Operacao.Tipo.POP),
+				_create_operation(Operacao.Tipo.PUSH, -1, 5),
+				_create_operation(Operacao.Tipo.UPDATE, 3, 3),
+				_create_operation(Operacao.Tipo.UPDATE, 1, 1)
+			]
+		),
+
+		create(
+			11,
+			"Sequência",
+			"Combine várias operações.",
+			[3, 2],
+			[1, 2, 3],
+			[
+				_create_operation(Operacao.Tipo.REVERSE),
+				_create_operation(Operacao.Tipo.UPDATE, 0, 1),
+				_create_operation(Operacao.Tipo.PUSH, -1, 3),
+				_create_operation(Operacao.Tipo.POP),
+				_create_operation(Operacao.Tipo.UPDATE, 1, 3),
+				_create_operation(Operacao.Tipo.PUSH, -1, 2)
+			]
+		),
+
+		create(
+			12,
+			"Desafio Final",
+			"Utilize apenas as cartas corretas.",
+			[6, 2, 1],
+			[1, 2, 3],
+			[
+				_create_operation(Operacao.Tipo.REVERSE),
+				_create_operation(Operacao.Tipo.POP),
+				_create_operation(Operacao.Tipo.PUSH, -1, 3),
+				_create_operation(Operacao.Tipo.PUSH, -1, 2),
+				_create_operation(Operacao.Tipo.UPDATE, 0, 2),
+				_create_operation(Operacao.Tipo.UPDATE, 2, 1),
+				_create_operation(Operacao.Tipo.REVERSE)
 			]
 		)
 	]

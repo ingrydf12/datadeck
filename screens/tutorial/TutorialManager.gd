@@ -1,42 +1,38 @@
-extends CanvasLayer
+extends Control
 
 class_name TutorialManager
 
 @export var steps: Array[TutorialStepResource]
 @export var indicator_scene: PackedScene
 
-@onready var tutorial_control = $TutorialControl
-@onready var overlay_bg = $TutorialControl/OverlayBg
-@onready var tutorial_content = $TutorialControl/TutorialContent
+@onready var overlay_bg = $OverlayBg
+@onready var tutorial_content = $TutorialContent
 
-@onready var title_label = $TutorialControl/TutorialContent/MarginCtn/VBoxContainer/VBoxContainer2/Title
-@onready var description_label = $TutorialControl/TutorialContent/MarginCtn/VBoxContainer/VBoxContainer2/Description
-@onready var image_rect = $TutorialControl/TutorialContent/MarginCtn/VBoxContainer/ImageRelated
+@onready var title_label = $TutorialContent/MarginCtn/VBoxContainer/VBoxContainer2/Title
+@onready var description_label = $TutorialContent/MarginCtn/VBoxContainer/VBoxContainer2/Description
+@onready var image_rect = $TutorialContent/MarginCtn/VBoxContainer/VBoxContainer2/ImageRelated
 
-@onready var prev_button = $TutorialControl/TutorialContent/MarginCtn/VBoxContainer/Navigation/BackBtn
-@onready var next_button = $TutorialControl/TutorialContent/MarginCtn/VBoxContainer/Navigation/NextBtn
-@onready var indicators_container = $TutorialControl/TutorialContent/MarginCtn/VBoxContainer/Navigation/IndicadoresCtn
-@onready var close_button = $TutorialControl/TutorialContent/MarginCtn/VBoxContainer/Topbar/CloseTutorial
+@onready var prev_button = $TutorialContent/MarginCtn/VBoxContainer/VBoxContainer2/Navigation/BackBtn
+@onready var next_button = $TutorialContent/MarginCtn/VBoxContainer/VBoxContainer2/Navigation/NextBtn
+@onready var indicators_container = $TutorialContent/MarginCtn/VBoxContainer/VBoxContainer2/Navigation/IndicadoresCtn
+@onready var close_button = $TutorialContent/MarginCtn/VBoxContainer/Topbar/CloseTutorial
+
+signal tutorial_closed
 
 var current_step := 0
 
 func _ready():
-	layer = 100
-	process_mode = Node.PROCESS_MODE_WHEN_PAUSED
-
 	build_indicators()
 	hide()
 
 func open_tutorial():
-	get_tree().paused = true
-
 	show()
 	current_step = 0
 	show_step(current_step)
-	
+
 func close_tutorial():
 	hide()
-	get_tree().paused = false
+	tutorial_closed.emit()
 	
 func next_step():
 	current_step += 1

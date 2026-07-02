@@ -34,7 +34,7 @@ region = Rect2(0, 0, 12, 18)
 [sub_resource type="LabelSettings" id="LabelSettings_ci48n"]
 font = ExtResource("7_wi1y2")
 font_size = 24
-font_color = Color(0.81, 0.405, 0, 1)
+font_color = Color(0.34117648, 0.0627451, 0.06666667, 1)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rrb0j"]
 load_path = "res://.godot/imported/capas_obj.png-bd1afe6346c6f7206050c72872ff6445.ctex"

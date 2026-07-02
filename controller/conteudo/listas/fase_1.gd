@@ -50,8 +50,11 @@ func _load_cards():
 		carta.setup(operacao)
 		cartas_container.adicionar_carta_na_mao(carta)
 		
-
 	_loading = false
+	
+func start_card_hint():
+	for carta: Carta in cartas_container.get_cartas():
+		carta.iniciar_hint()
 
 # --- INTERACOES QUE ALTERAM O ARRAY
 func _on_area_acao_mudar_array(carta:Carta):

@@ -200,7 +200,7 @@ animations = [{
 }],
 "loop": 0,
 "name": &"mostrar",
-"speed": 10.0
+"speed": 12.0
 }]
 
 [node name="CartaTransition" type="CanvasLayer" unique_id=885011638]
