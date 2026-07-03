@@ -124,15 +124,15 @@ func iniciar_hint():
 
 		hint_tween.tween_property(
 			$Texture,
-			"escala",
-			Vector2(4.3, 4.3),
+			"scale",
+			Vector2(3.3, 3.3),
 			0.25
 		)
 
 		hint_tween.tween_property(
 			$Texture,
-			"escala",
-			Vector2(4.0, 4.0),
+			"scale",
+			Vector2(3.0, 3.0),
 			0.25
 		)
 
@@ -249,18 +249,10 @@ func _crescer():
 		0.15
 	)
 
-	tween.tween_property(
-		$Texture,
-		"escala",
-		Vector2(4.8,4.8),
-		0.15
-	)
-
 	z_index = 5
 
 func _diminuir():
 	create_tween().tween_method(mudaroffset, textura.get_instance_shader_parameter('tamanho'), 0, 0.15)
-	create_tween().tween_property($Texture, 'escala',Vector2(4, 3), 0.15)
 	z_index = 0
 
 func _voltar_original():

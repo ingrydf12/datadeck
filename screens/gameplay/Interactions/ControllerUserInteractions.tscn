@@ -83,6 +83,9 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("5_762gh")
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1286974661]
+bus = &"Efeitos"
+
 [connection signal="pressed" from="Tutorial" to="." method="_on_tutorial_pressed"]
 [connection signal="pressed" from="Desfazer" to="." method="_on_undo_pressed"]
 [connection signal="pressed" from="Pausar" to="." method="_on_pause_pressed"]

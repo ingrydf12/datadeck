@@ -80,11 +80,7 @@ func undo():
 
 	if carta:
 		cartas_container.adicionar_carta_na_mao(carta)
-		#carta.resetar_na_mao()
 
-	#curva_mao.organizar_cartas(
-		#cartas_container.get_children()
-	#)
 	HudCartas.atualizar_historico(
 		GameManager.history
 	)
