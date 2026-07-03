@@ -113,7 +113,6 @@ static func build_all_stages() -> Array[Phase]:
 			[1, 2, 3],
 			[
 				_create_operation(Operacao.Tipo.PUSH, -1, 3),
-				_create_operation(Operacao.Tipo.PUSH, -1, 2),
 				_create_operation(Operacao.Tipo.POP),
 				_create_operation(Operacao.Tipo.REVERSE)
 			]
@@ -127,12 +126,10 @@ static func build_all_stages() -> Array[Phase]:
 			[1, 2],
 			[
 				_create_operation(Operacao.Tipo.POP),
-				_create_operation(Operacao.Tipo.PUSH, -1, 2),
+				_create_operation(Operacao.Tipo.PUSH, -1, 3),
 				_create_operation(Operacao.Tipo.UPDATE, 1, 1),
-				_create_operation(Operacao.Tipo.REVERSE)
 			]
 		),
-
 		create(
 			6,
 			"UPDATE",
@@ -141,9 +138,9 @@ static func build_all_stages() -> Array[Phase]:
 			[1, 2, 3],
 			[
 				_create_operation(Operacao.Tipo.UPDATE, 0, 1),
-				_create_operation(Operacao.Tipo.UPDATE, 2, 2),
 				_create_operation(Operacao.Tipo.REVERSE),
 				_create_operation(Operacao.Tipo.PUSH, -1, 4),
+				_create_operation(Operacao.Tipo.POP),
 				_create_operation(Operacao.Tipo.POP)
 			]
 		),
@@ -170,7 +167,7 @@ static func build_all_stages() -> Array[Phase]:
 			[1, 2],
 			[1, 2, 4],
 			[
-				_create_operation(Operacao.Tipo.PUSH, -1, 3),
+				_create_operation(Operacao.Tipo.PUSH, -1, 4),
 				_create_operation(Operacao.Tipo.UPDATE, 2, 4),
 				_create_operation(Operacao.Tipo.REVERSE),
 				_create_operation(Operacao.Tipo.POP),

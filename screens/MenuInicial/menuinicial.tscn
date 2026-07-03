@@ -322,6 +322,106 @@ render_target_update_mode = 4
 
 [node name="CanvasLayer" type="CanvasLayer" parent="SubViewportContainer/SubViewport" unique_id=1942312042]
 
+[node name="VBoxContainer2" type="VBoxContainer" parent="SubViewportContainer/SubViewport/CanvasLayer" unique_id=777566611]
+visible = false
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 152.0
+offset_top = 350.0
+offset_right = -393.161
+offset_bottom = -316.375
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(4, 4)
+pivot_offset_ratio = Vector2(0, 0.5)
+size_flags_horizontal = 8
+size_flags_vertical = 4
+mouse_behavior_recursive = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="BntJogar" type="Button" parent="SubViewportContainer/SubViewport/CanvasLayer/VBoxContainer2" unique_id=467480589]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_default_cursor_shape = 2
+theme = SubResource("Theme_mt1gs")
+theme_override_styles/normal = SubResource("StyleBoxTexture_6078c")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_mt1gs")
+theme_override_styles/hover = SubResource("StyleBoxTexture_cudtu")
+
+[node name="Label" type="Label" parent="SubViewportContainer/SubViewport/CanvasLayer/VBoxContainer2/BntJogar" unique_id=79295]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -8.0
+offset_right = 20.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "jogar"
+label_settings = ExtResource("7_6078c")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BntCreditos" type="Button" parent="SubViewportContainer/SubViewport/CanvasLayer/VBoxContainer2" unique_id=303874679]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_6078c")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_mt1gs")
+theme_override_styles/hover = SubResource("StyleBoxTexture_cudtu")
+
+[node name="Label" type="Label" parent="SubViewportContainer/SubViewport/CanvasLayer/VBoxContainer2/BntCreditos" unique_id=1991090772]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -31.0
+offset_top = -8.0
+offset_right = 31.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Créditos"
+label_settings = ExtResource("7_6078c")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BntSair" type="Button" parent="SubViewportContainer/SubViewport/CanvasLayer/VBoxContainer2" unique_id=54202841]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_6078c")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_mt1gs")
+theme_override_styles/hover = SubResource("StyleBoxTexture_cudtu")
+
+[node name="Label" type="Label" parent="SubViewportContainer/SubViewport/CanvasLayer/VBoxContainer2/BntSair" unique_id=1267911916]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -15.5
+offset_top = -8.0
+offset_right = 15.5
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "sair"
+label_settings = ExtResource("7_6078c")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="VBoxContainer" type="VBoxContainer" parent="SubViewportContainer/SubViewport/CanvasLayer" unique_id=1859667313]
 anchors_preset = -1
 anchor_left = 0.5

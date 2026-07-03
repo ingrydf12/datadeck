@@ -4,6 +4,7 @@ signal state_changed(state: Array)
 signal stage_loaded(stage: Phase)
 signal stage_completed(stage: Phase)
 signal history_changed(history: Array[Move])
+signal phase_restarted
 
 var stages: Array[Phase] = []
 var current_stage_index: int = 0
@@ -52,6 +53,17 @@ func apply_operation(carta: Carta):
 	state_changed.emit(current_state)
 	validate_state(current_state)
 
+func restart_current_phase():
+	if current_stage == null:
+		return
+
+	current_state = current_stage.initial_state.duplicate(true)
+	history.clear()
+
+	state_changed.emit(current_state)
+	history_changed.emit(history)
+	phase_restarted.emit()
+
 func validate_state(state: Array) -> bool:
 	if current_stage == null:
 		print("Stage nulo")
@@ -69,6 +81,7 @@ func next_stage():
 	if current_stage_index + 1 >= stages.size():
 		return
 	load_stage(current_stage_index + 1)
+	print("Fase atual: ", current_stage)
 
 
 # --- GET IMPORTANTES PARA RESULTADO e CARREGAR FASE

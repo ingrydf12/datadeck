@@ -7,6 +7,7 @@ var _loading := false
 
 func _ready() -> void:
 	GameManager.state_changed.connect(_on_state_changed)
+	GameManager.phase_restarted.connect(_on_phase_restarted)
 
 	if fase != null:
 		_load_cards()
@@ -44,17 +45,24 @@ func _load_cards():
 	for child in cartas_container.get_children():
 		child.queue_free()
 
+	await get_tree().process_frame
+
 	for operacao in fase.available_cards:
 		var carta: Carta = CARTA_SCENE.instantiate()
 
 		carta.setup(operacao)
 		cartas_container.adicionar_carta_na_mao(carta)
 		
+		
 	_loading = false
 	
 func start_card_hint():
 	for carta: Carta in cartas_container.get_cartas():
 		carta.iniciar_hint()
+		
+func _on_phase_restarted():
+	# a logica está presente em on_state_changed -> game manager
+	_load_cards()
 
 # --- INTERACOES QUE ALTERAM O ARRAY
 func _on_area_acao_mudar_array(carta:Carta):

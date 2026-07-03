@@ -23,5 +23,5 @@ func _on_menu_pressed() -> void:
 	await CartaTransition.play_transition("res://screens/MenuInicial/menuinicial.tscn")
 
 func _on_resetar_pressed() -> void:
-	get_tree().paused = false
-	get_tree().reload_current_scene()
+	close()
+	GameManager.restart_current_phase()

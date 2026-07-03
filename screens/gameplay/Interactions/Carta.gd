@@ -175,7 +175,10 @@ func atualizar_parametros(data: Operacao, estado: Array = []):
 		Operacao.Tipo.PUSH:
 			if data.elemento == null:
 				return
-			$Texture/Control/Parametros/P1/Base/Label.text = str(data.elemento)
+
+			$Texture/Control/Parametros/P1/Base.hide()
+			$Texture/Control/Parametros/P1/Capa.show()
+
 			atualizar_numero(
 				$Texture/Control/Parametros/P1/Capa,
 				data.elemento
