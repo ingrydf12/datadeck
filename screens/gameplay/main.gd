@@ -63,9 +63,15 @@ func _on_tutorial_closed():
 	if current_phase and current_phase.has_method("start_card_hint"):
 		current_phase.start_card_hint()
 
+#isso aqui é inacessivel
 func _on_undo_pressed() -> void:
 	if current_phase:
 		current_phase.undo()
+		#var success = current_phase.undo()
+		#if success:
+			#gameplay_hud.play_sound(GameplayHUD.Audios.SWIPE, true)
+		#else:
+			#gameplay_hud.play_sound(GameplayHUD.Audios.ERR)
 
 func _on_pause_pressed() -> void:
 		pause.open()
