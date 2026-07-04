@@ -13,15 +13,11 @@
 [ext_resource type="Texture2D" uid="uid://dnpb24r1vqyxm" path="res://assets/gameplay/tilesets/botao_UI.png" id="10_m12tx"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lp48o"]
+content_margin_left = 5.0
+content_margin_top = 15.0
+content_margin_right = 30.0
+content_margin_bottom = 15.0
 texture = ExtResource("1_g8let")
-texture_margin_left = 11.0
-texture_margin_top = 11.0
-texture_margin_right = 11.0
-texture_margin_bottom = 11.0
-
-[sub_resource type="LabelSettings" id="LabelSettings_m12tx"]
-font_size = 41
-font_color = Color(0.5647059, 0.23137255, 0.09019608, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_fmu1e"]
 font_size = 38
@@ -71,22 +67,16 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxTexture_lp48o")
 
-[node name="Titulo" type="Label" parent="HBoxContainer/PanelContainer" unique_id=947230496]
-layout_mode = 2
-size_flags_vertical = 0
-text = "EQUIPE"
-label_settings = SubResource("LabelSettings_m12tx")
-horizontal_alignment = 1
-
 [node name="Equipe" type="MarginContainer" parent="HBoxContainer/PanelContainer" unique_id=184723111]
 layout_mode = 2
 size_flags_vertical = 8
 theme_override_constants/margin_left = 15
+theme_override_constants/margin_bottom = 6
 
 [node name="GridContainer" type="GridContainer" parent="HBoxContainer/PanelContainer/Equipe" unique_id=531798140]
 layout_mode = 2
 theme_override_constants/h_separation = 28
-theme_override_constants/v_separation = 3
+theme_override_constants/v_separation = 0
 columns = 2
 
 [node name="Ingryd" type="TextureRect" parent="HBoxContainer/PanelContainer/Equipe/GridContainer" unique_id=1492408167]

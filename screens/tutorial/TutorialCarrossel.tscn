@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://c2377vbfe1f0i" path="res://screens/tutorial/assets/resultado_img.png" id="5_dw2uv"]
 [ext_resource type="Texture2D" uid="uid://cnp3phpyfd3qi" path="res://screens/tutorial/assets/seta.png" id="6_dqekb"]
 [ext_resource type="Texture2D" uid="uid://dc4qvq1lcwk65" path="res://screens/tutorial/assets/historico_img.png" id="6_h3dof"]
+[ext_resource type="Texture2D" uid="uid://ctgqqocanb10h" path="res://screens/tutorial/assets/parametros_img.png" id="7_dw2uv"]
 [ext_resource type="Texture2D" uid="uid://dawa2jw2ppatf" path="res://screens/tutorial/assets/container_tutorial.PNG" id="8_dw2uv"]
 [ext_resource type="Texture2D" uid="uid://dnpb24r1vqyxm" path="res://assets/gameplay/tilesets/botao_UI.png" id="13_h3dof"]
 
@@ -26,6 +27,13 @@ script = ExtResource("2_dm4x3")
 title = "CARTAS"
 description = "Elas representam as operações possíveis com o conteúdo estudado. Para utilizar, você clica e arrasta a carta para o grupo na mesa para aplicar a operação."
 image = ExtResource("4_d3t24")
+metadata/_custom_type_script = "uid://buxybmdyhnpq"
+
+[sub_resource type="Resource" id="Resource_wi1y2"]
+script = ExtResource("2_dm4x3")
+title = "PARÂMETROS"
+description = "Os parâmetros da carta ficam na parte inferior e representam os parâmetros da função. Cartas como push e pop possuem apenas um parâmetro (o elemento). Já cartas que recebem posição e elemento exibem uma bandeira indicando onde o elemento será inserido."
+image = ExtResource("7_dw2uv")
 metadata/_custom_type_script = "uid://buxybmdyhnpq"
 
 [sub_resource type="Resource" id="Resource_dqekb"]
@@ -76,7 +84,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_jm8cr")
-steps = Array[ExtResource("2_dm4x3")]([SubResource("Resource_epva1"), SubResource("Resource_mpqly"), SubResource("Resource_dqekb"), SubResource("Resource_dw2uv")])
+steps = Array[ExtResource("2_dm4x3")]([SubResource("Resource_epva1"), SubResource("Resource_mpqly"), SubResource("Resource_wi1y2"), SubResource("Resource_dqekb"), SubResource("Resource_dw2uv")])
 indicator_scene = ExtResource("5_dqekb")
 
 [node name="OverlayBg" type="ColorRect" parent="." unique_id=241462625]

@@ -3,7 +3,7 @@
 class_name Filme
 extends Control
 
-@export var indice : int = 0:
+@export var indice : int = 1:
 	set(v):
 		get_node("Control/Base/Label").text = str(v)
 		indice = v
